@@ -5359,12 +5359,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"costume-chip-service-protocol@workspace:*, costume-chip-service-protocol@workspace:packages/costume-chip-service-protocol":
+  version: 0.0.0-use.local
+  resolution: "costume-chip-service-protocol@workspace:packages/costume-chip-service-protocol"
+  languageName: unknown
+  linkType: soft
+
 "costume-chip-service@workspace:packages/device/costume-chip-service":
   version: 0.0.0-use.local
   resolution: "costume-chip-service@workspace:packages/device/costume-chip-service"
   dependencies:
     "@types/yargs": ^17.0.0
     costume-chip-module-settings-foundation: "workspace:*"
+    costume-chip-service-protocol: "workspace:*"
     tree-kill: ^1.0.0
     yargs: ^17.0.0
   bin:

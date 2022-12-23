@@ -1,7 +1,5 @@
+import * as _ from './_';
+
 export interface Config {
-  runtimeModules: {
-    [runtimeModuleName: string]: {
-      version: string;
-    };
-  };
+  runtime: _.RuntimeConfig;
 };

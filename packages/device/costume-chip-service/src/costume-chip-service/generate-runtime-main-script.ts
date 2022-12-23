@@ -8,7 +8,7 @@ export const generateRuntimeMainScript = ({
 
   let runtimeMainScript = `setInterval(() => console.log('Hi'), 1000);\n`;
 
-  for (const runtimeModuleName in config.runtimeModules) {
+  for (const runtimeModuleName in config.runtime.modules) {
 
     runtimeMainScript += `require('${runtimeModuleName}');\n`;
   }

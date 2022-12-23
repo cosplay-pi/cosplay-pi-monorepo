@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "costume-chip-module-settings-foundation": "workspace:*",
+    "costume-chip-service-protocol": "workspace:*",
     "tree-kill": "^1.0.0",
     "yargs": "^17.0.0"
   },

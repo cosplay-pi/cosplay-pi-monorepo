@@ -10,7 +10,10 @@ export const fetchConfig = (): Config => {
   if (!fs.existsSync(args.configFilePath)) {
 
     return {
-      runtimeModules: {},
+      runtime: {
+        modules: {
+        },
+      },
     };
   }
 

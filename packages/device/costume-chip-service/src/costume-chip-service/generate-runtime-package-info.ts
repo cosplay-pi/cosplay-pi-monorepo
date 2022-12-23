@@ -10,9 +10,9 @@ export const generateRuntimePackageInfo = ({
     dependencies: {},
   };
 
-  for (const runtimeModuleName in config.runtimeModules) {
+  for (const runtimeModuleName in config.runtime.modules) {
 
-    const runtimeModuleConfig = config.runtimeModules[runtimeModuleName];
+    const runtimeModuleConfig = config.runtime.modules[runtimeModuleName];
 
     Object.assign(
       runtimePackageInfo.dependencies,

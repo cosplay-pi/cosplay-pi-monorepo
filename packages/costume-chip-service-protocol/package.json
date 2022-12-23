@@ -1,0 +1,7 @@
+{
+  "name": "costume-chip-service-protocol",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "run -T tsc"
+  }
+}
