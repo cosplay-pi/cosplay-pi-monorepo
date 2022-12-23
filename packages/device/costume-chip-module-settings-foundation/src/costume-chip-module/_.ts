@@ -1,1 +1,1 @@
-export * from './get-settings-file-path';
+export * from './index';

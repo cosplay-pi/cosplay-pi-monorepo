@@ -1,1 +1,1 @@
-export * from './_';
+export * from './get-runtime-package-dir-path';
