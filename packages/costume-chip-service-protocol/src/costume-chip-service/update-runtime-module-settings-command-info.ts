@@ -3,6 +3,6 @@ import { CommandType } from "./command-type";
 
 export interface UpdateRuntimeModuleSettingsCommandInfo extends CommandInfo {
   type: CommandType.UpdateRuntimeModuleSettings;
-  moduleName: string;
-  moduleSettings: unknown;
+  runtimeModuleName: string;
+  runtimeModuleSettings: unknown;
 };

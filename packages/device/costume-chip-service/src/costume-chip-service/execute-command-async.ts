@@ -1,8 +1,14 @@
+import fetch from 'node-fetch';
+
 import * as _ from './_';
 
 import { installRuntimeAsync } from './install-runtime-async';
 import { startRuntimeAsync } from './start-runtime-async';
 import { stopRuntimeAsync } from './stop-runtime-async';
+import { fetchIsExecutingCommand, setIsExecutingCommand } from './is-executing-command';
+import { hubBackendUrl } from './hub-backend-url';
+import { fetchHubCurrentSessionId } from './hub-current-session-id';
+import { updateRuntimeModuleSettingsAsync } from './update-runtime-module-settings-async';
 
 export const executeCommandAsync = async ({
   commandInfo,
@@ -10,24 +16,54 @@ export const executeCommandAsync = async ({
   commandInfo: _.CommandInfo;
 }) => {
 
-  if (commandInfo.type === _.CommandType.InstallRuntime) {
+  if (fetchIsExecutingCommand()) {
 
-    const installRuntimeCommandInfo = commandInfo as _.InstallRuntimeCommandInfo;
+    throw new Error();
+  }
 
-    await installRuntimeAsync({
-      runtimeConfig: installRuntimeCommandInfo.runtimeConfig,
-    });
+  const hubCurrentSessionId = fetchHubCurrentSessionId();
 
-  } else if (commandInfo.type === _.CommandType.StartRuntime) {
+  try {
 
-    await startRuntimeAsync();
+    setIsExecutingCommand(true);
 
-  } else if (commandInfo.type === _.CommandType.StopRuntime) {
+    try {
 
-    await stopRuntimeAsync();
+      if (commandInfo.type === _.CommandType.InstallRuntime) {
 
-  } else if (commandInfo.type === _.CommandType.UpdateRuntimeModuleSettings) {
+        const installRuntimeCommandInfo =
+          commandInfo as _.InstallRuntimeCommandInfo;
 
-    // TODO:
+        await installRuntimeAsync({
+          runtimeConfig: installRuntimeCommandInfo.runtimeConfig,
+        });
+
+      } else if (commandInfo.type === _.CommandType.StartRuntime) {
+
+        await startRuntimeAsync();
+
+      } else if (commandInfo.type === _.CommandType.StopRuntime) {
+
+        await stopRuntimeAsync();
+
+      } else if (commandInfo.type === _.CommandType.UpdateRuntimeModuleSettings) {
+
+        const updateRuntimeModuleSettingsCommandInfo =
+          commandInfo as _.UpdateRuntimeModuleSettingsCommandInfo;
+
+        await updateRuntimeModuleSettingsAsync({
+          runtimeModuleName: updateRuntimeModuleSettingsCommandInfo.runtimeModuleName,
+          runtimeModuleSettings: updateRuntimeModuleSettingsCommandInfo.runtimeModuleSettings,
+        });
+      }
+
+    } finally {
+
+      await fetch(`${hubBackendUrl}/on-service-session-command-finished?service_session_id=${hubCurrentSessionId}&service_session_command_id=${commandInfo.id}`);
+    }
+
+  } finally {
+
+    setIsExecutingCommand(false);
   }
 };

@@ -3309,7 +3309,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:*, @types/express@npm:^4.17.13":
+"@types/express@npm:*, @types/express@npm:^4.0.0, @types/express@npm:^4.17.13":
   version: 4.17.15
   resolution: "@types/express@npm:4.17.15"
   dependencies:
@@ -3416,6 +3416,16 @@ __metadata:
   version: 3.0.1
   resolution: "@types/mime@npm:3.0.1"
   checksum: 4040fac73fd0cea2460e29b348c1a6173da747f3a87da0dbce80dd7a9355a3d0e51d6d9a401654f3e5550620e3718b5a899b2ec1debf18424e298a2c605346e7
+  languageName: node
+  linkType: hard
+
+"@types/node-fetch@npm:^2.0.0":
+  version: 2.6.2
+  resolution: "@types/node-fetch@npm:2.6.2"
+  dependencies:
+    "@types/node": "*"
+    form-data: ^3.0.0
+  checksum: 6f73b1470000d303d25a6fb92875ea837a216656cb7474f66cdd67bb014aa81a5a11e7ac9c21fe19bee9ecb2ef87c1962bceeaec31386119d1ac86e4c30ad7a6
   languageName: node
   linkType: hard
 
@@ -5317,6 +5327,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"costume-chip-hub-backend@workspace:packages/web/costume-chip-hub-backend":
+  version: 0.0.0-use.local
+  resolution: "costume-chip-hub-backend@workspace:packages/web/costume-chip-hub-backend"
+  dependencies:
+    "@types/express": ^4.0.0
+    costume-chip-service-protocol: "workspace:*"
+    express: ^4.0.0
+  languageName: unknown
+  linkType: soft
+
 "costume-chip-hub-frontend@workspace:packages/web/costume-chip-hub-frontend":
   version: 0.0.0-use.local
   resolution: "costume-chip-hub-frontend@workspace:packages/web/costume-chip-hub-frontend"
@@ -5369,9 +5389,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "costume-chip-service@workspace:packages/device/costume-chip-service"
   dependencies:
+    "@types/node-fetch": ^2.0.0
     "@types/yargs": ^17.0.0
     costume-chip-module-settings-foundation: "workspace:*"
     costume-chip-service-protocol: "workspace:*"
+    node-fetch: ^2.0.0
     tree-kill: ^1.0.0
     yargs: ^17.0.0
   bin:
@@ -6777,7 +6799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:^4.17.3":
+"express@npm:^4.0.0, express@npm:^4.17.3":
   version: 4.18.2
   resolution: "express@npm:4.18.2"
   dependencies:
@@ -9795,7 +9817,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:2.6.7":
+"node-fetch@npm:2.6.7, node-fetch@npm:^2.0.0":
   version: 2.6.7
   resolution: "node-fetch@npm:2.6.7"
   dependencies:
