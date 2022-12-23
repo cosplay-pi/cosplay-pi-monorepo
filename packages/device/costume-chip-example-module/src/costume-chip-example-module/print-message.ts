@@ -1,11 +1,11 @@
-import * as _ from './_';
-
 import * as __ from './__';
+
+import { settingsDef } from './settings-def';
 
 export const printMessage = () => {
 
   const settings = __.CostumeChipModule.fetchSettings({
-    settingsDef: _.settingsDef,
+    settingsDef: settingsDef,
   });
 
   console.log(settings.message);

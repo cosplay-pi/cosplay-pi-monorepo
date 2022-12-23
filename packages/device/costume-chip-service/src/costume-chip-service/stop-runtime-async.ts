@@ -1,10 +1,10 @@
 import * as kill from 'tree-kill';
 
-import * as _ from './_';
+import { fetchRuntimeProcess, setRuntimeProcess } from './runtime-process';
 
 export const stopRuntimeAsync = async () => {
 
-  const lastRuntimeProcess = _.fetchRuntimeProcess();
+  const lastRuntimeProcess = fetchRuntimeProcess();
 
   if (lastRuntimeProcess === undefined) {
 
@@ -34,5 +34,5 @@ export const stopRuntimeAsync = async () => {
     });
   }
 
-  _.setRuntimeProcess(undefined);
+  setRuntimeProcess(undefined);
 };

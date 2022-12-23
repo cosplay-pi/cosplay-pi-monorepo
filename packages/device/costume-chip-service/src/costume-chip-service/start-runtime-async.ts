@@ -1,30 +1,35 @@
 import { spawn } from "child_process";
 
-import * as _ from './_';
+import { retrieveArgs } from "./retrieve-args";
+import { fetchRuntimeProcess, setRuntimeProcess } from "./runtime-process";
+import { fetchConfig } from "./fetch-config";
+import { installRuntimePackageAsync } from "./install-runtime-package-async";
+import { writeRuntimeMainScriptFile } from "./write-runtime-main-script-file";
+import { mainScriptFileName } from "./main-script-file-name";
 
 export const startRuntimeAsync = async () => {
 
-  const args = _.retrieveArgs();
+  const args = retrieveArgs();
 
-  const lastRuntimeProcess = _.fetchRuntimeProcess();
+  const lastRuntimeProcess = fetchRuntimeProcess();
 
   if (lastRuntimeProcess !== undefined) {
 
     throw new Error();
   }
 
-  const config = _.fetchConfig();
+  const config = fetchConfig();
 
-  await _.installRuntimePackageAsync({
+  await installRuntimePackageAsync({
     config,
   });
 
-  _.writeRuntimeMainScriptFile({
+  writeRuntimeMainScriptFile({
     config,
   });
 
   const runtimeProcess = spawn(
-    `node ${_.mainScriptFileName}`,
+    `node ${mainScriptFileName}`,
     {
       shell: true,
       cwd: args.runtimePackageDirPath,
@@ -40,5 +45,5 @@ export const startRuntimeAsync = async () => {
     },
   );
 
-  _.setRuntimeProcess(runtimeProcess);
+  setRuntimeProcess(runtimeProcess);
 };

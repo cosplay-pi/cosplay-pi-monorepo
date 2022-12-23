@@ -1,10 +1,11 @@
 import * as fs from 'fs';
 
-import * as _ from './_';
+import { Config } from './config';
+import { retrieveArgs } from './retrieve-args';
 
-export const fetchConfig = (): _.Config => {
+export const fetchConfig = (): Config => {
 
-  const args = _.retrieveArgs();
+  const args = retrieveArgs();
 
   if (!fs.existsSync(args.configFilePath)) {
 

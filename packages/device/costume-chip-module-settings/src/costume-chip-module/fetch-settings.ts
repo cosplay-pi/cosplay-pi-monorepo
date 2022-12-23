@@ -2,10 +2,12 @@ import * as fs from 'fs';
 
 import * as _ from './_';
 
+import { SettingsDef } from './settings-def';
+
 export const fetchSettings = <TSettings>({
   settingsDef,
 }: {
-  settingsDef: _.SettingsDef<TSettings>,
+  settingsDef: SettingsDef<TSettings>,
 }) => {
 
   const runtimePackageDirPath = _.getRuntimePackageDirPath();

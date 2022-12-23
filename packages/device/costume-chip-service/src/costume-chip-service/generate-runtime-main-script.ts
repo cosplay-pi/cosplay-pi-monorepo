@@ -1,9 +1,9 @@
-import * as _ from './_';
+import { Config } from "./config";
 
 export const generateRuntimeMainScript = ({
   config,
 }: {
-  config: _.Config,
+  config: Config,
 }) => {
 
   let runtimeMainScript = `setInterval(() => console.log('Hi'), 1000);\n`;

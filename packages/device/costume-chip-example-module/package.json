@@ -1,7 +1,7 @@
 {
   "name": "costume-chip-example-module",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "run -T tsc"
   },

@@ -1,8 +1,8 @@
-import * as _ from './_';
-
 import * as __ from './__';
 
-export const settingsDef: __.CostumeChipModule.SettingsDef<_.Settings> = {
+import { Settings } from './settings';
+
+export const settingsDef: __.CostumeChipModule.SettingsDef<Settings> = {
   name: `costume-chip-example-module`,
   defaultSettings: {
     message: `Hello, world!`,

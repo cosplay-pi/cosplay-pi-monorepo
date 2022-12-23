@@ -1,10 +1,10 @@
 import * as path from 'path';
 
-import * as _ from './_';
+import { retrieveArgs } from './retrieve-args';
 
 export const getRuntimePackageInfoFilePath = () => {
 
-  const args = _.retrieveArgs();
+  const args = retrieveArgs();
 
   return path.resolve(
     args.runtimePackageDirPath,

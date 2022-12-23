@@ -437,7 +437,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"costume-chip-example-module@workspace:*, costume-chip-example-module@workspace:packages/device/costume-chip-example-module":
+"costume-chip-example-module@workspace:packages/device/costume-chip-example-module":
   version: 0.0.0-use.local
   resolution: "costume-chip-example-module@workspace:packages/device/costume-chip-example-module"
   dependencies:
@@ -472,6 +472,7 @@ __metadata:
   resolution: "costume-chip-service@workspace:packages/device/costume-chip-service"
   dependencies:
     "@types/yargs": ^17.0.0
+    costume-chip-module-settings-foundation: "workspace:*"
     tree-kill: ^1.0.0
     yargs: ^17.0.0
   bin:
@@ -1498,7 +1499,7 @@ fsevents@~2.3.2:
   checksum: cb4f97ad25a75ebc11a8ef4e33bb962f8af8516bb2001082ceabd8902e15b98f4b84b4f8a9b222e5d57fc3bd1379c483886ed4619367a7680dad65316993021d
   languageName: node
   linkType: hard
-  
+
 "safe-buffer@npm:~5.2.0":
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1"

@@ -9,6 +9,7 @@
     "run-costume-chip-service": "dist/main.js"
   },
   "dependencies": {
+    "costume-chip-module-settings-foundation": "workspace:*",
     "tree-kill": "^1.0.0",
     "yargs": "^17.0.0"
   },
