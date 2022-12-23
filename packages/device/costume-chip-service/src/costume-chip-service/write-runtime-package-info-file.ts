@@ -1,21 +1,20 @@
 import * as fs from 'fs';
 
-import { Config } from './config';
+import * as _ from './_';
+
 import { getRuntimePackageInfoFilePath } from './get-runtime-package-info-file-path';
 import { generateRuntimePackageInfo } from './generate-runtime-package-info';
 
-export const writeRuntimePackageInfoFile = (
-  {
-    config,
-  }: {
-    config: Config,
-  },
-) => {
+export const writeRuntimePackageInfoFile = ({
+  runtimeConfig,
+}: {
+  runtimeConfig: _.RuntimeConfig,
+}) => {
 
   const runtimePackageInfoFilePath = getRuntimePackageInfoFilePath();
 
   const runtimePackageInfo = generateRuntimePackageInfo({
-    config,
+    runtimeConfig,
   });
 
   const runtimePackageInfoAsJson = JSON.stringify(

@@ -1,24 +1,25 @@
 import { spawn } from "child_process";
 
-import { Config } from "./config";
+import * as _ from './_';
+
 import { retrieveArgs } from "./retrieve-args";
 import { createRuntimePackageDir } from "./create-runtime-package-dir";
 import { writeRuntimePackageInfoFile } from "./write-runtime-package-info-file";
+import { writeRuntimeMainScriptFile } from "./write-runtime-main-script-file";
+import { updateRuntimeConfig } from "./update-runtime-config";
 
-export const installRuntimePackageAsync = async (
-  {
-    config,
-  }: {
-    config: Config,
-  },
-) => {
+export const installRuntimeAsync = async ({
+  runtimeConfig,
+}: {
+  runtimeConfig: _.RuntimeConfig,
+}) => {
 
   const args = retrieveArgs();
 
   createRuntimePackageDir();
 
   writeRuntimePackageInfoFile({
-    config,
+    runtimeConfig,
   });
 
   const yarnInstallRuntimePackageProcess = spawn(
@@ -43,5 +44,13 @@ export const installRuntimePackageAsync = async (
         rejectPromise(new Error());
       }
     });
+  });
+
+  writeRuntimeMainScriptFile({
+    runtimeConfig,
+  });
+
+  updateRuntimeConfig({
+    runtimeConfig,
   });
 };

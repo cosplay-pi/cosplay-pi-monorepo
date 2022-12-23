@@ -1,14 +1,14 @@
-import { Config } from "./config";
+import * as _ from './_';
 
 export const generateRuntimeMainScript = ({
-  config,
+  runtimeConfig,
 }: {
-  config: Config,
+  runtimeConfig: _.RuntimeConfig,
 }) => {
 
   let runtimeMainScript = `setInterval(() => console.log('Hi'), 1000);\n`;
 
-  for (const runtimeModuleName in config.runtime.modules) {
+  for (const runtimeModuleName in runtimeConfig.modules) {
 
     runtimeMainScript += `require('${runtimeModuleName}');\n`;
   }

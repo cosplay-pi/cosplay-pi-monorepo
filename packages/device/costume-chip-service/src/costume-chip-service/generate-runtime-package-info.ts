@@ -1,18 +1,18 @@
-import { Config } from "./config";
+import * as _ from './_';
 
 export const generateRuntimePackageInfo = ({
-  config,
+  runtimeConfig,
 }: {
-  config: Config,
+  runtimeConfig: _.RuntimeConfig,
 }) => {
 
   const runtimePackageInfo = {
     dependencies: {},
   };
 
-  for (const runtimeModuleName in config.runtime.modules) {
+  for (const runtimeModuleName in runtimeConfig.modules) {
 
-    const runtimeModuleConfig = config.runtime.modules[runtimeModuleName];
+    const runtimeModuleConfig = runtimeConfig.modules[runtimeModuleName];
 
     Object.assign(
       runtimePackageInfo.dependencies,
