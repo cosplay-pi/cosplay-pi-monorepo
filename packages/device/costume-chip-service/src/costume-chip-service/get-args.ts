@@ -1,8 +1,7 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-import { Args } from './args';
-import { setCachedArgs } from './cached-args';
+import * as _ from './_';
 
 export const getArgs = () => {
 
@@ -23,12 +22,12 @@ export const getArgs = () => {
     )
     .parseSync();
 
-  const args: Args = {
+  const args: _.Args = {
     runtimePackageDirPath: argv.runtimePackageDirPath,
     configFilePath: argv.configFilePath,
   };
 
-  setCachedArgs(args);
+  _.setCachedArgs(args);
 
   return args;
 };

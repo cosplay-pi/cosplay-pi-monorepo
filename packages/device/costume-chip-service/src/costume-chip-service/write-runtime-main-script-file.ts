@@ -1,25 +1,24 @@
 import * as fs from 'fs';
 
-import { Config } from "./config";
-import { getRuntimeMainScriptFilePath } from './get-runtime-main-script-file-path';
-import { generateRuntimeMainScript } from './generate-runtime-main-script';
+import * as _ from './_';
 
 export const writeRuntimeMainScriptFile = (
   {
     config,
   }: {
-    config: Config,
+    config: _.Config,
   },
 ) => {
 
-  const runtimeMainScriptFilePath = getRuntimeMainScriptFilePath();
+  const runtimeMainScriptFilePath = _.getRuntimeMainScriptFilePath();
 
-  const runtimeMainScript = generateRuntimeMainScript({
+  const runtimeMainScript = _.generateRuntimeMainScript({
     config,
   });
 
   fs.writeFileSync(
     runtimeMainScriptFilePath,
     runtimeMainScript,
+    `utf8`,
   );
 };

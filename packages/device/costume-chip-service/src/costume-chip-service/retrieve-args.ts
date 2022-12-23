@@ -1,14 +1,13 @@
-import { fetchCachedArgs } from './cached-args';
-import { getArgs } from './get-args';
+import * as _ from './_';
 
 export const retrieveArgs = () => {
 
-  const cachedArgs = fetchCachedArgs();
+  const cachedArgs = _.fetchCachedArgs();
 
   if (cachedArgs !== undefined) {
 
     return cachedArgs;
   }
 
-  return getArgs();
+  return _.getArgs();
 };

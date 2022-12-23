@@ -1,10 +1,10 @@
 import * as fs from "fs";
 
-import { retrieveArgs } from "./retrieve-args";
+import * as _ from './_';
 
 export const createRuntimePackageDir = () => {
 
-  const args = retrieveArgs();
+  const args = _.retrieveArgs();
 
   fs.mkdirSync(
     args.runtimePackageDirPath,

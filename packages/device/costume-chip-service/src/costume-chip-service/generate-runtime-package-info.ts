@@ -1,9 +1,9 @@
-import { Config } from "./config";
+import * as _ from './_';
 
 export const generateRuntimePackageInfo = ({
   config,
 }: {
-  config: Config,
+  config: _.Config,
 }) => {
 
   const runtimePackageInfo = {

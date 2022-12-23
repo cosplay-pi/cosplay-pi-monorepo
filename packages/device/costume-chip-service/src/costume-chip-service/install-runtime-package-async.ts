@@ -1,23 +1,20 @@
 import { spawn } from "child_process";
 
-import { Config } from "./config";
-import { retrieveArgs } from "./retrieve-args";
-import { createRuntimePackageDir } from "./create-runtime-package-dir";
-import { writeRuntimePackageInfoFile } from "./write-runtime-package-info-file";
+import * as _ from './_';
 
 export const installRuntimePackageAsync = async (
   {
     config,
   }: {
-    config: Config,
+    config: _.Config,
   },
 ) => {
 
-  const args = retrieveArgs();
+  const args = _.retrieveArgs();
 
-  createRuntimePackageDir();
+  _.createRuntimePackageDir();
 
-  writeRuntimePackageInfoFile({
+  _.writeRuntimePackageInfoFile({
     config,
   });
 

@@ -1,17 +1,16 @@
 import * as fs from 'fs';
 
-import { Config } from "./config";
-import { retrieveArgs } from './retrieve-args';
+import * as _ from './_';
 
 export const writeConfigFile = (
   {
     config,
   }: {
-    config: Config,
+    config: _.Config,
   },
 ) => {
 
-  const args = retrieveArgs();
+  const args = _.retrieveArgs();
 
 
   const configAsJson = JSON.stringify(

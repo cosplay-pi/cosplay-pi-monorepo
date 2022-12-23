@@ -1,10 +1,10 @@
-import { $declareGlobal } from "../$declare-global";
+import * as _ from './_';
 
-import { Args } from "./args";
+import * as __ from './__';
 
 export const [
   fetchCachedArgs,
   setCachedArgs,
-] = $declareGlobal<Args | undefined>(
+] = __.$declareGlobal<_.Args | undefined>(
   undefined,
 );

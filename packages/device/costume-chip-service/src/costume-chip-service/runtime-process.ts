@@ -1,10 +1,10 @@
 import { ChildProcess } from "child_process";
 
-import { $declareGlobal } from "../$declare-global";
+import * as __ from './__';
 
 export const [
   fetchRuntimeProcess,
   setRuntimeProcess,
-] = $declareGlobal<ChildProcess | undefined>(
+] = __.$declareGlobal<ChildProcess | undefined>(
   undefined,
 );

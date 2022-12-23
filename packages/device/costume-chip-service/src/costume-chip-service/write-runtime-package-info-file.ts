@@ -1,20 +1,18 @@
 import * as fs from 'fs';
 
-import { Config } from "./config";
-import { getRuntimePackageInfoFilePath } from "./get-runtime-package-info-file-path";
-import { generateRuntimePackageInfo } from "./generate-runtime-package-info";
+import * as _ from './_';
 
 export const writeRuntimePackageInfoFile = (
   {
     config,
   }: {
-    config: Config,
+    config: _.Config,
   },
 ) => {
 
-  const runtimePackageInfoFilePath = getRuntimePackageInfoFilePath();
+  const runtimePackageInfoFilePath = _.getRuntimePackageInfoFilePath();
 
-  const runtimePackageInfo = generateRuntimePackageInfo({
+  const runtimePackageInfo = _.generateRuntimePackageInfo({
     config,
   });
 
@@ -27,5 +25,6 @@ export const writeRuntimePackageInfoFile = (
   fs.writeFileSync(
     runtimePackageInfoFilePath,
     runtimePackageInfoAsJson,
+    `utf8`,
   );
 };
