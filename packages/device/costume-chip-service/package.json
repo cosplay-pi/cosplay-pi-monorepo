@@ -1,0 +1,27 @@
+{
+  "name": "costume-chip-service",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "run -T tsc",
+    "run-dev": "node --inspect=127.0.0.1:9230 dist/main.js --runtime-package-dir-path=./obj/runtime --config-file-path=./obj/config.json"
+  },
+  "bin": {
+    "run-costume-chip-service": "dist/main.js"
+  },
+  "dependencies": {
+    "tree-kill": "^1.0.0",
+    "yargs": "^17.0.0"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.0"
+  },
+  "nx": {
+    "targets": {
+      "run-dev": {
+        "dependsOn": [
+          "build"
+        ]
+      }
+    }
+  }
+}

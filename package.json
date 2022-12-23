@@ -6,9 +6,13 @@
     "node": ".nvmrc",
     "yarn": "3.0.2"
   },
-  "workspaces": [],
+  "workspaces": [
+    "packages/*",
+    "packages/**/*"
+  ],
   "devDependencies": {
-    "nx": "14.4.2"
+    "nx": "14.4.2",
+    "typescript": "4.7.4"
   },
   "installConfig": {
     "hoistingLimits": "dependencies"
