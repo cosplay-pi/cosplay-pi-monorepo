@@ -437,6 +437,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"costume-chip-example-module@workspace:*, costume-chip-example-module@workspace:packages/device/costume-chip-example-module":
+  version: 0.0.0-use.local
+  resolution: "costume-chip-example-module@workspace:packages/device/costume-chip-example-module"
+  dependencies:
+    costume-chip-module-base: "workspace:*"
+    costume-chip-module-settings: "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"costume-chip-module-base@workspace:*, costume-chip-module-base@workspace:packages/device/costume-chip-module-base":
+  version: 0.0.0-use.local
+  resolution: "costume-chip-module-base@workspace:packages/device/costume-chip-module-base"
+  languageName: unknown
+  linkType: soft
+
+"costume-chip-module-settings-foundation@workspace:*, costume-chip-module-settings-foundation@workspace:packages/device/costume-chip-module-settings-foundation":
+  version: 0.0.0-use.local
+  resolution: "costume-chip-module-settings-foundation@workspace:packages/device/costume-chip-module-settings-foundation"
+  languageName: unknown
+  linkType: soft
+
+"costume-chip-module-settings@workspace:*, costume-chip-module-settings@workspace:packages/device/costume-chip-module-settings":
+  version: 0.0.0-use.local
+  resolution: "costume-chip-module-settings@workspace:packages/device/costume-chip-module-settings"
+  dependencies:
+    costume-chip-module-base: "workspace:*"
+    costume-chip-module-settings-foundation: "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "costume-chip-service@workspace:packages/device/costume-chip-service":
   version: 0.0.0-use.local
   resolution: "costume-chip-service@workspace:packages/device/costume-chip-service"
@@ -972,13 +1002,6 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.17.4":
-  version: 4.17.4
-  resolution: "lodash@npm:4.17.4"
-  checksum: 5fbe7d7c79cd11830d3a827e9eaae688778bc9c7f719207c5fb1fed9b1e60766e50904832990f0fd087b81fe207e944c80b12df5330d00b2f4d5b9ebc7bb1f18
-  languageName: node
-  linkType: hard
-
 "lru-cache@npm:^6.0.0":
   version: 6.0.0
   resolution: "lru-cache@npm:6.0.0"
@@ -1475,15 +1498,7 @@ fsevents@~2.3.2:
   checksum: cb4f97ad25a75ebc11a8ef4e33bb962f8af8516bb2001082ceabd8902e15b98f4b84b4f8a9b222e5d57fc3bd1379c483886ed4619367a7680dad65316993021d
   languageName: node
   linkType: hard
-
-"runtime-20018d@workspace:packages/device/costume-chip-service/obj/runtime":
-  version: 0.0.0-use.local
-  resolution: "runtime-20018d@workspace:packages/device/costume-chip-service/obj/runtime"
-  dependencies:
-    lodash: 4.17.4
-  languageName: unknown
-  linkType: soft
-
+  
 "safe-buffer@npm:~5.2.0":
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1"
