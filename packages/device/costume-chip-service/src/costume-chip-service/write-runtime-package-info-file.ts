@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 import { Config } from "./config";
-import { fetchRuntimePackageInfoFilePath } from "./fetch-runtime-package-info-file-path";
+import { getRuntimePackageInfoFilePath } from "./get-runtime-package-info-file-path";
 import { generateRuntimePackageInfo } from "./generate-runtime-package-info";
 
 export const writeRuntimePackageInfoFile = (
@@ -12,7 +12,7 @@ export const writeRuntimePackageInfoFile = (
   },
 ) => {
 
-  const runtimePackageInfoFilePath = fetchRuntimePackageInfoFilePath();
+  const runtimePackageInfoFilePath = getRuntimePackageInfoFilePath();
 
   const runtimePackageInfo = generateRuntimePackageInfo({
     config,

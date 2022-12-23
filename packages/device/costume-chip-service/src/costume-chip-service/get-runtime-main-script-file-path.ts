@@ -1,13 +1,14 @@
 import * as path from 'path';
 
 import { retrieveArgs } from './retrieve-args';
+import { mainScriptFileName } from './main-script-file-name';
 
-export const fetchRuntimePackageInfoFilePath = () => {
+export const getRuntimeMainScriptFilePath = () => {
 
   const args = retrieveArgs();
 
   return path.join(
     args.runtimePackageDirPath,
-    `package.json`,
+    mainScriptFileName,
   );
 };

@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 import { Config } from "./config";
-import { fetchRuntimeMainScriptFilePath } from './fetch-runtime-main-script-file-path';
+import { getRuntimeMainScriptFilePath } from './get-runtime-main-script-file-path';
 import { generateRuntimeMainScript } from './generate-runtime-main-script';
 
 export const writeRuntimeMainScriptFile = (
@@ -12,7 +12,7 @@ export const writeRuntimeMainScriptFile = (
   },
 ) => {
 
-  const runtimeMainScriptFilePath = fetchRuntimeMainScriptFilePath();
+  const runtimeMainScriptFilePath = getRuntimeMainScriptFilePath();
 
   const runtimeMainScript = generateRuntimeMainScript({
     config,

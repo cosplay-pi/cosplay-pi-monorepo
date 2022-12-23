@@ -4,7 +4,7 @@ import { hideBin } from 'yargs/helpers';
 import { Args } from './args';
 import { setCachedArgs } from './cached-args';
 
-export const fetchArgs = () => {
+export const getArgs = () => {
 
   const argv = yargs(hideBin(process.argv))
     .option(

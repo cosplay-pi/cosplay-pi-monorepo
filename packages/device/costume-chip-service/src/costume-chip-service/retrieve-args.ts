@@ -1,5 +1,5 @@
 import { fetchCachedArgs } from './cached-args';
-import { fetchArgs } from './fetch-args';
+import { getArgs } from './get-args';
 
 export const retrieveArgs = () => {
 
@@ -10,5 +10,5 @@ export const retrieveArgs = () => {
     return cachedArgs;
   }
 
-  return fetchArgs();
+  return getArgs();
 };
