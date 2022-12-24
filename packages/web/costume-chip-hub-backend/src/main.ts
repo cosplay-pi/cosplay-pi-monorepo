@@ -1,19 +1,19 @@
 import * as express from 'express';
 
 import {
-  CommandInfo,
-  CommandType,
-  InstallRuntimeCommandInfo,
-  StartRuntimeCommandInfo,
-  UpdateRuntimeModuleSettingsCommandInfo,
-} from 'costume-chip-service-protocol/dist/costume-chip-service';
+  ServiceCommandInfo,
+  ServiceCommandType,
+  ServiceInstallRuntimeCommandInfo,
+  ServiceStartRuntimeCommandInfo,
+  ServiceUpdateModuleSettingsCommandInfo,
+} from 'costume-chip-service-protocol';
 
 let mockCounter = 3;
 
-let mockData: Array<CommandInfo> = [
+let mockData: Array<ServiceCommandInfo> = [
   {
     id: 0,
-    type: CommandType.InstallRuntime,
+    type: ServiceCommandType.InstallRuntime,
     runtimeConfig: {
       modules: {
         "costume-chip-example-module": {
@@ -21,25 +21,25 @@ let mockData: Array<CommandInfo> = [
         },
       },
     },
-  } as InstallRuntimeCommandInfo,
+  } as ServiceInstallRuntimeCommandInfo,
   {
     id: 1,
-    type: CommandType.StartRuntime,
-  } as StartRuntimeCommandInfo,
+    type: ServiceCommandType.StartRuntime,
+  } as ServiceStartRuntimeCommandInfo,
   {
     id: 2,
-    type: CommandType.UpdateRuntimeModuleSettings,
-    runtimeModuleName: `costume-chip-example-module`,
-    runtimeModuleSettings: {
+    type: ServiceCommandType.UpdateModuleSettings,
+    moduleName: `costume-chip-example-module`,
+    moduleSettings: {
       message: `Today is ${new Date().toLocaleDateString()}`,
     },
-  } as UpdateRuntimeModuleSettingsCommandInfo,
+  } as ServiceUpdateModuleSettingsCommandInfo,
 ];
 
 const app = express();
 
 app.get(
-  `/create-service-session`,
+  `/create-session`,
   (request, response) => {
 
     console.log(request.url);
@@ -50,41 +50,41 @@ app.get(
     console.log(deviceId);
 
     response.json({
-      serviceSessionId: `${deviceId}-test-session`,
+      sessionId: `${deviceId}-test-session`,
     });
   },
 );
 
 app.get(
-  `/fetch-service-session-pending-commands-info`,
+  `/fetch-service-pending-commands-info`,
   (request, response) => {
 
     console.log(request.url);
     console.log(request.query);
 
-    const serviceSessionId = request.query[`service_session_id`] as string;
+    const sessionId = request.query[`session_id`] as string;
 
-    console.log(serviceSessionId);
+    console.log(sessionId);
 
     response.json(mockData);
   },
 );
 
 app.get(
-  `/on-service-session-command-finished`,
+  `/on-service-command-finished`,
   (request, response) => {
 
     console.log(request.url);
     console.log(request.query);
 
-    const serviceSessionId = request.query[`service_session_id`] as string;
-    const serviceSessionCommandId = parseInt(request.query[`service_session_command_id`] as string);
+    const sessionId = request.query[`session_id`] as string;
+    const serviceCommandId = parseInt(request.query[`service_command_id`] as string);
 
-    console.log(serviceSessionId);
-    console.log(serviceSessionCommandId);
+    console.log(sessionId);
+    console.log(serviceCommandId);
 
     mockData = mockData.filter(
-      (serviceSessionOtherCommand) => serviceSessionOtherCommand.id > serviceSessionCommandId,
+      (serviceOtherCommand) => serviceOtherCommand.id > serviceCommandId,
     );
 
     response.json({});
@@ -102,12 +102,12 @@ app.get(
 
     mockData.push({
       id: mockCounter++,
-      type: CommandType.UpdateRuntimeModuleSettings,
-      runtimeModuleName: `costume-chip-example-module`,
-      runtimeModuleSettings: {
+      type: ServiceCommandType.UpdateModuleSettings,
+      moduleName: `costume-chip-example-module`,
+      moduleSettings: {
         message: msg,
       },
-    } as UpdateRuntimeModuleSettingsCommandInfo);
+    } as ServiceUpdateModuleSettingsCommandInfo);
 
     response.json({});
   },
