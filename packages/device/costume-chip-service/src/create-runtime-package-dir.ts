@@ -1,13 +1,13 @@
 import * as fs from "fs";
 
-import { getServiceArgs } from "./get-service-args";
+import { getDeviceServiceArgs } from "./get-device-service-args";
 
 export const createRuntimePackageDir = () => {
 
-  const serviceArgs = getServiceArgs();
+  const deviceServiceArgs = getDeviceServiceArgs();
 
   fs.mkdirSync(
-    serviceArgs.runtimePackageDirPath,
+    deviceServiceArgs.runtimePackageDirPath,
     {
       recursive: true,
     }

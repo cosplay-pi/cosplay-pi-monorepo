@@ -1,7 +1,7 @@
-import { executeCommandAsync } from './execute-command-async';
+import { executeDeviceCommandAsync } from './execute-device-command-async';
 import { createHubSessionAsync } from './create-hub-session-async';
 import { fetchCurrentSessionPendingCommandsAsync } from './fetch-current-session-pending-commands-async';
-import { fetchIsExecutingCommand } from './is-executing-command';
+import { fetchIsExecutingDeviceCommand } from './is-executing-device-command';
 
 setInterval(() => { }, 1000);
 
@@ -13,7 +13,7 @@ setInterval(() => { }, 1000);
 
   while (true) {
 
-    if (!fetchIsExecutingCommand()) {
+    if (!fetchIsExecutingDeviceCommand()) {
 
       const currentSessionPendingCommands = await fetchCurrentSessionPendingCommandsAsync();
 
@@ -25,8 +25,8 @@ setInterval(() => { }, 1000);
 
         currentSessionLastCommandId = currentSessionPendingCommand.id;
 
-        await executeCommandAsync({
-          serviceCommandInfo: currentSessionPendingCommand,
+        await executeDeviceCommandAsync({
+          deviceCommandInfo: currentSessionPendingCommand,
         });
       }
     }

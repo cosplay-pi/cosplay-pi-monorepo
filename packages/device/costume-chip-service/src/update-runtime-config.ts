@@ -1,7 +1,7 @@
 import { RuntimeConfig } from 'costume-chip-service-protocol';
 
-import { fetchServiceConfig } from './fetch-config';
-import { writeServiceConfigFile } from './write-service-config-file';
+import { fetchDeviceServiceConfig } from './fetch-device-service-config';
+import { writeDeviceServiceConfigFile } from './write-device-service-config-file';
 
 export const updateRuntimeConfig = ({
   runtimeConfig,
@@ -9,14 +9,14 @@ export const updateRuntimeConfig = ({
   runtimeConfig: RuntimeConfig;
 }) => {
 
-  const serviceLastConfig = fetchServiceConfig();
+  const deviceServiceLastConfig = fetchDeviceServiceConfig();
 
-  const serviceConfig = {
-    ...serviceLastConfig,
+  const deviceServiceConfig = {
+    ...deviceServiceLastConfig,
     runtimeConfig,
   };
 
-  writeServiceConfigFile({
-    serviceConfig,
+  writeDeviceServiceConfigFile({
+    deviceServiceConfig,
   });
 };

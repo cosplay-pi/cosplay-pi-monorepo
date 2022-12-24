@@ -1,13 +1,13 @@
 import fetch from 'node-fetch';
 
-import { ServiceCommandInfo } from 'costume-chip-service-protocol';
+import { DeviceCommandInfo } from 'costume-chip-service-protocol';
 
 import { hubBackendUrl } from './hub-backend-url';
-import { fetchHubCurrentSessionId } from './hub-current-session-id';
+import { fetchCurrentSessionId } from './current-session-id';
 
 export const fetchCurrentSessionPendingCommandsAsync = async () => {
 
-  const currentSessionId = fetchHubCurrentSessionId();
+  const currentSessionId = fetchCurrentSessionId();
 
   const response = await fetch(`${hubBackendUrl}/fetch-service-pending-commands-info?session_id=${currentSessionId}`);
 
@@ -16,5 +16,5 @@ export const fetchCurrentSessionPendingCommandsAsync = async () => {
     throw new Error();
   }
 
-  return await response.json() as Array<ServiceCommandInfo>;
+  return await response.json() as Array<DeviceCommandInfo>;
 }

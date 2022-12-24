@@ -1,5 +1,5 @@
 import { RuntimeState } from "./runtime-state";
 
-export interface ServiceState {
+export interface DeviceState {
   runtime?: RuntimeState;
 };

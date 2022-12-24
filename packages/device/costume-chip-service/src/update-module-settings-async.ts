@@ -1,6 +1,6 @@
 import { getModuleSettingsFilePath, writeModuleSettingsFile } from "costume-chip-module-settings-foundation";
 
-import { getServiceArgs } from "./get-service-args";
+import { getDeviceServiceArgs } from "./get-device-service-args";
 
 export const updateModuleSettingsAsync = async ({
   moduleName,
@@ -10,12 +10,12 @@ export const updateModuleSettingsAsync = async ({
   moduleSettings: unknown;
 }) => {
   
-  const serviceArgs = getServiceArgs();
+  const deviceServiceArgs = getDeviceServiceArgs();
   
   writeModuleSettingsFile({
     moduleSettingsFilePath: getModuleSettingsFilePath({
       moduleName: moduleName,
-      runtimePackageDirPath: serviceArgs.runtimePackageDirPath,
+      runtimePackageDirPath: deviceServiceArgs.runtimePackageDirPath,
     }),
     moduleSettings,
   });

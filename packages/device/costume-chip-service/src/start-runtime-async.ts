@@ -1,12 +1,12 @@
 import { spawn } from "child_process";
 
-import { getServiceArgs } from "./get-service-args";
+import { getDeviceServiceArgs } from "./get-device-service-args";
 import { fetchRuntimeProcess, setRuntimeProcess } from "./runtime-process";
 import { mainScriptFileName } from "./main-script-file-name";
 
 export const startRuntimeAsync = async () => {
 
-  const serviceArgs = getServiceArgs();
+  const deviceServiceArgs = getDeviceServiceArgs();
 
   const lastRuntimeProcess = fetchRuntimeProcess();
 
@@ -19,7 +19,7 @@ export const startRuntimeAsync = async () => {
     `node ${mainScriptFileName}`,
     {
       shell: true,
-      cwd: serviceArgs.runtimePackageDirPath,
+      cwd: deviceServiceArgs.runtimePackageDirPath,
       stdio: `pipe`,
     },
   );

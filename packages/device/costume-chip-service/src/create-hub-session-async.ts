@@ -1,11 +1,11 @@
 import fetch from 'node-fetch';
 
 import { hubBackendUrl } from './hub-backend-url';
-import { fetchHubCurrentSessionId, setHubCurrentSessionId } from "./hub-current-session-id";
+import { fetchCurrentSessionId, setCurrentSessionId } from "./current-session-id";
 
 export const createHubSessionAsync = async () => {
 
-  if (fetchHubCurrentSessionId() !== undefined) {
+  if (fetchCurrentSessionId() !== undefined) {
 
     throw new Error();
   }
@@ -24,5 +24,5 @@ export const createHubSessionAsync = async () => {
       sessionId: string;
     };
 
-  setHubCurrentSessionId(sessionId);
+  setCurrentSessionId(sessionId);
 };

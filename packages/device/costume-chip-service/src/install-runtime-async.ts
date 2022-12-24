@@ -2,7 +2,7 @@ import { spawn } from "child_process";
 
 import { RuntimeConfig } from "costume-chip-service-protocol";
 
-import { getServiceArgs } from "./get-service-args";
+import { getDeviceServiceArgs } from "./get-device-service-args";
 import { createRuntimePackageDir } from "./create-runtime-package-dir";
 import { writeRuntimePackageInfoFile } from "./write-runtime-package-info-file";
 import { writeRuntimeMainScriptFile } from "./write-runtime-main-script-file";
@@ -14,7 +14,7 @@ export const installRuntimeAsync = async ({
   runtimeConfig: RuntimeConfig,
 }) => {
 
-  const serviceArgs = getServiceArgs();
+  const deviceServiceArgs = getDeviceServiceArgs();
 
   createRuntimePackageDir();
 
@@ -26,7 +26,7 @@ export const installRuntimeAsync = async ({
     `yarn`,
     {
       shell: true,
-      cwd: serviceArgs.runtimePackageDirPath,
+      cwd: deviceServiceArgs.runtimePackageDirPath,
       stdio: `inherit`,
     },
   );

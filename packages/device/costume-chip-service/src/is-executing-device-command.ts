@@ -1,8 +1,8 @@
 import { $declareGlobal } from './$declare-global';
 
 export const [
-  fetchIsExecutingCommand,
-  setIsExecutingCommand,
+  fetchIsExecutingDeviceCommand,
+  setIsExecutingDeviceCommand,
 ] = $declareGlobal<boolean>(
   false,
 );

@@ -1,4 +1,4 @@
-export interface ServiceArgs {
+export interface DeviceServiceArgs {
   runtimePackageDirPath: string;
   configFilePath: string;
 };
