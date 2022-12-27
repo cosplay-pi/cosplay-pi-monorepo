@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "costume-chip-device-runtime-module-base": "workspace:*",
-    "costume-chip-module-settings": "workspace:*"
+    "costume-chip-device-runtime-module-settings": "workspace:*"
   }
 }

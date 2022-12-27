@@ -1,5 +1,5 @@
 {
-  "name": "costume-chip-module-settings",
+  "name": "costume-chip-device-runtime-module-settings",
   "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {
@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "costume-chip-device-runtime-module-base": "workspace:*",
-    "costume-chip-module-settings-foundation": "workspace:*"
+    "costume-chip-device-runtime-module-settings-foundation": "workspace:*"
   }
 }

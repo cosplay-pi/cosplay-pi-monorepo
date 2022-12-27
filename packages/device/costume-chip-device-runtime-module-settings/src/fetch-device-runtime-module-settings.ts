@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 import { getDeviceRuntimePackageDirPath } from 'costume-chip-device-runtime-module-base';
-import { getDeviceRuntimeModuleSettingsFilePath } from 'costume-chip-module-settings-foundation';
+import { getDeviceRuntimeModuleSettingsFilePath } from 'costume-chip-device-runtime-module-settings-foundation';
 
 import { DeviceRuntimeModuleSettingsDef } from './device-runtime-module-settings-def';
 

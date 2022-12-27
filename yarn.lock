@@ -5318,6 +5318,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"costume-chip-device-runtime-module-base@workspace:*, costume-chip-device-runtime-module-base@workspace:packages/device/costume-chip-device-runtime-module-base":
+  version: 0.0.0-use.local
+  resolution: "costume-chip-device-runtime-module-base@workspace:packages/device/costume-chip-device-runtime-module-base"
+  languageName: unknown
+  linkType: soft
+
+"costume-chip-device-runtime-module-settings-foundation@workspace:*, costume-chip-device-runtime-module-settings-foundation@workspace:packages/device/costume-chip-device-runtime-module-settings-foundation":
+  version: 0.0.0-use.local
+  resolution: "costume-chip-device-runtime-module-settings-foundation@workspace:packages/device/costume-chip-device-runtime-module-settings-foundation"
+  languageName: unknown
+  linkType: soft
+
+"costume-chip-device-runtime-module-settings@workspace:*, costume-chip-device-runtime-module-settings@workspace:packages/device/costume-chip-device-runtime-module-settings":
+  version: 0.0.0-use.local
+  resolution: "costume-chip-device-runtime-module-settings@workspace:packages/device/costume-chip-device-runtime-module-settings"
+  dependencies:
+    costume-chip-device-runtime-module-base: "workspace:*"
+    costume-chip-device-runtime-module-settings-foundation: "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "costume-chip-device-service-protocol@workspace:*, costume-chip-device-service-protocol@workspace:packages/costume-chip-device-service-protocol":
   version: 0.0.0-use.local
   resolution: "costume-chip-device-service-protocol@workspace:packages/costume-chip-device-service-protocol"
@@ -5328,8 +5349,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "costume-chip-example-module@workspace:packages/device/costume-chip-example-module"
   dependencies:
-    costume-chip-module-base: "workspace:*"
-    costume-chip-module-settings: "workspace:*"
+    costume-chip-device-runtime-module-base: "workspace:*"
+    costume-chip-device-runtime-module-settings: "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -5364,35 +5385,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"costume-chip-module-base@workspace:*, costume-chip-module-base@workspace:packages/device/costume-chip-module-base":
-  version: 0.0.0-use.local
-  resolution: "costume-chip-module-base@workspace:packages/device/costume-chip-module-base"
-  languageName: unknown
-  linkType: soft
-
-"costume-chip-module-settings-foundation@workspace:*, costume-chip-module-settings-foundation@workspace:packages/device/costume-chip-module-settings-foundation":
-  version: 0.0.0-use.local
-  resolution: "costume-chip-module-settings-foundation@workspace:packages/device/costume-chip-module-settings-foundation"
-  languageName: unknown
-  linkType: soft
-
-"costume-chip-module-settings@workspace:*, costume-chip-module-settings@workspace:packages/device/costume-chip-module-settings":
-  version: 0.0.0-use.local
-  resolution: "costume-chip-module-settings@workspace:packages/device/costume-chip-module-settings"
-  dependencies:
-    costume-chip-module-base: "workspace:*"
-    costume-chip-module-settings-foundation: "workspace:*"
-  languageName: unknown
-  linkType: soft
-
 "costume-chip-service@workspace:packages/device/costume-chip-service":
   version: 0.0.0-use.local
   resolution: "costume-chip-service@workspace:packages/device/costume-chip-service"
   dependencies:
     "@types/node-fetch": ^2.0.0
     "@types/yargs": ^17.0.0
+    costume-chip-device-runtime-module-settings-foundation: "workspace:*"
     costume-chip-device-service-protocol: "workspace:*"
-    costume-chip-module-settings-foundation: "workspace:*"
     node-fetch: ^2.0.0
     tree-kill: ^1.0.0
     yargs: ^17.0.0

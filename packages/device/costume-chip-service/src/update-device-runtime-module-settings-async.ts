@@ -1,4 +1,4 @@
-import { getDeviceRuntimeModuleSettingsFilePath, writeDeviceRuntimeModuleSettingsFile } from "costume-chip-module-settings-foundation";
+import { getDeviceRuntimeModuleSettingsFilePath, writeDeviceRuntimeModuleSettingsFile } from "costume-chip-device-runtime-module-settings-foundation";
 
 import { getDeviceServiceArgs } from "./get-device-service-args";
 

@@ -1,4 +1,4 @@
-import { fetchDeviceRuntimeModuleSettings } from 'costume-chip-module-settings';
+import { fetchDeviceRuntimeModuleSettings } from 'costume-chip-device-runtime-module-settings';
 
 import { exampleModuleSettingsDef } from './example-module-settings-def';
 
