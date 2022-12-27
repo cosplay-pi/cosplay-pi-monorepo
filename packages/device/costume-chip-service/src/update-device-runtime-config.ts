@@ -1,4 +1,4 @@
-import { DeviceRuntimeConfig } from 'costume-chip-service-protocol';
+import { DeviceRuntimeConfig } from 'costume-chip-device-service-protocol';
 
 import { fetchDeviceConfig } from './fetch-device-config';
 import { writeDeviceConfigFile } from './write-device-config-file';

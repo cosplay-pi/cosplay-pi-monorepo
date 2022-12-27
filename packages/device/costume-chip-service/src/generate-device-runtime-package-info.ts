@@ -1,4 +1,4 @@
-import { DeviceRuntimeConfig } from "costume-chip-service-protocol";
+import { DeviceRuntimeConfig } from "costume-chip-device-service-protocol";
 
 export const generateDeviceRuntimePackageInfo = ({
   deviceRuntimeConfig,

@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-import { DeviceCommandInfo, DeviceCommandType, DeviceInstallRuntimeCommandInfo, DeviceUpdateRuntimeModuleSettingsCommandInfo } from 'costume-chip-service-protocol';
+import { DeviceCommandInfo, DeviceCommandType, DeviceInstallRuntimeCommandInfo, DeviceUpdateRuntimeModuleSettingsCommandInfo } from 'costume-chip-device-service-protocol';
 
 import { fetchIsExecutingDeviceCommand, setIsExecutingDeviceCommand } from './is-executing-device-command';
 import { fetchDeviceSessionId } from './device-session-id';

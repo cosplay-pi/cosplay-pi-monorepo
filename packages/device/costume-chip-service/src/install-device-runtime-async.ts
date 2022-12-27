@@ -1,6 +1,6 @@
 import { spawn } from "child_process";
 
-import { DeviceRuntimeConfig } from "costume-chip-service-protocol";
+import { DeviceRuntimeConfig } from "costume-chip-device-service-protocol";
 
 import { getDeviceServiceArgs } from "./get-device-service-args";
 import { createDeviceRuntimePackageDir } from "./create-device-runtime-package-dir";

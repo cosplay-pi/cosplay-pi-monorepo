@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-import { DeviceCommandInfo } from 'costume-chip-service-protocol';
+import { DeviceCommandInfo } from 'costume-chip-device-service-protocol';
 
 import { fetchDeviceSessionId } from './device-session-id';
 import { getHubBackendUrl } from './get-hub-backend-url';

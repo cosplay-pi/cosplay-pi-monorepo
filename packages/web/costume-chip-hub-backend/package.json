@@ -6,7 +6,7 @@
     "run-dev": "node dist/main.js"
   },
   "dependencies": {
-    "costume-chip-service-protocol": "workspace:*",
+    "costume-chip-device-service-protocol": "workspace:*",
     "express": "^4.0.0"
   },
   "devDependencies": {

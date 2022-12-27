@@ -6,7 +6,7 @@ import {
   DeviceInstallRuntimeCommandInfo,
   DeviceStartRuntimeCommandInfo,
   DeviceUpdateRuntimeModuleSettingsCommandInfo,
-} from 'costume-chip-service-protocol';
+} from 'costume-chip-device-service-protocol';
 
 let mockCounter = 3;
 
