@@ -5345,6 +5345,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"costume-chip-device-service@workspace:packages/device/costume-chip-device-service":
+  version: 0.0.0-use.local
+  resolution: "costume-chip-device-service@workspace:packages/device/costume-chip-device-service"
+  dependencies:
+    "@types/node-fetch": ^2.0.0
+    "@types/yargs": ^17.0.0
+    costume-chip-device-runtime-module-settings-foundation: "workspace:*"
+    costume-chip-device-service-protocol: "workspace:*"
+    node-fetch: ^2.0.0
+    tree-kill: ^1.0.0
+    yargs: ^17.0.0
+  bin:
+    run-costume-chip-device-service: dist/main.js
+  languageName: unknown
+  linkType: soft
+
 "costume-chip-example-module@workspace:packages/device/costume-chip-example-module":
   version: 0.0.0-use.local
   resolution: "costume-chip-example-module@workspace:packages/device/costume-chip-example-module"
@@ -5382,22 +5398,6 @@ __metadata:
     react-scripts: 5.0.1
     typescript: ^4.9.4
     web-vitals: ^2.1.4
-  languageName: unknown
-  linkType: soft
-
-"costume-chip-service@workspace:packages/device/costume-chip-service":
-  version: 0.0.0-use.local
-  resolution: "costume-chip-service@workspace:packages/device/costume-chip-service"
-  dependencies:
-    "@types/node-fetch": ^2.0.0
-    "@types/yargs": ^17.0.0
-    costume-chip-device-runtime-module-settings-foundation: "workspace:*"
-    costume-chip-device-service-protocol: "workspace:*"
-    node-fetch: ^2.0.0
-    tree-kill: ^1.0.0
-    yargs: ^17.0.0
-  bin:
-    run-costume-chip-service: dist/main.js
   languageName: unknown
   linkType: soft
 

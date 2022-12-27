@@ -1,12 +1,12 @@
 {
-  "name": "costume-chip-service",
+  "name": "costume-chip-device-service",
   "version": "0.0.1",
   "scripts": {
     "build": "run -T tsc",
     "run-dev": "node --inspect=127.0.0.1:9230 dist/main.js --device-runtime-package-dir-path=../../../obj/costume-chip-dev-service-runtime --device-config-file-path=../../../obj/costume-chip-dev-service-config.json"
   },
   "bin": {
-    "run-costume-chip-service": "dist/main.js"
+    "run-costume-chip-device-service": "dist/main.js"
   },
   "dependencies": {
     "costume-chip-device-runtime-module-settings-foundation": "workspace:*",
