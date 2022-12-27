@@ -1,5 +1,5 @@
 {
-  "name": "costume-chip-module-base",
+  "name": "costume-chip-device-runtime-module-base",
   "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {

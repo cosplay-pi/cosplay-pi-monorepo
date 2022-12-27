@@ -6,7 +6,7 @@
     "build": "run -T tsc"
   },
   "dependencies": {
-    "costume-chip-module-base": "workspace:*",
+    "costume-chip-device-runtime-module-base": "workspace:*",
     "costume-chip-module-settings-foundation": "workspace:*"
   }
 }
