@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "build": "run -T tsc",
-    "run-dev": "node --inspect=127.0.0.1:9230 dist/main.js --runtime-package-dir-path=../../../obj/costume-chip-dev-service-runtime --config-file-path=../../../obj/costume-chip-dev-service-config.json"
+    "run-dev": "node --inspect=127.0.0.1:9230 dist/main.js --device-runtime-package-dir-path=../../../obj/costume-chip-dev-service-runtime --device-config-file-path=../../../obj/costume-chip-dev-service-config.json"
   },
   "bin": {
     "run-costume-chip-service": "dist/main.js"

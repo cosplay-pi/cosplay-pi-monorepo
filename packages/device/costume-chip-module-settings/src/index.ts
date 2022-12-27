@@ -1,2 +1,2 @@
-export * from './fetch-module-settings';
-export * from './module-settings-def';
+export * from './fetch-device-runtime-module-settings';
+export * from './device-runtime-module-settings-def';

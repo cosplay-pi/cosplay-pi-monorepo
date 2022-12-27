@@ -15,14 +15,14 @@ export const getDeviceServiceArgs = () => {
 
   const argv = yargs(hideBin(process.argv))
     .option(
-      `runtime-package-dir-path`,
+      `device-runtime-package-dir-path`,
       {
         type: `string`,
         demandOption: true,
       },
     )
     .option(
-      `config-file-path`,
+      `device-config-file-path`,
       {
         type: `string`,
         demandOption: true,
@@ -31,8 +31,8 @@ export const getDeviceServiceArgs = () => {
     .parseSync();
 
   const deviceServiceArgs: DeviceServiceArgs = {
-    runtimePackageDirPath: argv.runtimePackageDirPath,
-    configFilePath: argv.configFilePath,
+    deviceRuntimePackageDirPath: argv.deviceRuntimePackageDirPath,
+    deviceConfigFilePath: argv.deviceConfigFilePath,
   };
 
   setDeviceServiceCachedArgs(deviceServiceArgs);

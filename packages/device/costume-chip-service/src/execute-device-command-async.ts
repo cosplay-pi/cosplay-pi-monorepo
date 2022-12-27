@@ -1,14 +1,14 @@
 import fetch from 'node-fetch';
 
-import { DeviceCommandInfo, DeviceCommandType, DeviceInstallRuntimeCommandInfo, DeviceUpdateModuleSettingsCommandInfo } from 'costume-chip-service-protocol';
+import { DeviceCommandInfo, DeviceCommandType, DeviceInstallRuntimeCommandInfo, DeviceUpdateRuntimeModuleSettingsCommandInfo } from 'costume-chip-service-protocol';
 
-import { installRuntimeAsync } from './install-runtime-async';
-import { startRuntimeAsync } from './start-runtime-async';
-import { stopRuntimeAsync } from './stop-runtime-async';
 import { fetchIsExecutingDeviceCommand, setIsExecutingDeviceCommand } from './is-executing-device-command';
-import { hubBackendUrl } from './hub-backend-url';
-import { fetchCurrentSessionId } from './current-session-id';
-import { updateModuleSettingsAsync } from './update-module-settings-async';
+import { fetchDeviceSessionId } from './device-session-id';
+import { installDeviceRuntimeAsync } from './install-device-runtime-async';
+import { startDeviceRuntimeAsync } from './start-device-runtime-async';
+import { stopDeviceRuntimeAsync } from './stop-device-runtime-async';
+import { updateDeviceRuntimeModuleSettingsAsync } from './update-device-runtime-module-settings-async';
+import { getHubBackendUrl } from './get-hub-backend-url';
 
 export const executeDeviceCommandAsync = async ({
   deviceCommandInfo,
@@ -21,45 +21,47 @@ export const executeDeviceCommandAsync = async ({
     throw new Error();
   }
 
-  const hubCurrentSessionId = fetchCurrentSessionId();
-
   try {
 
     setIsExecutingDeviceCommand(true);
 
+    const deviceSessionId = fetchDeviceSessionId();
+
     try {
 
-      if (deviceCommandInfo.type === DeviceCommandType.InstallRuntime) {
+      if (deviceCommandInfo.type === DeviceCommandType.InstallRuntimeCommand) {
 
-        const serviceInstallRuntimeCommandInfo =
+        const deviceInstallRuntimeCommandInfo =
           deviceCommandInfo as DeviceInstallRuntimeCommandInfo;
 
-        await installRuntimeAsync({
-          runtimeConfig: serviceInstallRuntimeCommandInfo.runtimeConfig,
+        await installDeviceRuntimeAsync({
+          deviceRuntimeConfig: deviceInstallRuntimeCommandInfo.deviceRuntimeConfig,
         });
 
-      } else if (deviceCommandInfo.type === DeviceCommandType.StartRuntime) {
+      } else if (deviceCommandInfo.type === DeviceCommandType.StartRuntimeCommand) {
 
-        await startRuntimeAsync();
+        await startDeviceRuntimeAsync();
 
-      } else if (deviceCommandInfo.type === DeviceCommandType.StopRuntime) {
+      } else if (deviceCommandInfo.type === DeviceCommandType.StopRuntimeCommand) {
 
-        await stopRuntimeAsync();
+        await stopDeviceRuntimeAsync();
 
-      } else if (deviceCommandInfo.type === DeviceCommandType.UpdateModuleSettings) {
+      } else if (deviceCommandInfo.type === DeviceCommandType.UpdateRuntimeModuleSettingsCommand) {
 
-        const serviceUpdateModuleSettingsCommandInfo =
-          deviceCommandInfo as DeviceUpdateModuleSettingsCommandInfo;
+        const deviceUpdateRuntimeModuleSettingsCommandInfo =
+          deviceCommandInfo as DeviceUpdateRuntimeModuleSettingsCommandInfo;
 
-        await updateModuleSettingsAsync({
-          moduleName: serviceUpdateModuleSettingsCommandInfo.moduleName,
-          moduleSettings: serviceUpdateModuleSettingsCommandInfo.moduleSettings,
+        await updateDeviceRuntimeModuleSettingsAsync({
+          deviceRuntimeModuleName: deviceUpdateRuntimeModuleSettingsCommandInfo.deviceRuntimeModuleName,
+          deviceRuntimeModuleSettings: deviceUpdateRuntimeModuleSettingsCommandInfo.deviceRuntimeModuleSettings,
         });
       }
 
     } finally {
 
-      await fetch(`${hubBackendUrl}/on-command-finished?session_id=${hubCurrentSessionId}&command_id=${deviceCommandInfo.id}`);
+      const hubBackendUrl = getHubBackendUrl();
+
+      await fetch(`${hubBackendUrl}/on-device-command-finished?session_id=${deviceSessionId}&device_command_id=${deviceCommandInfo.id}`);
     }
 
   } finally {

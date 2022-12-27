@@ -1,32 +1,32 @@
 import { executeDeviceCommandAsync } from './execute-device-command-async';
-import { createHubSessionAsync } from './create-hub-session-async';
-import { fetchCurrentSessionPendingCommandsAsync } from './fetch-current-session-pending-commands-async';
+import { createDeviceSessionAsync } from './create-device-session-async';
+import { fetchDevicePendingCommandsInfoAsync } from './fetch-device-pending-commands-info-async';
 import { fetchIsExecutingDeviceCommand } from './is-executing-device-command';
 
 setInterval(() => { }, 1000);
 
 (async () => {
 
-  await createHubSessionAsync();
+  await createDeviceSessionAsync();
 
-  let currentSessionLastCommandId: number | undefined;
+  let deviceLastCommandId: number | undefined;
 
   while (true) {
 
     if (!fetchIsExecutingDeviceCommand()) {
 
-      const currentSessionPendingCommands = await fetchCurrentSessionPendingCommandsAsync();
+      const devicePendingCommandsInfo = await fetchDevicePendingCommandsInfoAsync();
 
-      const currentSessionPendingCommand = currentSessionPendingCommands.find(
-        (x) => currentSessionLastCommandId === undefined || x.id > currentSessionLastCommandId,
+      const deviceFirstPendingCommandInfo = devicePendingCommandsInfo.find(
+        (x) => deviceLastCommandId === undefined || x.id > deviceLastCommandId,
       );
 
-      if (currentSessionPendingCommand !== undefined) {
+      if (deviceFirstPendingCommandInfo !== undefined) {
 
-        currentSessionLastCommandId = currentSessionPendingCommand.id;
+        deviceLastCommandId = deviceFirstPendingCommandInfo.id;
 
         await executeDeviceCommandAsync({
-          deviceCommandInfo: currentSessionPendingCommand,
+          deviceCommandInfo: deviceFirstPendingCommandInfo,
         });
       }
     }

@@ -1,8 +1,8 @@
 import { $declareGlobal } from "./$declare-global";
 
 export const [
-  fetchCurrentSessionId,
-  setCurrentSessionId,
+  fetchDeviceSessionId,
+  setDeviceSessionId,
 ] = $declareGlobal<string | undefined>(
   undefined,
 );

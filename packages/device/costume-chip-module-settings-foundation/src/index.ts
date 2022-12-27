@@ -1,2 +1,2 @@
-export * from './get-module-settings-file-path';
-export * from './write-module-settings-file';
+export * from './get-device-runtime-module-settings-file-path';
+export * from './write-device-runtime-module-settings-file';
