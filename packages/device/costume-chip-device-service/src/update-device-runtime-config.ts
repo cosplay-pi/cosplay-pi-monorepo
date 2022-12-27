@@ -1,5 +1,5 @@
+import { DeviceConfig } from './device-config';
 import { DeviceRuntimeConfig } from 'costume-chip-device-service-protocol';
-
 import { fetchDeviceConfig } from './fetch-device-config';
 import { writeDeviceConfigFile } from './write-device-config-file';
 
@@ -11,9 +11,9 @@ export const updateDeviceRuntimeConfig = ({
 
   const deviceLastConfig = fetchDeviceConfig();
 
-  const deviceConfig = {
+  const deviceConfig: DeviceConfig = {
     ...deviceLastConfig,
-    runtimeConfig: deviceRuntimeConfig,
+    runtime: deviceRuntimeConfig,
   };
 
   writeDeviceConfigFile({
