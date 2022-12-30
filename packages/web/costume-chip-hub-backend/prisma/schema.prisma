@@ -10,6 +10,7 @@ datasource db {
 model Device {
   id String @id
   userId String
+  activeSessionId String?
   privateKeyAsPem String
   sessions DeviceSession[]
 }
@@ -17,9 +18,10 @@ model Device {
 model DeviceSession {
   id String @id @default(uuid())
   accessToken String
+  isConfirmed Boolean
   device Device @relation(fields: [deviceId], references: [id])
   deviceId String
-  stateAsJson String
+  stateAsJson String?
   commands DeviceSessionCommand[]
   lastActivityDateTime DateTime @default(now())
 }

@@ -44,23 +44,6 @@ let mockData: Array<DeviceCommandInfo> = [
 const app = express();
 
 app.get(
-  `/create-device-session`,
-  (request, response) => {
-
-    console.log(request.url);
-    console.log(request.query);
-
-    const deviceId = request.query[`device_id`] as string;
-
-    console.log(deviceId);
-
-    response.json({
-      deviceSessionId: `${deviceId}-test-session`,
-    });
-  },
-);
-
-app.get(
   `/fetch-device-pending-commands-info`,
   (request, response) => {
 
@@ -157,7 +140,7 @@ app.get(
     const devicePrivateKeyQi = request.query[`devicePrivateKeyQi`] as string;
 
     console.log(userIdToken);
-    
+
     const userId = `testuser`;
 
     const devicePrivateKey = crypto.createPrivateKey({
@@ -187,7 +170,7 @@ app.get(
       type: `pkcs1`,
       format: `pem`,
     }) as string;
-    
+
     await prisma.device.create({
       data: {
         id: deviceId,
@@ -209,7 +192,7 @@ app.get(
     const userIdToken = request.query[`userIdToken`] as string;
 
     console.log(userIdToken);
-    
+
     const userId = `testuser`;
 
     const userDevicesDbInfo = await prisma.device.findMany({
@@ -222,7 +205,7 @@ app.get(
       [userDeviceId: string]: {},
     } = {};
 
-    for (const userDeviceDbInfo of userDevicesDbInfo) { 
+    for (const userDeviceDbInfo of userDevicesDbInfo) {
 
       userDevicesInfo[userDeviceDbInfo.id] = {};
     }
@@ -230,6 +213,56 @@ app.get(
     response.json(
       userDevicesInfo,
     );
+  },
+);
+
+app.get(
+  `/create-device-session`,
+  async (request, response) => {
+
+    const deviceId = request.query[`deviceId`] as string;
+    const deviceSessionEncryptedNonce = request.query[`deviceSessionEncryptedNonce`] as string;
+
+    const deviceDbInfo = await prisma.device.findFirstOrThrow({
+      where: {
+        id: deviceId,
+      },
+    });
+
+    const devicePrivateKey = crypto.createPrivateKey({
+      key: deviceDbInfo.privateKeyAsPem,
+      format: `pem`,
+    });
+
+    const deviceSessionNonceAsBytes = crypto.privateDecrypt(
+      {
+        key: devicePrivateKey,
+      },
+      Buffer.from(
+        deviceSessionEncryptedNonce,
+        `base64`,
+      ),
+    );
+
+    const deviceSessionNonce = deviceSessionNonceAsBytes.toString(`utf-8`);
+
+    const deviceSessionAccessToken = `test`;
+
+    const deviceSessionDbInfo = await prisma.deviceSession.create({
+      data: {
+        accessToken: deviceSessionAccessToken,
+        isConfirmed: false,
+        deviceId: deviceId,
+      },
+    });
+
+    const deviceSessionId = deviceSessionDbInfo.id;
+
+    response.json({
+      deviceSessionId,
+      deviceSessionAccessToken,
+      deviceSessionNonce,
+    })
   },
 );
 
