@@ -2,6 +2,7 @@ obj
 dist
 node_modules
 .DS_Store
+.env
 /.vscode
 /.yarn/*
 !/.yarn/patches

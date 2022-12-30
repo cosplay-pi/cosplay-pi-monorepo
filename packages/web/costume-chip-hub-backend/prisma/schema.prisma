@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model Device {
+  id String @id
+  userId String
+  privateKeyAsPem String
+  sessions DeviceSession[]
+}
+
+model DeviceSession {
+  id String @id @default(uuid())
+  accessToken String
+  device Device @relation(fields: [deviceId], references: [id])
+  deviceId String
+  stateAsJson String
+  commands DeviceSessionCommand[]
+  lastActivityDateTime DateTime @default(now())
+}
+
+model DeviceSessionCommand {
+  id String @id @default(uuid())
+  deviceSession DeviceSession @relation(fields: [deviceSessionId], references: [id])
+  deviceSessionId String
+  infoAsJson String
+}
