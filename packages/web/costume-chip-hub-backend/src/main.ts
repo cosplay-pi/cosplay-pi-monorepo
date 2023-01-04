@@ -236,6 +236,159 @@ app.get(
 );
 
 app.get(
+  `/fetch-device-active-session-id`,
+  async (request, response) => {
+
+    const userIdToken = request.query[`userIdToken`] as string;
+    const deviceId = request.query[`deviceId`] as string;
+
+    console.log(userIdToken);
+
+    const userId = `testuser`;
+
+    const deviceDbInfo = await prisma.device.findFirst({
+      where: {
+        id: deviceId,
+      },
+    });
+
+    if (deviceDbInfo === null) {
+
+      response.statusCode = 400;
+      response.json(`device_does_not_exist`);
+      return;
+    }
+
+    if (deviceDbInfo.userId !== userId) {
+
+      response.statusCode = 400;
+      response.json(`device_does_not_exist`);
+      return;
+    }
+
+    response.json(deviceDbInfo.activeSessionId);
+  },
+);
+
+app.get(
+  `/fetch-device-session-state`,
+  async (request, response) => {
+
+    const userIdToken = request.query[`userIdToken`] as string;
+    const deviceSessionId = request.query[`deviceSessionId`] as string;
+
+    console.log(userIdToken);
+
+    const userId = `testuser`;
+
+    const deviceSessionDbInfo = await prisma.deviceSession.findFirst({
+      where: {
+        id: deviceSessionId,
+      },
+      include: {
+        device: true,
+      },
+    });
+
+    if (deviceSessionDbInfo === null) {
+
+      response.statusCode = 400;
+      response.json(`device_session_does_not_exist`);
+      return;
+    }
+
+    if (deviceSessionDbInfo.device.userId !== userId) {
+
+      response.statusCode = 400;
+      response.json(`device_session_does_not_exist`);
+      return;
+    }
+
+    if (deviceSessionDbInfo.status !== DeviceSessionStatus.Confirmed) {
+
+      response.statusCode = 400;
+      response.json(`device_session_is_not_confirmed`);
+      return;
+    }
+
+    if (deviceSessionDbInfo.stateAsJson === null) {
+
+      response.json(undefined);
+      return;
+    }
+
+    response.json(
+      JSON.parse(deviceSessionDbInfo.stateAsJson),
+    );
+  },
+);
+
+app.get(
+  `/push-device-session-command`,
+  async (request, response) => {
+
+    const userIdToken = request.query[`userIdToken`] as string;
+    const deviceSessionId = request.query[`deviceSessionId`] as string;
+    const deviceSessionCommandPayloadAsJson = request.query[`deviceSessionCommandPayloadAsJson`] as string;
+
+    console.log(userIdToken);
+
+    const userId = `testuser`;
+
+    const deviceSessionDbInfo = await prisma.deviceSession.findFirst({
+      where: {
+        id: deviceSessionId,
+      },
+      include: {
+        device: true,
+      },
+    });
+
+    if (deviceSessionDbInfo === null) {
+
+      response.statusCode = 400;
+      response.json(`device_session_does_not_exist`);
+      return;
+    }
+
+    if (deviceSessionDbInfo.device.userId !== userId) {
+
+      response.statusCode = 400;
+      response.json(`device_session_does_not_exist`);
+      return;
+    }
+
+    if (deviceSessionDbInfo.status !== DeviceSessionStatus.Confirmed) {
+
+      response.statusCode = 400;
+      response.json(`device_session_is_not_confirmed`);
+      return;
+    }
+
+    // TODO: Check payloadAsJson validity
+
+    await prisma.$transaction([
+      prisma.deviceSessionCommand.create({
+        data: {
+          deviceSessionId: deviceSessionId,
+          status: DeviceSessionCommandStatus.Pending,
+          payloadAsJson: deviceSessionCommandPayloadAsJson,
+        },
+      }),
+      prisma.deviceSession.update({
+        where: {
+          id: deviceSessionId,
+        },
+        data: {
+          lastActivityDateTime: new Date(),
+        },
+      }),
+    ]);
+  },
+);
+
+
+app.get(
   `/create-device-session`,
   async (request, response) => {
 
