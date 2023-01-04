@@ -129,58 +129,58 @@ app.get(
   async (request, response) => {
 
     const userIdToken = request.query[`userIdToken`] as string;
-    const devicePrivateKeyKty = request.query[`devicePrivateKeyKty`] as string;
-    const devicePrivateKeyN = request.query[`devicePrivateKeyN`] as string;
-    const devicePrivateKeyE = request.query[`devicePrivateKeyE`] as string;
-    const devicePrivateKeyD = request.query[`devicePrivateKeyD`] as string;
-    const devicePrivateKeyP = request.query[`devicePrivateKeyP`] as string;
-    const devicePrivateKeyQ = request.query[`devicePrivateKeyQ`] as string;
-    const devicePrivateKeyDp = request.query[`devicePrivateKeyDp`] as string;
-    const devicePrivateKeyDq = request.query[`devicePrivateKeyDq`] as string;
-    const devicePrivateKeyQi = request.query[`devicePrivateKeyQi`] as string;
+    const userDevicePrivateKeyKty = request.query[`userDevicePrivateKeyKty`] as string;
+    const userDevicePrivateKeyN = request.query[`userDevicePrivateKeyN`] as string;
+    const userDevicePrivateKeyE = request.query[`userDevicePrivateKeyE`] as string;
+    const userDevicePrivateKeyD = request.query[`userDevicePrivateKeyD`] as string;
+    const userDevicePrivateKeyP = request.query[`userDevicePrivateKeyP`] as string;
+    const userDevicePrivateKeyQ = request.query[`userDevicePrivateKeyQ`] as string;
+    const userDevicePrivateKeyDp = request.query[`userDevicePrivateKeyDp`] as string;
+    const userDevicePrivateKeyDq = request.query[`userDevicePrivateKeyDq`] as string;
+    const userDevicePrivateKeyQi = request.query[`userDevicePrivateKeyQi`] as string;
 
     console.log(userIdToken);
 
     const userId = `testuser`;
 
-    const devicePrivateKey = crypto.createPrivateKey({
+    const userDevicePrivateKey = crypto.createPrivateKey({
       key: {
-        kty: devicePrivateKeyKty,
-        n: devicePrivateKeyN,
-        e: devicePrivateKeyE,
-        d: devicePrivateKeyD,
-        p: devicePrivateKeyP,
-        q: devicePrivateKeyQ,
-        dp: devicePrivateKeyDp,
-        dq: devicePrivateKeyDq,
-        qi: devicePrivateKeyQi,
+        kty: userDevicePrivateKeyKty,
+        n: userDevicePrivateKeyN,
+        e: userDevicePrivateKeyE,
+        d: userDevicePrivateKeyD,
+        p: userDevicePrivateKeyP,
+        q: userDevicePrivateKeyQ,
+        dp: userDevicePrivateKeyDp,
+        dq: userDevicePrivateKeyDq,
+        qi: userDevicePrivateKeyQi,
       },
       format: `jwk`,
     });
 
-    const devicePublicKey = getDevicePublicKey({
-      devicePrivateKey,
+    const userDevicePublicKey = getDevicePublicKey({
+      devicePrivateKey: userDevicePrivateKey,
     });
 
-    const deviceId = getDeviceId({
-      devicePublicKey,
+    const userDeviceId = getDeviceId({
+      devicePublicKey: userDevicePublicKey,
     });
 
-    const devicePrivateKeyAsPem = devicePrivateKey.export({
+    const userDevicePrivateKeyAsPem = userDevicePrivateKey.export({
       type: `pkcs1`,
       format: `pem`,
     }) as string;
 
     await prisma.device.create({
       data: {
-        id: deviceId,
+        id: userDeviceId,
         userId: userId,
-        privateKeyAsPem: devicePrivateKeyAsPem,
+        privateKeyAsPem: userDevicePrivateKeyAsPem,
       },
     });
 
     response.json({
-      deviceId,
+      userDeviceId,
     });
   },
 );
