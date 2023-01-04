@@ -10,25 +10,36 @@ datasource db {
 model Device {
   id String @id
   userId String
-  activeSessionId String?
   privateKeyAsPem String
+  activeSessionId String?
   sessions DeviceSession[]
+}
+
+enum DeviceSessionStatus {
+  Confirmed
+  Rejected
 }
 
 model DeviceSession {
   id String @id @default(uuid())
-  accessToken String
-  isConfirmed Boolean
   device Device @relation(fields: [deviceId], references: [id])
   deviceId String
+  accessToken String
+  status DeviceSessionStatus?
   stateAsJson String?
   commands DeviceSessionCommand[]
   lastActivityDateTime DateTime @default(now())
+}
+
+enum DeviceSessionCommandStatus {
+  Pending
+  Finished
 }
 
 model DeviceSessionCommand {
   id String @id @default(uuid())
   deviceSession DeviceSession @relation(fields: [deviceSessionId], references: [id])
   deviceSessionId String
+  status DeviceSessionCommandStatus?
   infoAsJson String
 }
