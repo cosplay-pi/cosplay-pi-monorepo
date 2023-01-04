@@ -8,37 +8,40 @@ const prisma = new PrismaClient();
 import {
   DeviceCommandInfo,
   DeviceCommandType,
-  DeviceInstallRuntimeCommandInfo,
-  DeviceStartRuntimeCommandInfo,
-  DeviceUpdateRuntimeModuleSettingsCommandInfo,
 } from 'costume-chip-device-service-protocol';
 
 let mockCounter = 3;
 
 let mockData: Array<DeviceCommandInfo> = [
   {
-    id: 0,
-    type: DeviceCommandType.InstallRuntimeCommand,
-    deviceRuntimeConfig: {
-      modules: {
-        "costume-chip-example-module": {
-          version: `link:../../packages/device/costume-chip-example-module`,
+    id: `0`,
+    payload: {
+      type: DeviceCommandType.InstallRuntimeCommand,
+      deviceRuntimeConfig: {
+        modules: {
+          "costume-chip-example-module": {
+            version: `link:../../packages/device/costume-chip-example-module`,
+          },
         },
       },
     },
-  } as DeviceInstallRuntimeCommandInfo,
+  },
   {
-    id: 1,
-    type: DeviceCommandType.StartRuntimeCommand,
-  } as DeviceStartRuntimeCommandInfo,
-  {
-    id: 2,
-    type: DeviceCommandType.UpdateRuntimeModuleSettingsCommand,
-    deviceRuntimeModuleName: `costume-chip-example-module`,
-    deviceRuntimeModuleSettings: {
-      message: `Today is ${new Date().toLocaleDateString()}`,
+    id: `1`,
+    payload: {
+      type: DeviceCommandType.StartRuntimeCommand,
     },
-  } as DeviceUpdateRuntimeModuleSettingsCommandInfo,
+  },
+  {
+    id: `2`,
+    payload: {
+      type: DeviceCommandType.UpdateRuntimeModuleSettingsCommand,
+      deviceRuntimeModuleName: `costume-chip-example-module`,
+      deviceRuntimeModuleSettings: {
+        message: `Today is ${new Date().toLocaleDateString()}`,
+      },
+    },
+  },
 ];
 
 const app = express();
@@ -66,13 +69,13 @@ app.get(
     console.log(request.query);
 
     const deviceSessionId = request.query[`device_session_id`] as string;
-    const deviceCommandId = parseInt(request.query[`device_command_id`] as string);
+    const deviceCommandId = request.query[`device_command_id`] as string;
 
     console.log(deviceSessionId);
     console.log(deviceCommandId);
 
     mockData = mockData.filter(
-      (deviceOtherCommand) => deviceOtherCommand.id > deviceCommandId,
+      (deviceOtherCommand) => deviceOtherCommand.id !== deviceCommandId,
     );
 
     response.json({});
@@ -89,13 +92,15 @@ app.get(
     const msg = request.query[`msg`] as string;
 
     mockData.push({
-      id: mockCounter++,
-      type: DeviceCommandType.UpdateRuntimeModuleSettingsCommand,
-      deviceRuntimeModuleName: `costume-chip-example-module`,
-      deviceRuntimeModuleSettings: {
-        message: msg,
+      id: `${mockCounter++}`,
+      payload: {
+        type: DeviceCommandType.UpdateRuntimeModuleSettingsCommand,
+        deviceRuntimeModuleName: `costume-chip-example-module`,
+        deviceRuntimeModuleSettings: {
+          message: msg,
+        },
       },
-    } as DeviceUpdateRuntimeModuleSettingsCommandInfo);
+    });
 
     response.json({});
   },
@@ -179,7 +184,7 @@ app.get(
     });
 
     if (conflictingDeviceDbInfo !== undefined) {
-    
+
       response.status(400);
       response.json(`user_device_is_already_registered`);
       return;
@@ -477,6 +482,140 @@ app.get(
       data: {
         stateAsJson: deviceSessionStateAsJson,
         lastActivityDateTime: new Date(),
+      },
+    });
+  },
+);
+
+app.get(
+  `/fetch-device-session-next-pending-command-info`,
+  async (request, response) => {
+
+    const deviceSessionId = request.query[`deviceSessionId`] as string;
+    const deviceSessionAccessToken = request.query[`deviceSessionAccessToken`] as string;
+
+    const deviceSessionDbInfo = await prisma.deviceSession.findFirst({
+      where: {
+        id: deviceSessionId,
+      },
+    });
+
+    if (
+      deviceSessionDbInfo === null
+    ) {
+
+      response.statusCode = 400;
+      response.json(`device_session_does_not_exist`);
+      return;
+    }
+
+    if (
+      deviceSessionDbInfo.accessToken !== deviceSessionAccessToken
+    ) {
+
+      response.statusCode = 400;
+      response.json(`device_session_access_token_is_invalid`);
+      return;
+    }
+
+    if (
+      deviceSessionDbInfo.status !== DeviceSessionStatus.Confirmed
+    ) {
+
+      response.statusCode = 400;
+      response.json(`device_session_is_not_confirmed`);
+      return;
+    }
+
+    const deviceSessionNextPendingCommandDbInfo = await prisma.deviceSessionCommand.findFirst({
+      where: {
+        deviceSessionId: deviceSessionId,
+      },
+      orderBy: {
+        createdDateTime: `asc`,
+      },
+    });
+
+    if (deviceSessionNextPendingCommandDbInfo === null) {
+
+      response.json(undefined);
+      return;
+    }
+
+    response.json({
+      id: deviceSessionNextPendingCommandDbInfo.id,
+      payload: JSON.parse(deviceSessionNextPendingCommandDbInfo.payloadAsJson),
+    } as DeviceCommandInfo);
+  },
+);
+
+app.get(
+  `/on-device-session-command-finished`,
+  async (request, response) => {
+
+    const deviceSessionId = request.query[`deviceSessionId`] as string;
+    const deviceSessionAccessToken = request.query[`deviceSessionAccessToken`] as string;
+    const deviceSessionCommandId = request.query[`deviceSessionCommandId`] as string;
+
+    const deviceSessionDbInfo = await prisma.deviceSession.findFirst({
+      where: {
+        id: deviceSessionId,
+      },
+    });
+
+    if (
+      deviceSessionDbInfo === null
+    ) {
+
+      response.statusCode = 400;
+      response.json(`device_session_does_not_exist`);
+      return;
+    }
+
+    if (
+      deviceSessionDbInfo.accessToken !== deviceSessionAccessToken
+    ) {
+
+      response.statusCode = 400;
+      response.json(`device_session_access_token_is_invalid`);
+      return;
+    }
+
+    if (
+      deviceSessionDbInfo.status !== DeviceSessionStatus.Confirmed
+    ) {
+
+      response.statusCode = 400;
+      response.json(`device_session_is_not_confirmed`);
+      return;
+    }
+
+    const deviceSessionCommandLastDbInfo = await prisma.deviceSessionCommand.findFirst({
+      where: {
+        id: deviceSessionCommandId,
+      },
+    });
+
+    if (deviceSessionCommandLastDbInfo === null) {
+
+      response.statusCode = 400;
+      response.json(`device_session_command_does_not_exist`);
+      return;
+    }
+
+    if (deviceSessionCommandLastDbInfo.status === DeviceSessionCommandStatus.Finished) {
+
+      response.statusCode = 400;
+      response.json(`device_session_command_is_already_finished`);
+      return;
+    }
+
+    await prisma.deviceSessionCommand.update({
+      where: {
+        id: deviceSessionCommandId,
+      },
+      data: {
+        status: DeviceSessionCommandStatus.Finished,
       },
     });
   },

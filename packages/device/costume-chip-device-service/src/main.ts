@@ -9,21 +9,15 @@ setInterval(() => { }, 1000);
 
   await createDeviceSessionAsync();
 
-  let deviceLastCommandId: number | undefined;
-
   while (true) {
 
     if (!fetchIsExecutingDeviceCommand()) {
 
       const devicePendingCommandsInfo = await fetchDevicePendingCommandsInfoAsync();
 
-      const deviceFirstPendingCommandInfo = devicePendingCommandsInfo.find(
-        (x) => deviceLastCommandId === undefined || x.id > deviceLastCommandId,
-      );
+      const deviceFirstPendingCommandInfo = devicePendingCommandsInfo.find(() => true);
 
       if (deviceFirstPendingCommandInfo !== undefined) {
-
-        deviceLastCommandId = deviceFirstPendingCommandInfo.id;
 
         await executeDeviceCommandAsync({
           deviceCommandInfo: deviceFirstPendingCommandInfo,

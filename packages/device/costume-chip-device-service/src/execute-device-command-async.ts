@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-import { DeviceCommandInfo, DeviceCommandType, DeviceInstallRuntimeCommandInfo, DeviceUpdateRuntimeModuleSettingsCommandInfo } from 'costume-chip-device-service-protocol';
+import { DeviceCommandInfo, DeviceCommandType } from 'costume-chip-device-service-protocol';
 
 import { fetchIsExecutingDeviceCommand, setIsExecutingDeviceCommand } from './is-executing-device-command';
 import { fetchDeviceSessionId } from './device-session-id';
@@ -29,31 +29,25 @@ export const executeDeviceCommandAsync = async ({
 
     try {
 
-      if (deviceCommandInfo.type === DeviceCommandType.InstallRuntimeCommand) {
-
-        const deviceInstallRuntimeCommandInfo =
-          deviceCommandInfo as DeviceInstallRuntimeCommandInfo;
+      if (deviceCommandInfo.payload.type === DeviceCommandType.InstallRuntimeCommand) {
 
         await installDeviceRuntimeAsync({
-          deviceRuntimeConfig: deviceInstallRuntimeCommandInfo.deviceRuntimeConfig,
+          deviceRuntimeConfig: deviceCommandInfo.payload.deviceRuntimeConfig,
         });
 
-      } else if (deviceCommandInfo.type === DeviceCommandType.StartRuntimeCommand) {
+      } else if (deviceCommandInfo.payload.type === DeviceCommandType.StartRuntimeCommand) {
 
         await startDeviceRuntimeAsync();
 
-      } else if (deviceCommandInfo.type === DeviceCommandType.StopRuntimeCommand) {
+      } else if (deviceCommandInfo.payload.type === DeviceCommandType.StopRuntimeCommand) {
 
         await stopDeviceRuntimeAsync();
 
-      } else if (deviceCommandInfo.type === DeviceCommandType.UpdateRuntimeModuleSettingsCommand) {
-
-        const deviceUpdateRuntimeModuleSettingsCommandInfo =
-          deviceCommandInfo as DeviceUpdateRuntimeModuleSettingsCommandInfo;
+      } else if (deviceCommandInfo.payload.type === DeviceCommandType.UpdateRuntimeModuleSettingsCommand) {
 
         await updateDeviceRuntimeModuleSettingsAsync({
-          deviceRuntimeModuleName: deviceUpdateRuntimeModuleSettingsCommandInfo.deviceRuntimeModuleName,
-          deviceRuntimeModuleSettings: deviceUpdateRuntimeModuleSettingsCommandInfo.deviceRuntimeModuleSettings,
+          deviceRuntimeModuleName: deviceCommandInfo.payload.deviceRuntimeModuleName,
+          deviceRuntimeModuleSettings: deviceCommandInfo.payload.deviceRuntimeModuleSettings,
         });
       }
 
