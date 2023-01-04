@@ -7,104 +7,9 @@ const prisma = new PrismaClient();
 
 import {
   DeviceCommandInfo,
-  DeviceCommandType,
 } from 'costume-chip-device-service-protocol';
 
-let mockCounter = 3;
-
-let mockData: Array<DeviceCommandInfo> = [
-  {
-    id: `0`,
-    payload: {
-      type: DeviceCommandType.InstallRuntimeCommand,
-      deviceRuntimeConfig: {
-        modules: {
-          "costume-chip-example-module": {
-            version: `link:../../packages/device/costume-chip-example-module`,
-          },
-        },
-      },
-    },
-  },
-  {
-    id: `1`,
-    payload: {
-      type: DeviceCommandType.StartRuntimeCommand,
-    },
-  },
-  {
-    id: `2`,
-    payload: {
-      type: DeviceCommandType.UpdateRuntimeModuleSettingsCommand,
-      deviceRuntimeModuleName: `costume-chip-example-module`,
-      deviceRuntimeModuleSettings: {
-        message: `Today is ${new Date().toLocaleDateString()}`,
-      },
-    },
-  },
-];
-
 const app = express();
-
-app.get(
-  `/fetch-device-pending-commands-info`,
-  (request, response) => {
-
-    console.log(request.url);
-    console.log(request.query);
-
-    const deviceSessionId = request.query[`device_session_id`] as string;
-
-    console.log(deviceSessionId);
-
-    response.json(mockData);
-  },
-);
-
-app.get(
-  `/on-device-command-finished`,
-  (request, response) => {
-
-    console.log(request.url);
-    console.log(request.query);
-
-    const deviceSessionId = request.query[`device_session_id`] as string;
-    const deviceCommandId = request.query[`device_command_id`] as string;
-
-    console.log(deviceSessionId);
-    console.log(deviceCommandId);
-
-    mockData = mockData.filter(
-      (deviceOtherCommand) => deviceOtherCommand.id !== deviceCommandId,
-    );
-
-    response.json({});
-  },
-);
-
-app.get(
-  `/test`,
-  (request, response) => {
-
-    console.log(request.url);
-    console.log(request.query);
-
-    const msg = request.query[`msg`] as string;
-
-    mockData.push({
-      id: `${mockCounter++}`,
-      payload: {
-        type: DeviceCommandType.UpdateRuntimeModuleSettingsCommand,
-        deviceRuntimeModuleName: `costume-chip-example-module`,
-        deviceRuntimeModuleSettings: {
-          message: msg,
-        },
-      },
-    });
-
-    response.json({});
-  },
-);
 
 const getDevicePublicKey = ({
   devicePrivateKey,
@@ -774,7 +679,9 @@ app.get(
   },
 );
 
-app.listen(4000, async () => {
+const port = 4000;
 
-  console.log(`Hello!`);
+app.listen(port, async () => {
+
+  console.log(`costume-chip-hub-backend working at port ${port}`);
 });
