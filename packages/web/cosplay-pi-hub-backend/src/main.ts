@@ -25,21 +25,6 @@ firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(firebaseAdminKey),
 });
 
-const prisma = new PrismaClient();
-
-const firebaseAdminKey = JSON.parse(
-  fs.readFileSync(
-    path.resolve(
-      `../../../obj/costume-chip-hub-backend-firebase-admin-key.json`,
-    ),
-    `utf8`,
-  ),
-);
-
-firebaseAdmin.initializeApp({
-  credential: firebaseAdmin.credential.cert(firebaseAdminKey),
-});
-
 const app = express();
 
 const getDevicePublicKey = ({
