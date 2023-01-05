@@ -32,7 +32,12 @@ const getDeviceId = ({
   });
 
   return crypto.createHash(`md5`).update(devicePublicKeyAsDer).digest(`hex`);
-}
+};
+
+const generateDeviceSessionAccessToken = () => {
+
+  return crypto.randomBytes(32).toString(`base64url`);
+};
 
 app.get(
   `/register-user-device`,
@@ -337,7 +342,7 @@ app.get(
 
     const deviceSessionNonce = deviceSessionNonceAsBytes.toString(`utf-8`);
 
-    const deviceSessionAccessToken = `test`;
+    const deviceSessionAccessToken = generateDeviceSessionAccessToken();
 
     const deviceSessionDbInfo = await prisma.deviceSession.create({
       data: {
