@@ -1,13 +1,29 @@
 import * as express from 'express';
 import * as crypto from 'crypto';
+import * as path from 'path';
+import * as fs from 'fs';
+import * as firebaseAdmin from 'firebase-admin';
 
 import { DeviceSessionCommandStatus, DeviceSessionStatus, PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
 
 import {
   DeviceCommandInfo,
 } from 'costume-chip-device-service-protocol';
+
+const prisma = new PrismaClient();
+
+const firebaseAdminKey = JSON.parse(
+  fs.readFileSync(
+    path.resolve(
+      `../../../obj/costume-chip-hub-backend-firebase-admin-key.json`,
+    ),
+    `utf8`,
+  ),
+);
+
+firebaseAdmin.initializeApp({
+  credential: firebaseAdmin.credential.cert(firebaseAdminKey),
+});
 
 const app = express();
 
