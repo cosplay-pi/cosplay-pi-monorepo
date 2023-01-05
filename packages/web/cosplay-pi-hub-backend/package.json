@@ -1,5 +1,5 @@
 {
-  "name": "costume-chip-hub-backend",
+  "name": "cosplay-pi-hub-backend",
   "version": "0.0.1",
   "scripts": {
     "build": "run -T tsc",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.0.0",
-    "costume-chip-device-service-protocol": "workspace:*",
+    "cosplay-pi-device-hub-client-protocol": "workspace:*",
     "express": "^4.0.0",
     "firebase-admin": "^11.0.0"
   },

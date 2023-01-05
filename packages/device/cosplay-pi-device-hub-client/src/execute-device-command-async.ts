@@ -1,4 +1,4 @@
-import { DeviceCommandInfo, DeviceCommandType } from 'costume-chip-device-service-protocol';
+import { DeviceCommandInfo, DeviceCommandType } from 'cosplay-pi-device-hub-client-protocol';
 
 import { fetchIsExecutingDeviceCommand, setIsExecutingDeviceCommand } from './is-executing-device-command';
 import { installDeviceRuntimeAsync } from './install-device-runtime-async';

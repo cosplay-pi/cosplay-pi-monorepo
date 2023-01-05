@@ -1,4 +1,4 @@
-import { DeviceRuntimeConfig } from "costume-chip-device-service-protocol";
+import { DeviceRuntimeConfig } from "cosplay-pi-device-hub-client-protocol";
 
 export const generateDeviceRuntimePackageInfo = ({
   deviceRuntimeConfig,

@@ -1,6 +1,6 @@
 import { spawn } from "child_process";
 
-import { DeviceRuntimeConfig } from "costume-chip-device-service-protocol";
+import { DeviceRuntimeConfig } from "cosplay-pi-device-hub-client-protocol";
 
 import { getDeviceServiceArgs } from "./get-device-service-args";
 import { createDeviceRuntimePackageDir } from "./create-device-runtime-package-dir";

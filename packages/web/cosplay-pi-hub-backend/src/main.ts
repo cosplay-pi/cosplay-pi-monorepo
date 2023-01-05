@@ -8,14 +8,14 @@ import { DeviceSessionCommandStatus, DeviceSessionStatus, PrismaClient } from '@
 
 import {
   DeviceCommandInfo,
-} from 'costume-chip-device-service-protocol';
+} from 'cosplay-pi-device-hub-client-protocol';
 
 const prisma = new PrismaClient();
 
 const firebaseAdminKey = JSON.parse(
   fs.readFileSync(
     path.resolve(
-      `../../../obj/costume-chip-hub-backend-firebase-admin-key.json`,
+      `../../../obj/cosplay-pi-hub-backend-firebase-admin-key.json`,
     ),
     `utf8`,
   ),
@@ -715,7 +715,7 @@ app.listen(port, async () => {
 
   console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`)
   console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`)
-  console.log(`✔✔✔✔✔✔ costume-chip-hub-backend working at port ${port} ✔✔✔✔✔✔`);
+  console.log(`✔✔✔✔✔✔ cosplay-pi-hub-backend working at port ${port} ✔✔✔✔✔✔`);
   console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`)
   console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`)
 });

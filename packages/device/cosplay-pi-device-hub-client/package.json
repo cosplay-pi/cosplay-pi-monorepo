@@ -1,16 +1,16 @@
 {
-  "name": "costume-chip-device-service",
+  "name": "cosplay-pi-device-hub-client",
   "version": "0.0.1",
   "scripts": {
     "build": "run -T tsc",
-    "run-dev": "node --inspect=127.0.0.1:9230 dist/main.js --device-config-file-path=../../../obj/costume-chip-device-config.json --device-public-key-file-path=../../../obj/costume-chip-device-public-key.pem --device-runtime-package-dir-path=../../../obj/costume-chip-device-runtime"
+    "run-dev": "node --inspect=127.0.0.1:9230 dist/main.js --device-config-file-path=../../../obj/cosplay-pi-device-config.json --device-public-key-file-path=../../../obj/cosplay-pi-device-public-key.pem --device-runtime-package-dir-path=../../../obj/cosplay-pi-device-runtime"
   },
   "bin": {
-    "run-costume-chip-device-service": "dist/main.js"
+    "run-cosplay-pi-device-hub-client": "dist/main.js"
   },
   "dependencies": {
-    "costume-chip-device-runtime-module-settings-foundation": "workspace:*",
-    "costume-chip-device-service-protocol": "workspace:*",
+    "cosplay-pi-device-hub-client-protocol": "workspace:*",
+    "cosplay-pi-device-runtime-module-settings-foundation": "workspace:*",
     "node-fetch": "^2.0.0",
     "tree-kill": "^1.0.0",
     "yargs": "^17.0.0"

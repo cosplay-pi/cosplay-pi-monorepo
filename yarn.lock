@@ -5587,74 +5587,74 @@ __metadata:
   languageName: node
   linkType: hard
 
-"costume-chip-device-runtime-module-base@workspace:*, costume-chip-device-runtime-module-base@workspace:packages/device/costume-chip-device-runtime-module-base":
+"cosplay-pi-device-hub-client-protocol@workspace:*, cosplay-pi-device-hub-client-protocol@workspace:packages/cosplay-pi-device-hub-client-protocol":
   version: 0.0.0-use.local
-  resolution: "costume-chip-device-runtime-module-base@workspace:packages/device/costume-chip-device-runtime-module-base"
+  resolution: "cosplay-pi-device-hub-client-protocol@workspace:packages/cosplay-pi-device-hub-client-protocol"
   languageName: unknown
   linkType: soft
 
-"costume-chip-device-runtime-module-settings-foundation@workspace:*, costume-chip-device-runtime-module-settings-foundation@workspace:packages/device/costume-chip-device-runtime-module-settings-foundation":
+"cosplay-pi-device-hub-client@workspace:packages/device/cosplay-pi-device-hub-client":
   version: 0.0.0-use.local
-  resolution: "costume-chip-device-runtime-module-settings-foundation@workspace:packages/device/costume-chip-device-runtime-module-settings-foundation"
-  languageName: unknown
-  linkType: soft
-
-"costume-chip-device-runtime-module-settings@workspace:*, costume-chip-device-runtime-module-settings@workspace:packages/device/costume-chip-device-runtime-module-settings":
-  version: 0.0.0-use.local
-  resolution: "costume-chip-device-runtime-module-settings@workspace:packages/device/costume-chip-device-runtime-module-settings"
-  dependencies:
-    costume-chip-device-runtime-module-base: "workspace:*"
-    costume-chip-device-runtime-module-settings-foundation: "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"costume-chip-device-service-protocol@workspace:*, costume-chip-device-service-protocol@workspace:packages/costume-chip-device-service-protocol":
-  version: 0.0.0-use.local
-  resolution: "costume-chip-device-service-protocol@workspace:packages/costume-chip-device-service-protocol"
-  languageName: unknown
-  linkType: soft
-
-"costume-chip-device-service@workspace:packages/device/costume-chip-device-service":
-  version: 0.0.0-use.local
-  resolution: "costume-chip-device-service@workspace:packages/device/costume-chip-device-service"
+  resolution: "cosplay-pi-device-hub-client@workspace:packages/device/cosplay-pi-device-hub-client"
   dependencies:
     "@types/node-fetch": ^2.0.0
     "@types/yargs": ^17.0.0
-    costume-chip-device-runtime-module-settings-foundation: "workspace:*"
-    costume-chip-device-service-protocol: "workspace:*"
+    cosplay-pi-device-hub-client-protocol: "workspace:*"
+    cosplay-pi-device-runtime-module-settings-foundation: "workspace:*"
     node-fetch: ^2.0.0
     tree-kill: ^1.0.0
     yargs: ^17.0.0
   bin:
-    run-costume-chip-device-service: dist/main.js
+    run-cosplay-pi-device-hub-client: dist/main.js
   languageName: unknown
   linkType: soft
 
-"costume-chip-example-module@workspace:packages/device/costume-chip-example-module":
+"cosplay-pi-device-runtime-module-base@workspace:*, cosplay-pi-device-runtime-module-base@workspace:packages/device/cosplay-pi-device-runtime-module-base":
   version: 0.0.0-use.local
-  resolution: "costume-chip-example-module@workspace:packages/device/costume-chip-example-module"
+  resolution: "cosplay-pi-device-runtime-module-base@workspace:packages/device/cosplay-pi-device-runtime-module-base"
+  languageName: unknown
+  linkType: soft
+
+"cosplay-pi-device-runtime-module-settings-foundation@workspace:*, cosplay-pi-device-runtime-module-settings-foundation@workspace:packages/device/cosplay-pi-device-runtime-module-settings-foundation":
+  version: 0.0.0-use.local
+  resolution: "cosplay-pi-device-runtime-module-settings-foundation@workspace:packages/device/cosplay-pi-device-runtime-module-settings-foundation"
+  languageName: unknown
+  linkType: soft
+
+"cosplay-pi-device-runtime-module-settings@workspace:*, cosplay-pi-device-runtime-module-settings@workspace:packages/device/cosplay-pi-device-runtime-module-settings":
+  version: 0.0.0-use.local
+  resolution: "cosplay-pi-device-runtime-module-settings@workspace:packages/device/cosplay-pi-device-runtime-module-settings"
   dependencies:
-    costume-chip-device-runtime-module-base: "workspace:*"
-    costume-chip-device-runtime-module-settings: "workspace:*"
+    cosplay-pi-device-runtime-module-base: "workspace:*"
+    cosplay-pi-device-runtime-module-settings-foundation: "workspace:*"
   languageName: unknown
   linkType: soft
 
-"costume-chip-hub-backend@workspace:packages/web/costume-chip-hub-backend":
+"cosplay-pi-example-module@workspace:packages/device/cosplay-pi-example-module":
   version: 0.0.0-use.local
-  resolution: "costume-chip-hub-backend@workspace:packages/web/costume-chip-hub-backend"
+  resolution: "cosplay-pi-example-module@workspace:packages/device/cosplay-pi-example-module"
+  dependencies:
+    cosplay-pi-device-runtime-module-base: "workspace:*"
+    cosplay-pi-device-runtime-module-settings: "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"cosplay-pi-hub-backend@workspace:packages/web/cosplay-pi-hub-backend":
+  version: 0.0.0-use.local
+  resolution: "cosplay-pi-hub-backend@workspace:packages/web/cosplay-pi-hub-backend"
   dependencies:
     "@prisma/client": ^4.0.0
     "@types/express": ^4.0.0
-    costume-chip-device-service-protocol: "workspace:*"
+    cosplay-pi-device-hub-client-protocol: "workspace:*"
     express: ^4.0.0
     firebase-admin: ^11.0.0
     prisma: ^4.0.0
   languageName: unknown
   linkType: soft
 
-"costume-chip-hub-frontend@workspace:packages/web/costume-chip-hub-frontend":
+"cosplay-pi-hub-frontend@workspace:packages/web/cosplay-pi-hub-frontend":
   version: 0.0.0-use.local
-  resolution: "costume-chip-hub-frontend@workspace:packages/web/costume-chip-hub-frontend"
+  resolution: "cosplay-pi-hub-frontend@workspace:packages/web/cosplay-pi-hub-frontend"
   dependencies:
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0

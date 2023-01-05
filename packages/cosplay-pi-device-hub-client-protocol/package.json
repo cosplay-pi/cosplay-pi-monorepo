@@ -1,5 +1,5 @@
 {
-  "name": "costume-chip-device-service-protocol",
+  "name": "cosplay-pi-device-hub-client-protocol",
   "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {

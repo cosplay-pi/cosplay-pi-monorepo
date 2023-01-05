@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-import { DeviceCommandInfo } from 'costume-chip-device-service-protocol';
+import { DeviceCommandInfo } from 'cosplay-pi-device-hub-client-protocol';
 
 import { getHubBackendUrl } from './get-hub-backend-url';
 import { DeviceSessionInfo } from './device-session-info';

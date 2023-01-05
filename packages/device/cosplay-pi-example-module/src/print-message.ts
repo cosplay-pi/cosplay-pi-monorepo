@@ -1,4 +1,4 @@
-import { fetchDeviceRuntimeModuleSettings } from 'costume-chip-device-runtime-module-settings';
+import { fetchDeviceRuntimeModuleSettings } from 'cosplay-pi-device-runtime-module-settings';
 
 import { exampleModuleSettingsDef } from './example-module-settings-def';
 

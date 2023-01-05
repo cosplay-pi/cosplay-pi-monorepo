@@ -1,5 +1,5 @@
 import { DeviceConfig } from './device-config';
-import { DeviceRuntimeConfig } from 'costume-chip-device-service-protocol';
+import { DeviceRuntimeConfig } from 'cosplay-pi-device-hub-client-protocol';
 import { fetchDeviceConfig } from './fetch-device-config';
 import { writeDeviceConfigFile } from './write-device-config-file';
 
