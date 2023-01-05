@@ -1,0 +1,29 @@
+{
+  "name": "cosplay-pi-hub-backend",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "run -T tsc",
+    "run-dev": "node dist/main.js",
+    "prisma-db-push": "prisma db push",
+    "prisma-studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.0.0",
+    "cosplay-pi-device-hub-client-protocol": "workspace:*",
+    "express": "^4.0.0",
+    "firebase-admin": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.0.0",
+    "prisma": "^4.0.0"
+  },
+  "nx": {
+    "targets": {
+      "run-dev": {
+        "dependsOn": [
+          "build"
+        ]
+      }
+    }
+  }
+}
