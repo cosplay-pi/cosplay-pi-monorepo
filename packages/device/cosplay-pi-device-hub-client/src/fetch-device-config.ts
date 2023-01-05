@@ -1,13 +1,13 @@
 import * as fs from 'fs';
 
 import { DeviceConfig } from './device-config';
-import { getDeviceServiceArgs } from './get-device-service-args';
+import { getDeviceHubClientArgs } from './get-device-hub-client-args';
 
 export const fetchDeviceConfig = (): DeviceConfig => {
 
-  const deviceServiceArgs = getDeviceServiceArgs();
+  const deviceHubClientArgs = getDeviceHubClientArgs();
 
-  if (!fs.existsSync(deviceServiceArgs.deviceConfigFilePath)) {
+  if (!fs.existsSync(deviceHubClientArgs.deviceConfigFilePath)) {
 
     return {
       runtime: {
@@ -19,7 +19,7 @@ export const fetchDeviceConfig = (): DeviceConfig => {
 
   const deviceConfig = JSON.parse(
     fs.readFileSync(
-      deviceServiceArgs.deviceConfigFilePath,
+      deviceHubClientArgs.deviceConfigFilePath,
       `utf8`,
     ),
   );

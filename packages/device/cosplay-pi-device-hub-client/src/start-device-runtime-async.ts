@@ -1,12 +1,12 @@
 import { spawn } from "child_process";
 
-import { getDeviceServiceArgs } from "./get-device-service-args";
+import { getDeviceHubClientArgs } from "./get-device-hub-client-args";
 import { fetchDeviceRuntimeProcess, setDeviceRuntimeProcess } from "./device-runtime-process";
 import { getDeviceRuntimeMainScriptFileName } from "./get-device-runtime-main-script-file-name";
 
 export const startDeviceRuntimeAsync = async () => {
 
-  const deviceServiceArgs = getDeviceServiceArgs();
+  const deviceHubClientArgs = getDeviceHubClientArgs();
 
   if (fetchDeviceRuntimeProcess() !== undefined) {
 
@@ -17,7 +17,7 @@ export const startDeviceRuntimeAsync = async () => {
     `node ${getDeviceRuntimeMainScriptFileName()}`,
     {
       shell: true,
-      cwd: deviceServiceArgs.deviceRuntimePackageDirPath,
+      cwd: deviceHubClientArgs.deviceRuntimePackageDirPath,
       stdio: `pipe`,
     },
   );

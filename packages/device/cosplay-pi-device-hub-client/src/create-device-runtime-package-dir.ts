@@ -1,13 +1,13 @@
 import * as fs from "fs";
 
-import { getDeviceServiceArgs } from "./get-device-service-args";
+import { getDeviceHubClientArgs } from "./get-device-hub-client-args";
 
 export const createDeviceRuntimePackageDir = () => {
 
-  const deviceServiceArgs = getDeviceServiceArgs();
+  const deviceHubClientArgs = getDeviceHubClientArgs();
 
   fs.mkdirSync(
-    deviceServiceArgs.deviceRuntimePackageDirPath,
+    deviceHubClientArgs.deviceRuntimePackageDirPath,
     {
       recursive: true,
     }

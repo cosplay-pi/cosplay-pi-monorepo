@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as crypto from 'crypto';
 
 import { fetchDeviceCachedPublicKey, setDeviceCachedPublicKey } from './device-cached-public-key';
-import { getDeviceServiceArgs } from './get-device-service-args';
+import { getDeviceHubClientArgs } from './get-device-hub-client-args';
 
 export const getDevicePublicKey = () => {
 
@@ -13,10 +13,10 @@ export const getDevicePublicKey = () => {
     return deviceLastCachedPublicKey;
   }
 
-  const deviceServiceArgs = getDeviceServiceArgs();
+  const deviceHubClientArgs = getDeviceHubClientArgs();
 
   const devicePublicKeyAsPem = fs.readFileSync(
-    deviceServiceArgs.devicePublicKeyFilePath,
+    deviceHubClientArgs.devicePublicKeyFilePath,
     `utf-8`,
   );
 

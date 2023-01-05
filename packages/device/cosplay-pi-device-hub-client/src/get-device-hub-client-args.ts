@@ -1,16 +1,16 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-import { DeviceServiceArgs } from './device-service-args';
-import { fetchDeviceServiceCachedArgs, setDeviceServiceCachedArgs } from './device-service-cached-args';
+import { DeviceHubClientArgs } from './device-hub-client-args';
+import { fetchDeviceHubClientCachedArgs, setDeviceHubClientCachedArgs } from './device-hub-client-cached-args';
 
-export const getDeviceServiceArgs = () => {
+export const getDeviceHubClientArgs = () => {
 
-  const deviceServiceLastCachedArgs = fetchDeviceServiceCachedArgs();
+  const deviceHubClientLastCachedArgs = fetchDeviceHubClientCachedArgs();
 
-  if (deviceServiceLastCachedArgs !== undefined) {
+  if (deviceHubClientLastCachedArgs !== undefined) {
 
-    return deviceServiceLastCachedArgs;
+    return deviceHubClientLastCachedArgs;
   }
 
   const argv = yargs(hideBin(process.argv))
@@ -37,13 +37,13 @@ export const getDeviceServiceArgs = () => {
     )
     .parseSync();
 
-  const deviceServiceArgs: DeviceServiceArgs = {
+  const deviceHubClientArgs: DeviceHubClientArgs = {
     deviceConfigFilePath: argv.deviceConfigFilePath,
     devicePublicKeyFilePath: argv.devicePublicKeyFilePath,
     deviceRuntimePackageDirPath: argv.deviceRuntimePackageDirPath,
   };
 
-  setDeviceServiceCachedArgs(deviceServiceArgs);
+  setDeviceHubClientCachedArgs(deviceHubClientArgs);
 
-  return deviceServiceArgs;
+  return deviceHubClientArgs;
 };
