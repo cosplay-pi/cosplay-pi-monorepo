@@ -53,19 +53,21 @@ app.get(
 
     const userId = `testuser`;
 
+    const userDevicePrivateKeyAsJwk = {
+      kty: userDevicePrivateKeyKty,
+      n: userDevicePrivateKeyN,
+      e: userDevicePrivateKeyE,
+      d: userDevicePrivateKeyD,
+      p: userDevicePrivateKeyP,
+      q: userDevicePrivateKeyQ,
+      dp: userDevicePrivateKeyDp,
+      dq: userDevicePrivateKeyDq,
+      qi: userDevicePrivateKeyQi,
+    };
+
     // TODO: Catch if private key is invalid
     const userDevicePrivateKey = crypto.createPrivateKey({
-      key: {
-        kty: userDevicePrivateKeyKty,
-        n: userDevicePrivateKeyN,
-        e: userDevicePrivateKeyE,
-        d: userDevicePrivateKeyD,
-        p: userDevicePrivateKeyP,
-        q: userDevicePrivateKeyQ,
-        dp: userDevicePrivateKeyDp,
-        dq: userDevicePrivateKeyDq,
-        qi: userDevicePrivateKeyQi,
-      },
+      key: userDevicePrivateKeyAsJwk,
       format: `jwk`,
     });
 
@@ -88,7 +90,7 @@ app.get(
       },
     });
 
-    if (conflictingDeviceDbInfo !== undefined) {
+    if (conflictingDeviceDbInfo !== null) {
 
       response.status(400);
       response.json(`user_device_is_already_registered`);
@@ -218,7 +220,7 @@ app.get(
 
     if (deviceSessionDbInfo.stateAsJson === null) {
 
-      response.json(undefined);
+      response.json(null);
       return;
     }
 
@@ -289,6 +291,8 @@ app.get(
         },
       }),
     ]);
+
+    response.json(null);
   },
 );
 
@@ -423,7 +427,7 @@ app.get(
       }),
     ]);
 
-    response.json({});
+    response.json(null);
   },
 );
 
@@ -486,7 +490,7 @@ app.get(
       },
     });
 
-    response.json({});
+    response.json(null);
   },
 );
 
@@ -542,6 +546,8 @@ app.get(
         lastActivityDateTime: new Date(),
       },
     });
+    
+    response.json(null);
   },
 );
 
@@ -588,6 +594,7 @@ app.get(
     const deviceSessionNextPendingCommandDbInfo = await prisma.deviceSessionCommand.findFirst({
       where: {
         deviceSessionId: deviceSessionId,
+        status: DeviceSessionCommandStatus.Pending,
       },
       orderBy: {
         createdDateTime: `asc`,
@@ -596,7 +603,7 @@ app.get(
 
     if (deviceSessionNextPendingCommandDbInfo === null) {
 
-      response.json(undefined);
+      response.json(null);
       return;
     }
 
@@ -676,6 +683,8 @@ app.get(
         status: DeviceSessionCommandStatus.Finished,
       },
     });
+
+    response.json(null);
   },
 );
 

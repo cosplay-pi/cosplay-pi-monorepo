@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "scripts": {
     "build": "run -T tsc",
-    "run-dev": "node dist/main.js"
+    "run-dev": "node dist/main.js",
+    "prisma-db-push": "prisma db push",
+    "prisma-studio": "prisma studio"
   },
   "dependencies": {
     "@prisma/client": "^4.0.0",

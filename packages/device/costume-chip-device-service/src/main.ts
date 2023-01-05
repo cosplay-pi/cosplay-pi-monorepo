@@ -1,31 +1,53 @@
-import { executeDeviceCommandAsync } from './execute-device-command-async';
-import { createDeviceSessionAsync } from './create-device-session-async';
-import { fetchDevicePendingCommandsInfoAsync } from './fetch-device-pending-commands-info-async';
-import { fetchIsExecutingDeviceCommand } from './is-executing-device-command';
+import { waitAsync } from './wait_async';
+import { createAndVerifyDeviceSessionAsync } from './create-and-verify-device-session-async';
+import { fetchDeviceSessionNextPendingCommandInfoAsync } from './fetch-device-session-next-pending-command-info-async';
+import { executeDeviceSessionCommandAsync } from './execute-device-session-command-async';
 
 setInterval(() => { }, 1000);
 
 (async () => {
 
-  await createDeviceSessionAsync();
-
   while (true) {
 
-    if (!fetchIsExecutingDeviceCommand()) {
+    try {
 
-      const devicePendingCommandsInfo = await fetchDevicePendingCommandsInfoAsync();
+      console.log(`Creating new device session...`);
 
-      const deviceFirstPendingCommandInfo = devicePendingCommandsInfo.find(() => true);
+      const { deviceSessionInfo } = await createAndVerifyDeviceSessionAsync();
 
-      if (deviceFirstPendingCommandInfo !== undefined) {
+      console.log(`New device session: ${deviceSessionInfo.id}`);
 
-        await executeDeviceCommandAsync({
-          deviceCommandInfo: deviceFirstPendingCommandInfo,
-        });
+      while (true) {
+
+        const deviceSessionNextPendingCommandInfo =
+          await fetchDeviceSessionNextPendingCommandInfoAsync({
+            deviceSessionInfo,
+          });
+
+        if (deviceSessionNextPendingCommandInfo !== undefined) {
+
+          console.log(`Executing next pending device session command (${deviceSessionNextPendingCommandInfo.id})...`)
+
+          await executeDeviceSessionCommandAsync({
+            deviceSessionInfo,
+            deviceSessionCommandInfo: deviceSessionNextPendingCommandInfo,
+          });
+
+          console.log(`Device session command executed.`);
+
+        }
+
+        await waitAsync({ milliseconds: 5000 });
       }
-    }
 
-    await new Promise((resolvePromise) => setTimeout(resolvePromise, 1000));
+    } catch (e) {
+
+      console.log(e);
+
+    } finally {
+
+      await waitAsync({ milliseconds: 5000 });
+    }
   }
 
 })();

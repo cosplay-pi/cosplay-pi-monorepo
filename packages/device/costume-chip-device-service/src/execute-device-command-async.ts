@@ -1,14 +1,11 @@
-import fetch from 'node-fetch';
-
 import { DeviceCommandInfo, DeviceCommandType } from 'costume-chip-device-service-protocol';
 
 import { fetchIsExecutingDeviceCommand, setIsExecutingDeviceCommand } from './is-executing-device-command';
-import { fetchDeviceSessionId } from './device-session-id';
 import { installDeviceRuntimeAsync } from './install-device-runtime-async';
 import { startDeviceRuntimeAsync } from './start-device-runtime-async';
 import { stopDeviceRuntimeAsync } from './stop-device-runtime-async';
 import { updateDeviceRuntimeModuleSettingsAsync } from './update-device-runtime-module-settings-async';
-import { getHubBackendUrl } from './get-hub-backend-url';
+import { waitAsync } from './wait_async';
 
 export const executeDeviceCommandAsync = async ({
   deviceCommandInfo,
@@ -16,46 +13,35 @@ export const executeDeviceCommandAsync = async ({
   deviceCommandInfo: DeviceCommandInfo;
 }) => {
 
-  if (fetchIsExecutingDeviceCommand()) {
+  while (fetchIsExecutingDeviceCommand()) {
 
-    throw new Error();
+    await waitAsync({ milliseconds: 1000 });
   }
+
+  setIsExecutingDeviceCommand(true);
 
   try {
 
-    setIsExecutingDeviceCommand(true);
+    if (deviceCommandInfo.payload.type === DeviceCommandType.InstallRuntimeCommand) {
 
-    const deviceSessionId = fetchDeviceSessionId();
+      await installDeviceRuntimeAsync({
+        deviceRuntimeConfig: deviceCommandInfo.payload.deviceRuntimeConfig,
+      });
 
-    try {
+    } else if (deviceCommandInfo.payload.type === DeviceCommandType.StartRuntimeCommand) {
 
-      if (deviceCommandInfo.payload.type === DeviceCommandType.InstallRuntimeCommand) {
+      await startDeviceRuntimeAsync();
 
-        await installDeviceRuntimeAsync({
-          deviceRuntimeConfig: deviceCommandInfo.payload.deviceRuntimeConfig,
-        });
+    } else if (deviceCommandInfo.payload.type === DeviceCommandType.StopRuntimeCommand) {
 
-      } else if (deviceCommandInfo.payload.type === DeviceCommandType.StartRuntimeCommand) {
+      await stopDeviceRuntimeAsync();
 
-        await startDeviceRuntimeAsync();
+    } else if (deviceCommandInfo.payload.type === DeviceCommandType.UpdateRuntimeModuleSettingsCommand) {
 
-      } else if (deviceCommandInfo.payload.type === DeviceCommandType.StopRuntimeCommand) {
-
-        await stopDeviceRuntimeAsync();
-
-      } else if (deviceCommandInfo.payload.type === DeviceCommandType.UpdateRuntimeModuleSettingsCommand) {
-
-        await updateDeviceRuntimeModuleSettingsAsync({
-          deviceRuntimeModuleName: deviceCommandInfo.payload.deviceRuntimeModuleName,
-          deviceRuntimeModuleSettings: deviceCommandInfo.payload.deviceRuntimeModuleSettings,
-        });
-      }
-
-    } finally {
-
-      const hubBackendUrl = getHubBackendUrl();
-
-      await fetch(`${hubBackendUrl}/on-device-command-finished?session_id=${deviceSessionId}&device_command_id=${deviceCommandInfo.id}`);
+      await updateDeviceRuntimeModuleSettingsAsync({
+        deviceRuntimeModuleName: deviceCommandInfo.payload.deviceRuntimeModuleName,
+        deviceRuntimeModuleSettings: deviceCommandInfo.payload.deviceRuntimeModuleSettings,
+      });
     }
 
   } finally {
