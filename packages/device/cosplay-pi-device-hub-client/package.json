@@ -1,0 +1,31 @@
+{
+  "name": "cosplay-pi-device-hub-client",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "run -T tsc",
+    "run-dev": "node --inspect=127.0.0.1:9230 dist/main.js --device-config-file-path=../../../obj/cosplay-pi-device-config.json --device-public-key-file-path=../../../obj/cosplay-pi-device-public-key.pem --device-runtime-package-dir-path=../../../obj/cosplay-pi-device-runtime"
+  },
+  "bin": {
+    "run-cosplay-pi-device-hub-client": "dist/main.js"
+  },
+  "dependencies": {
+    "cosplay-pi-device-hub-client-protocol": "workspace:*",
+    "cosplay-pi-device-runtime-module-settings-foundation": "workspace:*",
+    "node-fetch": "^2.0.0",
+    "tree-kill": "^1.0.0",
+    "yargs": "^17.0.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.0.0",
+    "@types/yargs": "^17.0.0"
+  },
+  "nx": {
+    "targets": {
+      "run-dev": {
+        "dependsOn": [
+          "build"
+        ]
+      }
+    }
+  }
+}

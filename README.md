@@ -1,1 +1,1 @@
-# costume-chip-monorepo
+# cosplay-pi-monorepo

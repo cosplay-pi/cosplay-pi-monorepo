@@ -1,0 +1,8 @@
+{
+  "name": "cosplay-pi-device-runtime-module-base",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "run -T tsc"
+  }
+}
