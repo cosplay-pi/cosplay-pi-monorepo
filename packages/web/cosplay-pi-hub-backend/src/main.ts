@@ -10,19 +10,25 @@ import {
   DeviceCommandInfo,
 } from 'cosplay-pi-device-hub-client-protocol';
 
+import { getEnvVars } from './get-env-vars';
+
+const envVars = getEnvVars();
+
 const prisma = new PrismaClient();
 
-const firebaseAdminKey = JSON.parse(
+const hubFirebaseServiceAccountCredentials = JSON.parse(
   fs.readFileSync(
     path.resolve(
-      `../../../obj/cosplay-pi-hub-backend-firebase-admin-key.json`,
+      envVars.hubFirebaseServiceAccountCredentialsFilePath,
     ),
     `utf8`,
   ),
 );
 
 firebaseAdmin.initializeApp({
-  credential: firebaseAdmin.credential.cert(firebaseAdminKey),
+  credential: firebaseAdmin.credential.cert(
+    hubFirebaseServiceAccountCredentials,
+  ),
 });
 
 const app = express();
@@ -567,7 +573,7 @@ app.get(
         lastActivityDateTime: new Date(),
       },
     });
-    
+
     response.json(null);
   },
 );
