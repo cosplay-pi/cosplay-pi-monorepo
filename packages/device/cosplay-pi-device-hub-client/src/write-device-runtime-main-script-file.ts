@@ -2,8 +2,8 @@ import * as fs from 'fs';
 
 import { DeviceRuntimeConfig } from 'cosplay-pi-device-hub-client-protocol';
 
-import { getDeviceRuntimeMainScriptFilePath } from './get-device-runtime-main-script-file-path';
 import { generateDeviceRuntimeMainScript } from './generate-device-runtime-main-script';
+import { getDeviceRuntimeMainScriptFilePath } from './get-device-runtime-main-script-file-path';
 
 export const writeDeviceRuntimeMainScriptFile = ({
   deviceRuntimeConfig,

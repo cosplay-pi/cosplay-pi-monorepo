@@ -1,7 +1,10 @@
-import * as fs from 'fs';
 import * as crypto from 'crypto';
+import * as fs from 'fs';
 
-import { fetchDeviceCachedPublicKey, setDeviceCachedPublicKey } from './device-cached-public-key';
+import {
+  fetchDeviceCachedPublicKey,
+  setDeviceCachedPublicKey,
+} from './device-cached-public-key';
 import { getDeviceHubClientArgs } from './get-device-hub-client-args';
 
 export const getDevicePublicKey = () => {

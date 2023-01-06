@@ -1,4 +1,4 @@
-import { DeviceRuntimeModuleState } from "./device-runtime-module-state"
+import { DeviceRuntimeModuleState } from "./device-runtime-module-state";
 
 export interface DeviceRuntimeState {
   process?: {};

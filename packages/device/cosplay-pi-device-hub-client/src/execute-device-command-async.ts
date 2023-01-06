@@ -1,7 +1,13 @@
-import { DeviceCommandInfo, DeviceCommandType } from 'cosplay-pi-device-hub-client-protocol';
+import {
+  DeviceCommandInfo,
+  DeviceCommandType,
+} from 'cosplay-pi-device-hub-client-protocol';
 
-import { fetchIsExecutingDeviceCommand, setIsExecutingDeviceCommand } from './is-executing-device-command';
 import { installDeviceRuntimeAsync } from './install-device-runtime-async';
+import {
+  fetchIsExecutingDeviceCommand,
+  setIsExecutingDeviceCommand,
+} from './is-executing-device-command';
 import { startDeviceRuntimeAsync } from './start-device-runtime-async';
 import { stopDeviceRuntimeAsync } from './stop-device-runtime-async';
 import { updateDeviceRuntimeModuleSettingsAsync } from './update-device-runtime-module-settings-async';

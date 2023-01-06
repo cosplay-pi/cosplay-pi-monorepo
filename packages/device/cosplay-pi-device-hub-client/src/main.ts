@@ -1,7 +1,7 @@
-import { waitAsync } from './wait_async';
 import { createAndVerifyDeviceSessionAsync } from './create-and-verify-device-session-async';
-import { fetchDeviceSessionNextPendingCommandInfoAsync } from './fetch-device-session-next-pending-command-info-async';
 import { executeDeviceSessionCommandAsync } from './execute-device-session-command-async';
+import { fetchDeviceSessionNextPendingCommandInfoAsync } from './fetch-device-session-next-pending-command-info-async';
+import { waitAsync } from './wait_async';
 
 setInterval(() => { }, 1000);
 
@@ -26,7 +26,7 @@ setInterval(() => { }, 1000);
 
         if (deviceSessionNextPendingCommandInfo !== undefined) {
 
-          console.log(`Executing next pending device session command (${deviceSessionNextPendingCommandInfo.id})...`)
+          console.log(`Executing next pending device session command (${deviceSessionNextPendingCommandInfo.id})...`);
 
           await executeDeviceSessionCommandAsync({
             deviceSessionInfo,

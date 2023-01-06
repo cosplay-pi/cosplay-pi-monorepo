@@ -1,6 +1,9 @@
 import * as kill from 'tree-kill';
 
-import { fetchDeviceRuntimeProcess, setDeviceRuntimeProcess } from './device-runtime-process';
+import {
+  fetchDeviceRuntimeProcess,
+  setDeviceRuntimeProcess,
+} from './device-runtime-process';
 
 export const stopDeviceRuntimeAsync = async () => {
 

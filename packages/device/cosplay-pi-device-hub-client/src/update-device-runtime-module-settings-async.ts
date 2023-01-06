@@ -1,4 +1,7 @@
-import { getDeviceRuntimeModuleSettingsFilePath, writeDeviceRuntimeModuleSettingsFile } from "cosplay-pi-device-runtime-module-settings-foundation";
+import {
+  getDeviceRuntimeModuleSettingsFilePath,
+  writeDeviceRuntimeModuleSettingsFile,
+} from "cosplay-pi-device-runtime-module-settings-foundation";
 
 import { getDeviceHubClientArgs } from "./get-device-hub-client-args";
 

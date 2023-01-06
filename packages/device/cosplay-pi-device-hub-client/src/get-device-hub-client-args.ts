@@ -2,7 +2,10 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 import { DeviceHubClientArgs } from './device-hub-client-args';
-import { fetchDeviceHubClientCachedArgs, setDeviceHubClientCachedArgs } from './device-hub-client-cached-args';
+import {
+  fetchDeviceHubClientCachedArgs,
+  setDeviceHubClientCachedArgs,
+} from './device-hub-client-cached-args';
 
 export const getDeviceHubClientArgs = () => {
 

@@ -1,6 +1,9 @@
 import * as crypto from 'crypto';
 
-import { fetchDeviceCachedId, setDeviceCachedId } from './device-cached-id';
+import {
+  fetchDeviceCachedId,
+  setDeviceCachedId,
+} from './device-cached-id';
 import { getDevicePublicKey } from './get-device-public-key';
 
 export const getDeviceId = () => {

@@ -2,8 +2,8 @@ import * as fs from 'fs';
 
 import { DeviceRuntimeConfig } from 'cosplay-pi-device-hub-client-protocol';
 
-import { getDeviceRuntimePackageInfoFilePath } from './get-device-runtime-package-info-file-path';
 import { generateDeviceRuntimePackageInfo } from './generate-device-runtime-package-info';
+import { getDeviceRuntimePackageInfoFilePath } from './get-device-runtime-package-info-file-path';
 
 export const writeDeviceRuntimePackageInfoFile = ({
   deviceRuntimeConfig,

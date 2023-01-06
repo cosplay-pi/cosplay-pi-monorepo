@@ -6,9 +6,9 @@ import { DeviceUpdateRuntimeModuleSettingsCommandPayload } from "./device-update
 export interface DeviceCommandInfo {
   id: string;
   payload: (
-    | DeviceInstallRuntimeCommandPayload 
-    | DeviceStartRuntimeCommandPayload 
-    | DeviceStopRuntimeCommandPayload 
-    | DeviceUpdateRuntimeModuleSettingsCommandPayload 
+    | DeviceInstallRuntimeCommandPayload
+    | DeviceStartRuntimeCommandPayload
+    | DeviceStopRuntimeCommandPayload
+    | DeviceUpdateRuntimeModuleSettingsCommandPayload
   );
 };

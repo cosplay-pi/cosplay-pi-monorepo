@@ -1,14 +1,16 @@
-import * as express from 'express';
 import * as crypto from 'crypto';
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
+
+import * as express from 'express';
 import * as firebaseAdmin from 'firebase-admin';
 
-import { DeviceSessionCommandStatus, DeviceSessionStatus, PrismaClient } from '@prisma/client';
-
 import {
-  DeviceCommandInfo,
-} from 'cosplay-pi-device-hub-client-protocol';
+  DeviceSessionCommandStatus,
+  DeviceSessionStatus,
+  PrismaClient,
+} from '@prisma/client';
+import { DeviceCommandInfo } from 'cosplay-pi-device-hub-client-protocol';
 
 import { getEnvVars } from './get-env-vars';
 
@@ -379,7 +381,7 @@ app.get(
       deviceSessionId,
       deviceSessionAccessToken,
       deviceSessionNonce,
-    })
+    });
   },
 );
 
@@ -719,9 +721,9 @@ const port = 4000;
 
 app.listen(port, async () => {
 
-  console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`)
-  console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`)
+  console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`);
+  console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`);
   console.log(`✔✔✔✔✔✔ cosplay-pi-hub-backend working at port ${port} ✔✔✔✔✔✔`);
-  console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`)
-  console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`)
+  console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`);
+  console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`);
 });

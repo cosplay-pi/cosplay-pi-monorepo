@@ -2,8 +2,8 @@ import fetch from 'node-fetch';
 
 import { DeviceCommandInfo } from 'cosplay-pi-device-hub-client-protocol';
 
-import { getHubBackendUrl } from './get-hub-backend-url';
 import { DeviceSessionInfo } from './device-session-info';
+import { getHubBackendUrl } from './get-hub-backend-url';
 
 export const fetchDeviceSessionNextPendingCommandInfoAsync = async ({
   deviceSessionInfo,
@@ -44,4 +44,4 @@ export const fetchDeviceSessionNextPendingCommandInfoAsync = async ({
   }
 
   return requestSuccessResponseBody;
-}
+};
