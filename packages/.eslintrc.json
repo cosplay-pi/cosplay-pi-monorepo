@@ -1,0 +1,83 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": [
+		"@typescript-eslint",
+		"import",
+		"import-newlines"
+	],
+	"settings": {
+		"import/internal-regex": "(^cosplay-pi)|(^@prisma/client)"
+	},
+	"rules": {
+		"quotes": [
+			"warn",
+			"backtick"
+		],
+		"no-duplicate-imports": [
+			"warn",
+			{
+				"includeExports": true
+			}
+		],
+		"no-import-assign": [
+			"warn"
+		],
+		"no-useless-rename": [
+			"warn"
+		],
+		"sort-imports": [
+			"warn",
+			{
+				"ignoreDeclarationSort": true
+			}
+		],
+		"import/no-extraneous-dependencies": [
+			"warn"
+		],
+		"import/no-mutable-exports": [
+			"warn"
+		],
+		"import/extensions": [
+			"warn",
+			"never"
+		],
+		"import/order": [
+			"warn",
+			{
+				"alphabetize": {
+					"order": "asc"
+				},
+				"groups": [
+					"builtin",
+					"external",
+					"internal",
+					"parent",
+					"sibling",
+					"index",
+					"object",
+					"type",
+					"unknown"
+				],
+				"newlines-between": "always"
+			}
+		],
+		"import-newlines/enforce": [
+			"warn",
+			{
+				"items": 1
+			}
+		],
+		"semi": [
+			"warn"
+		],
+		"comma-dangle": [
+			"warn",
+			"always-multiline"
+		],
+		"indent": [
+			"warn",
+			2
+		]
+	}
+}
