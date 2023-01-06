@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import * as FirebaseApp from 'firebase/app';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { getEnvVars } from './get-env-vars';
+
+const envVars = getEnvVars();
+
+FirebaseApp.initializeApp({
+  apiKey: envVars.hubFirebaseApiKey,
+  authDomain: envVars.hubFirebaseAuthDomain,
+  projectId: envVars.hubFirebaseProjectId,
+  storageBucket: envVars.hubFirebaseStorageBucket,
+  messagingSenderId: envVars.hubFirebaseMessagingSenderId,
+  appId: envVars.hubFirebaseAppId,
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
