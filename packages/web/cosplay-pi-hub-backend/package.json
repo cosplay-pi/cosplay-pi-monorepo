@@ -10,6 +10,7 @@
   "dependencies": {
     "@prisma/client": "^4.0.0",
     "cosplay-pi-device-hub-client-protocol": "workspace:*",
+    "cosplay-pi-ts-core": "workspace:*",
     "express": "^4.0.0",
     "firebase-admin": "^11.0.0"
   },

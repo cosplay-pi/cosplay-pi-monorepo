@@ -82,6 +82,13 @@
 		"eol-last": [
 			"warn",
 			"always"
+		],
+		"linebreak-style": [
+			"warn",
+			"unix"
+		],
+		"no-trailing-spaces": [
+			"warn"
 		]
 	}
 }
