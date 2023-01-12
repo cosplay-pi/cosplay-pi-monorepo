@@ -1,12 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import * as FirebaseApp from 'firebase/app';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom/client';
+
 import './index.css';
 import App from './App';
+import { envVars } from './env-vars';
 import reportWebVitals from './reportWebVitals';
-import { getEnvVars } from './get-env-vars';
-
-const envVars = getEnvVars();
 
 FirebaseApp.initializeApp({
   apiKey: envVars.hubFirebaseApiKey,
@@ -18,7 +17,7 @@ FirebaseApp.initializeApp({
 });
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById(`root`) as HTMLElement
 );
 root.render(
   <React.StrictMode>

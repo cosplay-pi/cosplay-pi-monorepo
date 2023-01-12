@@ -1,10 +1,10 @@
-import React from 'react';
 import * as FirebaseAuth from 'firebase/auth';
 import {
   useAuthState,
   useSignInWithGoogle,
   useSignOut,
 } from 'react-firebase-hooks/auth';
+
 import logo from './logo.svg';
 import './App.css';
 
