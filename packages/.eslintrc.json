@@ -4,12 +4,44 @@
 	"plugins": [
 		"@typescript-eslint",
 		"import",
-		"import-newlines"
+		"import-newlines",
+		"typescript-formatter"
 	],
 	"settings": {
 		"import/internal-regex": "(^cosplay-pi)|(^@prisma/client)"
 	},
 	"rules": {
+		"typescript-formatter/format": [
+			"warn",
+			{
+				"baseIndentSize": 0,
+				"indentSize": 2,
+				"tabSize": 2,
+				"newLineCharacter": "\n",
+				"convertTabsToSpaces": true,
+				"indentStyle": 2,
+				"trimTrailingWhitespace": true,
+				"insertSpaceAfterCommaDelimiter": true,
+				"insertSpaceAfterSemicolonInForStatements": true,
+				"insertSpaceBeforeAndAfterBinaryOperators": true,
+				"insertSpaceAfterConstructor": false,
+				"insertSpaceAfterKeywordsInControlFlowStatements": true,
+				"insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+				"insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+				"insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+				"insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+				"insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+				"insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+				"insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+				"insertSpaceAfterTypeAssertion": false,
+				"insertSpaceBeforeFunctionParenthesis": false,
+				"placeOpenBraceOnNewLineForFunctions": false,
+				"placeOpenBraceOnNewLineForControlBlocks": false,
+				"insertSpaceBeforeTypeAnnotation": false,
+				"indentMultiLineObjectLiteralBeginningOnBlankLine": false,
+				"semicolons": "insert"
+			}
+		],
 		"quotes": [
 			"warn",
 			"backtick"
@@ -82,13 +114,6 @@
 		"eol-last": [
 			"warn",
 			"always"
-		],
-		"linebreak-style": [
-			"warn",
-			"unix"
-		],
-		"no-trailing-spaces": [
-			"warn"
 		]
 	}
 }
