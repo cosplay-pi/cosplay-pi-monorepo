@@ -69,7 +69,7 @@ export const createAndVerifyDeviceSessionAsync = async (
     );
 
     await fetch(rejectRequestUrl.href);
-    
+
     throw new Error();
   }
 

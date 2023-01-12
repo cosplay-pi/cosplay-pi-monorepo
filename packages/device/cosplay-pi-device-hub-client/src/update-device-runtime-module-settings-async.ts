@@ -12,9 +12,9 @@ export const updateDeviceRuntimeModuleSettingsAsync = async ({
   deviceRuntimeModuleName: string;
   deviceRuntimeModuleSettings: unknown;
 }) => {
-  
+
   const deviceHubClientArgs = getDeviceHubClientArgs();
-  
+
   writeDeviceRuntimeModuleSettingsFile({
     deviceRuntimeModuleSettingsFilePath: getDeviceRuntimeModuleSettingsFilePath({
       deviceRuntimeModuleName,

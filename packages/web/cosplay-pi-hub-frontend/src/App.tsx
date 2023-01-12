@@ -16,7 +16,7 @@ function App() {
 
   const [signInWithGoogle] = useSignInWithGoogle(firebaseAuth);
   const [signOut] = useSignOut(firebaseAuth);
-  
+
   return (
     <div className="App">
       <header className="App-header">
@@ -32,6 +32,14 @@ function App() {
         </button>
         <button onClick={() => signOut()}>
           Sign out
+        </button>
+        <button
+          onClick={async () => {
+
+            console.log(await firebaseUser?.getIdToken());
+          }}
+        >
+          Test
         </button>
         <a
           className="App-link"

@@ -26,7 +26,7 @@ export const getDeviceId = () => {
     .createHash(`md5`)
     .update(devicePublicKeyAsDer)
     .digest(`hex`);
-  
+
   setDeviceCachedId(deviceId);
 
   return deviceId;

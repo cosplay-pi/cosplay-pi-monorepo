@@ -3,7 +3,7 @@ import { executeDeviceSessionCommandAsync } from './execute-device-session-comma
 import { fetchDeviceSessionNextPendingCommandInfoAsync } from './fetch-device-session-next-pending-command-info-async';
 import { waitAsync } from './wait_async';
 
-setInterval(() => { }, 1000);
+setInterval(() => {}, 1000);
 
 (async () => {
 
