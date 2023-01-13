@@ -11,7 +11,7 @@ import { TopBarLogoButton } from './top-bar-logo-button';
 import { TopBarMenuConfig } from './top-bar-menu-config';
 import { TopBarMobileMenu } from './top-bar-mobile-menu';
 import { TopBarMobileMenuToggle } from './top-bar-mobile-menu-toggle';
-import { TopBarSignInButton } from './top-bar-sign-in-button';
+import { TopBarUserMenu } from './top-bar-user-menu';
 
 export default function TopBar() {
 
@@ -91,7 +91,7 @@ export default function TopBar() {
           flex={1}
           justify={`end`}
         >
-          <TopBarSignInButton />
+          <TopBarUserMenu />
         </Flex>
       </Flex>
       <TopBarMobileMenu
