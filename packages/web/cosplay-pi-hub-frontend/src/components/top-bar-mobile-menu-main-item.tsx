@@ -33,12 +33,12 @@ export function TopBarMobileMenuMainItem({
       <Flex
         py={2}
         as={Link}
-        onClick={config.onClick}
         justify={`space-between`}
         align={`center`}
         _hover={{
           textDecoration: `none`,
         }}
+        onClick={config.onClick}
       >
         <Text
           fontWeight={600}
@@ -61,8 +61,8 @@ export function TopBarMobileMenuMainItem({
         }
       </Flex>
       <Collapse
-        in={subMenuState.isOpen}
         animateOpacity
+        in={subMenuState.isOpen}
         style={{ marginTop: `0!important` }}
       >
         <Stack

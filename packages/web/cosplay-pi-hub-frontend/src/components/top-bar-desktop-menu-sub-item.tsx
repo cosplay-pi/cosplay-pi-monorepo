@@ -19,12 +19,12 @@ export function TopBarDesktopMenuSubItem({
 
   return (
     <Link
-      onClick={config.onClick}
       role={`group`}
       display={`block`}
       p={2}
       rounded={`md`}
       _hover={{ bg: useColorModeValue(`pink.50`, `gray.900`) }}
+      onClick={config.onClick}
     >
       <Stack direction={`row`} align={`center`}>
         <Box>

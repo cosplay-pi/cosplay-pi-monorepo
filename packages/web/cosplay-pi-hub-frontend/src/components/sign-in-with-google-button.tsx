@@ -13,9 +13,9 @@ export default function SignInWithGoogleButton({
 
   return (
     <Button
-      onClick={onClick}
       variant={`outline`}
       leftIcon={<FcGoogle />}
+      onClick={onClick}
     >
       <Center>
         <Text>Sign in with Google</Text>

@@ -143,6 +143,18 @@
           {
             "prevent": true
           }
+        ],
+        "react/jsx-sort-props": [
+          "warn",
+          {
+            "callbacksLast": true,
+            "ignoreCase": true,
+            "shorthandFirst": true,
+            "shorthandLast": false,
+            "multiline": "ignore",
+            "noSortAlphabetically": true,
+            "reservedFirst": true
+          }
         ]
       }
     }

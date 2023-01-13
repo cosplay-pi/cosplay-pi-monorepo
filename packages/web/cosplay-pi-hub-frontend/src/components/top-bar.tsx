@@ -74,7 +74,6 @@ export default function TopBar() {
         >
           <IconButton
             ml={-2}
-            onClick={mobileMenuState.onToggle}
             icon={
               mobileMenuState.isOpen
                 ? <Icon as={CgClose} boxSize={3} />
@@ -82,6 +81,7 @@ export default function TopBar() {
             }
             variant={`ghost`}
             aria-label={`Toggle Menu`}
+            onClick={mobileMenuState.onToggle}
           />
         </Flex>
         <Flex
@@ -131,7 +131,7 @@ export default function TopBar() {
           </Button>
         </Flex>
       </Flex>
-      <Collapse in={mobileMenuState.isOpen} animateOpacity>
+      <Collapse animateOpacity in={mobileMenuState.isOpen}>
         <TopBarMobileMenu config={menuConfig} />
       </Collapse>
     </Box>

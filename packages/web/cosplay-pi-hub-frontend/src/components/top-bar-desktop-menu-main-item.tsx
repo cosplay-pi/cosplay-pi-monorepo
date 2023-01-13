@@ -23,7 +23,6 @@ export function TopBarDesktopMenuMainItem({
         <PopoverTrigger>
           <Link
             p={2}
-            onClick={config.onClick}
             fontSize={`sm`}
             fontWeight={500}
             color={useColorModeValue(`gray.600`, `gray.200`)}
@@ -31,6 +30,7 @@ export function TopBarDesktopMenuMainItem({
               textDecoration: `none`,
               color: useColorModeValue(`gray.800`, `white`),
             }}
+            onClick={config.onClick}
           >
             {config.labelText}
           </Link>
