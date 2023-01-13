@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-export function TopBarSignInButton() {
+export function TopBarActiveUserMenuSignInButton() {
 
   const navigate = useNavigate();
 

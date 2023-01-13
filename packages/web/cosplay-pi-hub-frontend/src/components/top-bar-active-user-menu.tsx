@@ -11,16 +11,16 @@ import {
 
 import { useActiveUserInfo } from "./hooks/use-active-user-info";
 import { useSignOutActiveUser } from "./hooks/use-sign-out-active-user";
-import { TopBarSignInButton } from "./top-bar-sign-in-button";
+import { TopBarActiveUserMenuSignInButton } from "./top-bar-active-user-menu-sign-in-button";
 
-export function TopBarUserMenu() {
+export function TopBarActiveUserMenu() {
 
   const { activeUserInfo } = useActiveUserInfo();
   const { signOutActiveUser } = useSignOutActiveUser();
 
   if (activeUserInfo === undefined) {
 
-    return <TopBarSignInButton />;
+    return <TopBarActiveUserMenuSignInButton />;
   }
 
   return (

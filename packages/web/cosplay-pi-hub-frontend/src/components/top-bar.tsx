@@ -6,12 +6,12 @@ import {
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
+import { TopBarActiveUserMenu } from './top-bar-active-user-menu';
 import { TopBarDesktopMenu } from './top-bar-desktop-menu';
 import { TopBarLogoButton } from './top-bar-logo-button';
 import { TopBarMenuConfig } from './top-bar-menu-config';
 import { TopBarMobileMenu } from './top-bar-mobile-menu';
 import { TopBarMobileMenuToggle } from './top-bar-mobile-menu-toggle';
-import { TopBarUserMenu } from './top-bar-user-menu';
 
 export default function TopBar() {
 
@@ -92,7 +92,7 @@ export default function TopBar() {
           flex={1}
           justify={`end`}
         >
-          <TopBarUserMenu />
+          <TopBarActiveUserMenu />
         </Flex>
       </Flex>
       <TopBarMobileMenu
