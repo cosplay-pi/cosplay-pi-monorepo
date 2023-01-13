@@ -1,29 +1,23 @@
 import {
   Box,
-  Button,
-  Collapse,
   Flex,
-  Icon,
-  IconButton,
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
-import {
-  CgClose,
-  CgMenu,
-  CgSmartphoneChip,
-} from "react-icons/cg";
 import { useNavigate } from 'react-router-dom';
 
 import { TopBarDesktopMenu } from './top-bar-desktop-menu';
+import { TopBarLogoButton } from './top-bar-logo-button';
 import { TopBarMenuConfig } from './top-bar-menu-config';
 import { TopBarMobileMenu } from './top-bar-mobile-menu';
+import { TopBarMobileMenuToggle } from './top-bar-mobile-menu-toggle';
+import { TopBarSignInButton } from './top-bar-sign-in-button';
 
 export default function TopBar() {
 
   const navigate = useNavigate();
 
-  const mobileMenuState = useDisclosure();
+  const mobileMenuDisclosure = useDisclosure();
 
   const menuConfig: TopBarMenuConfig = {
     mainItems: [
@@ -72,16 +66,8 @@ export default function TopBar() {
           flex={1}
           justify={`start`}
         >
-          <IconButton
-            ml={-2}
-            icon={
-              mobileMenuState.isOpen
-                ? <Icon as={CgClose} boxSize={3} />
-                : <Icon as={CgMenu} boxSize={5} />
-            }
-            variant={`ghost`}
-            aria-label={`Toggle Menu`}
-            onClick={mobileMenuState.onToggle}
+          <TopBarMobileMenuToggle
+            mobileMenuDisclosure={mobileMenuDisclosure}
           />
         </Flex>
         <Flex
@@ -90,19 +76,7 @@ export default function TopBar() {
             md: `start`,
           }}
         >
-          <IconButton
-            icon={(
-              <Icon
-                as={CgSmartphoneChip}
-                boxSize={6}
-                color={useColorModeValue(`gray.800`, `white`)}
-              />
-            )}
-            size={`xs`}
-            aria-label={`Cosplay Pi Hub`}
-            variant={`unstyled`}
-            onClick={() => { navigate(`/`); }}
-          />
+          <TopBarLogoButton />
           <Flex
             display={{
               base: `none`,
@@ -117,23 +91,13 @@ export default function TopBar() {
           flex={1}
           justify={`end`}
         >
-          <Button
-            fontSize={`sm`}
-            fontWeight={600}
-            color={`white`}
-            bg={`pink.400`}
-            _hover={{
-              bg: `pink.300`,
-            }}
-            onClick={() => { navigate(`/sign-in`); }}
-          >
-            Sign In
-          </Button>
+          <TopBarSignInButton />
         </Flex>
       </Flex>
-      <Collapse animateOpacity in={mobileMenuState.isOpen}>
-        <TopBarMobileMenu config={menuConfig} />
-      </Collapse>
+      <TopBarMobileMenu
+        config={menuConfig}
+        isOpen={mobileMenuDisclosure.isOpen}
+      />
     </Box>
   );
 }
