@@ -16,8 +16,9 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-import { useActiveUserInfo } from "./hooks/use-active-user-info";
-import { useSignOutActiveUser } from "./hooks/use-sign-out-active-user";
+import { useActiveUserInfo } from "../hooks/use-active-user-info";
+import { useSignOutActiveUser } from "../hooks/use-sign-out-active-user";
+
 import { TopBarActiveUserMenuSignInButton } from "./top-bar-active-user-menu-sign-in-button";
 
 export function TopBarActiveUserMenu() {

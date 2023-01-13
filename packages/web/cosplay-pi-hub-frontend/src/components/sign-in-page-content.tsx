@@ -4,8 +4,9 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-import { useNavigateToHomePageIfActiveUserExistsEffect } from './hooks/use-navigate-to-home-page-if-active-user-exists-effect';
-import { useSignInActiveUserWithGoogle } from './hooks/use-sign-in-active-user-with-google';
+import { useNavigateToHomePageIfActiveUserExistsEffect } from '../hooks/use-navigate-to-home-page-if-active-user-exists-effect';
+import { useSignInActiveUserWithGoogle } from '../hooks/use-sign-in-active-user-with-google';
+
 import SignInWithGoogleButton from './sign-in-with-google-button';
 
 export function SignInPageContent() {
