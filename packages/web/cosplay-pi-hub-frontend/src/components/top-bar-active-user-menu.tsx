@@ -7,6 +7,13 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  Modal,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
 } from "@chakra-ui/react";
 
 import { useActiveUserInfo } from "./hooks/use-active-user-info";
@@ -17,6 +24,8 @@ export function TopBarActiveUserMenu() {
 
   const { activeUserInfo } = useActiveUserInfo();
   const { signOutActiveUser } = useSignOutActiveUser();
+
+  const signOutModalDisclosure = useDisclosure();
 
   if (activeUserInfo === undefined) {
 
@@ -41,15 +50,45 @@ export function TopBarActiveUserMenu() {
           />
         </MenuButton>
         <MenuList>
-          <MenuItem>Account settings</MenuItem>
+          <MenuItem>
+            Account settings
+          </MenuItem>
           <MenuDivider />
           <MenuItem
-            onClick={() => signOutActiveUser()}
+            onClick={() => signOutModalDisclosure.onOpen()}
           >
             Logout
           </MenuItem>
         </MenuList>
       </Menu>
+      <Modal
+        isOpen={signOutModalDisclosure.isOpen}
+        onClose={signOutModalDisclosure.onClose}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Are you sure you want to sign out?</ModalHeader>
+          <ModalCloseButton />
+          <ModalFooter>
+            <Button
+              colorScheme={`red`}
+              mr={3}
+              onClick={() => {
+
+                signOutActiveUser();
+                signOutModalDisclosure.onClose();
+              }}
+            >
+              Sign Out
+            </Button>
+            <Button variant='ghost'
+              onClick={signOutModalDisclosure.onClose}
+            >
+              Cancel
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Flex>
   );
 }
