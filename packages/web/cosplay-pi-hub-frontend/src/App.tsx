@@ -1,57 +1,31 @@
-import * as FirebaseAuth from 'firebase/auth';
 import {
-  useAuthState,
-  useSignInWithGoogle,
-  useSignOut,
-} from 'react-firebase-hooks/auth';
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 
-import logo from './logo.svg';
-import './App.css';
+import { RootPage } from "./components/root-page";
+import { TestPage } from "./components/test-page";
+import { WrongPage } from "./components/wrong-page";
 
-function App() {
+export function App() {
 
-  const firebaseAuth = FirebaseAuth.getAuth();
+  const router = createBrowserRouter([
+    {
+      path: `/`,
+      element: <RootPage />,
+      errorElement: <WrongPage />,
+      children: [
+        {
+          path: ``,
+          element: <TestPage />,
+        },
+        {
+          path: `login`,
+          element: <div>Login</div>,
+        },
+      ],
+    },
+  ]);
 
-  const [firebaseUser] = useAuthState(firebaseAuth);
-
-  const [signInWithGoogle] = useSignInWithGoogle(firebaseAuth);
-  const [signOut] = useSignOut(firebaseAuth);
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          {firebaseUser?.email ?? `None`}
-        </p>
-        <button onClick={() => signInWithGoogle()}>
-          Sign in
-        </button>
-        <button onClick={() => signOut()}>
-          Sign out
-        </button>
-        <button
-          onClick={async () => {
-
-            console.log(await firebaseUser?.getIdToken());
-          }}
-        >
-          Test
-        </button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
-
-export default App;

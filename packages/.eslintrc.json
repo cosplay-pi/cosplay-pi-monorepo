@@ -11,7 +11,8 @@
         "@typescript-eslint",
         "import",
         "import-newlines",
-        "typescript-formatter"
+        "typescript-formatter",
+        "react"
       ],
       "settings": {
         "import/internal-regex": "(^cosplay-pi)|(^@prisma/client)"
@@ -120,6 +121,28 @@
         "eol-last": [
           "warn",
           "always"
+        ],
+        "react/jsx-wrap-multilines": [
+          "warn",
+          {
+            "declaration": "parens-new-line",
+            "assignment": "parens-new-line",
+            "return": "parens-new-line",
+            "arrow": "parens-new-line",
+            "condition": "parens-new-line",
+            "logical": "parens-new-line",
+            "prop": "parens-new-line"
+          }
+        ],
+        "react/jsx-closing-bracket-location": [
+          "warn",
+          "tag-aligned"
+        ],
+        "react/jsx-newline": [
+          "warn",
+          {
+            "prevent": true
+          }
         ]
       }
     }
