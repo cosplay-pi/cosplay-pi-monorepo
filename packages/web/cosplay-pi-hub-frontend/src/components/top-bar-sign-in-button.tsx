@@ -14,7 +14,7 @@ export function TopBarSignInButton() {
       _hover={{
         bg: `pink.300`,
       }}
-      onClick={() => { navigate(`/sign-in`); }}
+      onClick={() => navigate(`/sign-in`)}
     >
       Sign In
     </Button>

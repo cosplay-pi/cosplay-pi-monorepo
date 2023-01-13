@@ -3,38 +3,16 @@ import {
   Stack,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { useEffect } from 'react';
-import {
-  useAuthState,
-  useSignInWithGoogle,
-} from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
 
-import { useFirebaseAuth } from './hooks/use-firebase-auth';
+import { useNavigateToHomePageIfActiveUserExistsEffect } from './hooks/use-navigate-to-home-page-if-active-user-exists-effect';
+import { useSignInActiveUserWithGoogle } from './hooks/use-sign-in-active-user-with-google';
 import SignInWithGoogleButton from './sign-in-with-google-button';
 
 export function SignInPageContent() {
 
-  const navigate = useNavigate();
+  const { signInActiveUserWithGoogle } = useSignInActiveUserWithGoogle();
 
-  const firebaseAuth = useFirebaseAuth();
-
-  const [firebaseUser] = useAuthState(firebaseAuth);
-
-  const [signInWithGoogle] = useSignInWithGoogle(firebaseAuth);
-
-  useEffect(
-    () => {
-
-      if (firebaseUser !== undefined && firebaseUser !== null) {
-
-        navigate(`/`);
-      }
-    },
-    [
-      firebaseUser,
-    ],
-  );
+  useNavigateToHomePageIfActiveUserExistsEffect();
 
   return (
     <Center
@@ -51,7 +29,7 @@ export function SignInPageContent() {
         p={8}
         spacing={4}
       >
-        <SignInWithGoogleButton onClick={() => signInWithGoogle()} />
+        <SignInWithGoogleButton onClick={() => signInActiveUserWithGoogle()} />
       </Stack>
     </Center>
   );

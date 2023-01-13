@@ -8,23 +8,17 @@ import {
   MenuItem,
   MenuList,
 } from "@chakra-ui/react";
-import {
-  useAuthState,
-  useSignOut,
-} from "react-firebase-hooks/auth";
 
-import { useFirebaseAuth } from "./hooks/use-firebase-auth";
+import { useActiveUserInfo } from "./hooks/use-active-user-info";
+import { useSignOutActiveUser } from "./hooks/use-sign-out-active-user";
 import { TopBarSignInButton } from "./top-bar-sign-in-button";
 
 export function TopBarUserMenu() {
 
-  const firebaseAuth = useFirebaseAuth();
+  const { activeUserInfo } = useActiveUserInfo();
+  const { signOutActiveUser } = useSignOutActiveUser();
 
-  const [firebaseUser] = useAuthState(firebaseAuth);
-
-  const [signOut] = useSignOut(firebaseAuth);
-
-  if (firebaseUser === undefined || firebaseUser === null) {
+  if (activeUserInfo === undefined) {
 
     return <TopBarSignInButton />;
   }
@@ -50,7 +44,7 @@ export function TopBarUserMenu() {
           <MenuItem>Account settings</MenuItem>
           <MenuDivider />
           <MenuItem
-            onClick={() => signOut()}
+            onClick={() => signOutActiveUser()}
           >
             Logout
           </MenuItem>

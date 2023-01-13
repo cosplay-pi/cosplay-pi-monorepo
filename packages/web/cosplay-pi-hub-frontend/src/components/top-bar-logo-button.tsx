@@ -22,7 +22,7 @@ export function TopBarLogoButton() {
       size={`xs`}
       aria-label={`Cosplay Pi Hub`}
       variant={`unstyled`}
-      onClick={() => { navigate(`/`); }}
+      onClick={() => navigate(`/`)}
     />
   );
 }

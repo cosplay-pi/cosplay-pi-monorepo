@@ -23,7 +23,7 @@ export default function TopBar() {
     mainItems: [
       {
         labelText: `Home`,
-        onClick: () => { navigate(`/`); },
+        onClick: () => navigate(`/`),
       },
       {
         labelText: `Devices`,
@@ -31,6 +31,7 @@ export default function TopBar() {
           {
             labelText: `My Devices`,
             subLabelText: `View and manage your devices`,
+            onClick: () => navigate(`/user-devices`),
           },
           {
             labelText: `Add Device`,
@@ -40,7 +41,7 @@ export default function TopBar() {
       },
       {
         labelText: `Test`,
-        onClick: () => { navigate(`/test`); },
+        onClick: () => navigate(`/test`),
       },
     ],
   };
