@@ -3,7 +3,9 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 
+import { HomePageContent } from "./components/home-page-content";
 import { RootPage } from "./components/root-page";
+import { SignInPageContent } from "./components/sign-in-page-content";
 import { TestPage } from "./components/test-page";
 import { WrongPage } from "./components/wrong-page";
 
@@ -17,11 +19,15 @@ export function App() {
       children: [
         {
           path: ``,
-          element: <TestPage />,
+          element: <HomePageContent />,
         },
         {
-          path: `login`,
-          element: <div>Login</div>,
+          path: `sign-in`,
+          element: <SignInPageContent />,
+        },
+        {
+          path: `test`,
+          element: <TestPage />,
         },
       ],
     },

@@ -13,18 +13,23 @@ import {
   CgMenu,
   CgSmartphoneChip,
 } from "react-icons/cg";
+import { useNavigate } from 'react-router-dom';
 
 import { TopBarDesktopMenu } from './top-bar-desktop-menu';
 import { TopBarMenuConfig } from './top-bar-menu-config';
 import { TopBarMobileMenu } from './top-bar-mobile-menu';
 
 export default function TopBar() {
+
+  const navigate = useNavigate();
+
   const mobileMenuState = useDisclosure();
 
   const menuConfig: TopBarMenuConfig = {
     mainItems: [
       {
         labelText: `Home`,
+        onClick: () => { navigate(`/`); },
       },
       {
         labelText: `Devices`,
@@ -38,6 +43,10 @@ export default function TopBar() {
             subLabelText: `Add a new device`,
           },
         ],
+      },
+      {
+        labelText: `Test`,
+        onClick: () => { navigate(`/test`); },
       },
     ],
   };
@@ -55,32 +64,44 @@ export default function TopBar() {
         borderColor={useColorModeValue(`gray.200`, `gray.900`)}
         align={`center`}
       >
-        <IconButton
+        <Flex
           display={{
             base: `flex`,
             md: `none`,
           }}
-          ml={-2}
-          onClick={mobileMenuState.onToggle}
-          icon={
-            mobileMenuState.isOpen
-              ? <Icon as={CgClose} boxSize={3} />
-              : <Icon as={CgMenu} boxSize={5} />
-          }
-          variant={`ghost`}
-          aria-label={`Toggle Menu`}
-        />
-        <Flex
           flex={1}
+          justify={`start`}
+        >
+          <IconButton
+            ml={-2}
+            onClick={mobileMenuState.onToggle}
+            icon={
+              mobileMenuState.isOpen
+                ? <Icon as={CgClose} boxSize={3} />
+                : <Icon as={CgMenu} boxSize={5} />
+            }
+            variant={`ghost`}
+            aria-label={`Toggle Menu`}
+          />
+        </Flex>
+        <Flex
           justify={{
             base: `center`,
             md: `start`,
           }}
         >
-          <Icon
-            as={CgSmartphoneChip}
-            boxSize={6}
-            color={useColorModeValue(`gray.800`, `white`)}
+          <IconButton
+            icon={(
+              <Icon
+                as={CgSmartphoneChip}
+                boxSize={6}
+                color={useColorModeValue(`gray.800`, `white`)}
+              />
+            )}
+            size={`xs`}
+            aria-label={`Cosplay Pi Hub`}
+            variant={`unstyled`}
+            onClick={() => { navigate(`/`); }}
           />
           <Flex
             display={{
@@ -92,17 +113,23 @@ export default function TopBar() {
             <TopBarDesktopMenu config={menuConfig} />
           </Flex>
         </Flex>
-        <Button
-          fontSize={`sm`}
-          fontWeight={600}
-          color={`white`}
-          bg={`pink.400`}
-          _hover={{
-            bg: `pink.300`,
-          }}
+        <Flex
+          flex={1}
+          justify={`end`}
         >
-          Sign In
-        </Button>
+          <Button
+            fontSize={`sm`}
+            fontWeight={600}
+            color={`white`}
+            bg={`pink.400`}
+            _hover={{
+              bg: `pink.300`,
+            }}
+            onClick={() => { navigate(`/sign-in`); }}
+          >
+            Sign In
+          </Button>
+        </Flex>
       </Flex>
       <Collapse in={mobileMenuState.isOpen} animateOpacity>
         <TopBarMobileMenu config={menuConfig} />
