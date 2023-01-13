@@ -38,8 +38,7 @@ export function SignInPageContent() {
 
   return (
     <Center
-      minW={`100vw`}
-      minH={`100vh`}
+      h={`100%`}
     >
       <Stack
         minW={{

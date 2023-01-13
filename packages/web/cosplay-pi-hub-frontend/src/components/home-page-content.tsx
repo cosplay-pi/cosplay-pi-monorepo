@@ -7,8 +7,7 @@ export function HomePageContent() {
 
   return (
     <Center
-      minW={`100vw`}
-      minH={`100vh`}
+      h={`100%`}
     >
       <Text fontSize={`2xl`}>Welcome to Cosplay Pi Hub!</Text>
     </Center>

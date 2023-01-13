@@ -3,6 +3,7 @@ import {
   Button,
   ButtonGroup,
   Center,
+  Stack,
   Text,
 } from '@chakra-ui/react';
 import * as FirebaseAuth from 'firebase/auth';
@@ -23,7 +24,10 @@ export function TestPage() {
 
 
   return (
-    <Box>
+    <Stack
+      h={`100%`}
+      justify={`center`}
+    >
       <Center>
         <Box>
           <Text>
@@ -49,6 +53,6 @@ export function TestPage() {
           </Button>
         </ButtonGroup>
       </Center>
-    </Box>
+    </Stack>
   );
 }

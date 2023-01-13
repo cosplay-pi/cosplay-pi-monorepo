@@ -1,4 +1,7 @@
-import { Box } from "@chakra-ui/react";
+import {
+  Box,
+  Stack,
+} from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 
 import TopBar from "./top-bar";
@@ -6,9 +9,19 @@ import TopBar from "./top-bar";
 export function RootPage() {
 
   return (
-    <Box>
+    <Stack
+      w={`100vw`}
+      h={`100vh`}
+      spacing={0}
+      direction={`column`}
+    >
       <TopBar />
-      <Outlet />
-    </Box>
+      <Box
+        flex={1}
+        overflowY={`auto`}
+      >
+        <Outlet />
+      </Box>
+    </Stack>
   );
 }
