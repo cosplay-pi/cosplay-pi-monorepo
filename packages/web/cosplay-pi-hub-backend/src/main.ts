@@ -3,7 +3,10 @@ import * as path from 'path';
 
 import * as FirebaseAdmin from 'firebase-admin';
 
-import { envVars } from './env-vars';
+import {
+  hubBackendPort,
+  hubFirebaseServiceAccountCredentialsFilePath,
+} from './env';
 import { hubBackendExpressApp } from './hub-backend-express-app';
 
 import './confirm-device-session-async';
@@ -21,7 +24,7 @@ import './reject-device-session-async';
 const hubFirebaseServiceAccountCredentials = JSON.parse(
   fs.readFileSync(
     path.resolve(
-      envVars.hubFirebaseServiceAccountCredentialsFilePath,
+      hubFirebaseServiceAccountCredentialsFilePath,
     ),
     `utf8`,
   ),
@@ -34,12 +37,12 @@ FirebaseAdmin.initializeApp({
 });
 
 hubBackendExpressApp.listen(
-  envVars.hubBackendPort,
+  hubBackendPort,
   async () => {
 
     console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`);
     console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`);
-    console.log(`✔✔✔✔✔✔✔ cosplay-pi-hub-backend working at port ${envVars.hubBackendPort} ✔✔✔✔✔✔✔`);
+    console.log(`✔✔✔✔✔✔✔ cosplay-pi-hub-backend working at port ${hubBackendPort} ✔✔✔✔✔✔✔`);
     console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`);
     console.log(`✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔`);
   },

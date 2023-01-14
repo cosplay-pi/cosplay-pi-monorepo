@@ -10,19 +10,27 @@ import * as ReactDOM from 'react-dom/client';
 import { setHubBackendClientConfig } from 'cosplay-pi-hub-backend-client';
 
 import { App } from './app';
-import { envVars } from './env-vars';
+import {
+  hubBackendUrl,
+  hubFirebaseApiKey,
+  hubFirebaseAppId,
+  hubFirebaseAuthDomain,
+  hubFirebaseMessagingSenderId,
+  hubFirebaseProjectId,
+  hubFirebaseStorageBucket,
+} from './env';
 
 setHubBackendClientConfig({
-  hubBackendUrl: envVars.hubBackendUrl,
+  hubBackendUrl,
 });
 
 FirebaseApp.initializeApp({
-  apiKey: envVars.hubFirebaseApiKey,
-  authDomain: envVars.hubFirebaseAuthDomain,
-  projectId: envVars.hubFirebaseProjectId,
-  storageBucket: envVars.hubFirebaseStorageBucket,
-  messagingSenderId: envVars.hubFirebaseMessagingSenderId,
-  appId: envVars.hubFirebaseAppId,
+  apiKey: hubFirebaseApiKey,
+  authDomain: hubFirebaseAuthDomain,
+  projectId: hubFirebaseProjectId,
+  storageBucket: hubFirebaseStorageBucket,
+  messagingSenderId: hubFirebaseMessagingSenderId,
+  appId: hubFirebaseAppId,
 });
 
 const root = ReactDOM.createRoot(
