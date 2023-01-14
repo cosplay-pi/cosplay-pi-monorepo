@@ -1,6 +1,6 @@
 import { DeviceSessionState } from "./device-session-state";
 
-export type FetchDeviceSessionState = ({
+export type FetchDeviceSessionStateAsync = ({
 }: {
   userIdToken: string;
   deviceSessionId: string;

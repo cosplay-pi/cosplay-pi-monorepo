@@ -1,6 +1,6 @@
 import { DeviceCommandPayload } from "./device-command-payload";
 
-export type PushDeviceSessionCommand = ({
+export type PushDeviceSessionCommandAsync = ({
 }: {
   userIdToken: string;
   deviceSessionId: string;

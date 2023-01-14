@@ -1,4 +1,4 @@
-export type FetchUserDevicesInfo = ({
+export type FetchUserDevicesInfoAsync = ({
 }: {
   userIdToken: string;
 }) => Promise<{

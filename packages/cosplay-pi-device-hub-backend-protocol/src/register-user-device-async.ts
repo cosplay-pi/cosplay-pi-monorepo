@@ -1,4 +1,4 @@
-export type RegisterUserDevice = ({
+export type RegisterUserDeviceAsync = ({
 }: {
   userIdToken: string;
   userDevicePrivateKeyKty: string;

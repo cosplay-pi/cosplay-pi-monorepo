@@ -1,6 +1,5 @@
-export type OnDeviceSessionCommandFinished = ({
+export type RejectDeviceSessionAsync = ({
 }: {
   deviceSessionId: string;
   deviceSessionAccessToken: string;
-  deviceSessionCommandId: string;
 }) => Promise<void>;

@@ -1,4 +1,4 @@
-export type FetchDeviceActiveSessionId = ({
+export type FetchDeviceActiveSessionIdAsync = ({
 }: {
   userIdToken: string;
   deviceId: string;

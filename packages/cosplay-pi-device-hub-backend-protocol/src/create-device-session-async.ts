@@ -1,4 +1,4 @@
-export type CreateDeviceSession = ({
+export type CreateDeviceSessionAsync = ({
 }: {
   deviceId: string;
   deviceSessionEncryptedNonce: string;

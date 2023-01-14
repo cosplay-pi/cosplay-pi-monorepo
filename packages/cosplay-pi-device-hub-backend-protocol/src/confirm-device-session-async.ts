@@ -1,4 +1,4 @@
-export type ConfirmDeviceSession = ({
+export type ConfirmDeviceSessionAsync = ({
 }: {
   deviceSessionId: string;
   deviceSessionAccessToken: string;
