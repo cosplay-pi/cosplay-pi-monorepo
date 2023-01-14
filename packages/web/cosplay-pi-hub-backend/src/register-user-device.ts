@@ -1,8 +1,9 @@
 import * as crypto from 'crypto';
 
+import { RegisterUserDeviceAsync } from 'cosplay-pi-device-hub-backend-protocol';
 import { $declareExp } from 'cosplay-pi-ts-core';
 
-import { $exportHubBackendFunc } from './$export-hub-backend-func';
+import { $exportHubBackendAsyncFunc } from './$export-hub-backend-async-func';
 import { fetchUserAuthInfoAsync } from './fetch-user-auth-info-async';
 import { getDeviceId } from './get-device-id';
 import { getDevicePublicKey } from './get-device-public-key';
@@ -10,7 +11,7 @@ import { prismaClient } from './prisma-client';
 import { UserDeviceIsAlreadyRegistered } from './user-device-is-already-registered';
 import { UserDevicePrivateKeyIsNotValid } from './user-device-private-key-is-not-valid';
 
-$exportHubBackendFunc(
+$exportHubBackendAsyncFunc<RegisterUserDeviceAsync>(
   `register-user-device`,
   async ({
     userIdToken,
@@ -23,17 +24,6 @@ $exportHubBackendFunc(
     userDevicePrivateKeyDp,
     userDevicePrivateKeyDq,
     userDevicePrivateKeyQi,
-  }: {
-    userIdToken: string;
-    userDevicePrivateKeyKty: string;
-    userDevicePrivateKeyN: string;
-    userDevicePrivateKeyE: string;
-    userDevicePrivateKeyD: string;
-    userDevicePrivateKeyP: string;
-    userDevicePrivateKeyQ: string;
-    userDevicePrivateKeyDp: string;
-    userDevicePrivateKeyDq: string;
-    userDevicePrivateKeyQi: string;
   }): Promise<{ userDeviceId: string; }> => {
 
     const userAuthInfo = await fetchUserAuthInfoAsync({

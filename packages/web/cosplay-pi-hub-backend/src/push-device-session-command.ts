@@ -2,23 +2,20 @@ import {
   DeviceSessionCommandStatus,
   DeviceSessionStatus,
 } from "@prisma/client";
+import { PushDeviceSessionCommandAsync } from "cosplay-pi-device-hub-backend-protocol";
 
-import { $exportHubBackendFunc } from "./$export-hub-backend-func";
+import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
 import { DeviceSessionDoesNotExist } from "./device-session-does-not-exist";
 import { DeviceSessionIsNotConfirmed } from "./device-session-is-not-confirmed";
 import { fetchUserAuthInfoAsync } from "./fetch-user-auth-info-async";
 import { prismaClient } from "./prisma-client";
 
-$exportHubBackendFunc(
+$exportHubBackendAsyncFunc<PushDeviceSessionCommandAsync>(
   `push-device-session-command`,
   async ({
     userIdToken,
     deviceSessionId,
-    deviceSessionCommandPayloadAsJson,
-  }: {
-    userIdToken: string;
-    deviceSessionId: string;
-    deviceSessionCommandPayloadAsJson: string;
+    deviceSessionCommandPayload,
   }) => {
 
     const userAuthInfo = await fetchUserAuthInfoAsync({ userIdToken });
@@ -47,14 +44,12 @@ $exportHubBackendFunc(
       throw new DeviceSessionIsNotConfirmed();
     }
 
-    // TODO: Check payloadAsJson validity
-
     await prismaClient.$transaction([
       prismaClient.deviceSessionCommand.create({
         data: {
           deviceSessionId: deviceSessionId,
           status: DeviceSessionCommandStatus.Pending,
-          payloadAsJson: deviceSessionCommandPayloadAsJson,
+          payloadAsJson: JSON.stringify(deviceSessionCommandPayload),
         },
       }),
       prismaClient.deviceSession.update({

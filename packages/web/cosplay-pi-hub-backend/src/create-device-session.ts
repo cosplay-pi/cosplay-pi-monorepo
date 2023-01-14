@@ -1,18 +1,17 @@
 import * as crypto from 'crypto';
 
-import { $exportHubBackendFunc } from "./$export-hub-backend-func";
+import { CreateDeviceSessionAsync } from 'cosplay-pi-device-hub-backend-protocol';
+
+import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
 import { DeviceDoesNotExist } from "./device-does-not-exist";
 import { generateDeviceSessionAccessToken } from './generate-device-session-access-token';
 import { prismaClient } from "./prisma-client";
 
-$exportHubBackendFunc(
+$exportHubBackendAsyncFunc<CreateDeviceSessionAsync>(
   `create-device-session`,
   async ({
     deviceId,
     deviceSessionEncryptedNonce,
-  }: {
-    deviceId: string;
-    deviceSessionEncryptedNonce: string;
   }) => {
 
     const deviceDbInfo = await prismaClient.device.findFirst({

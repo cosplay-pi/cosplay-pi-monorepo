@@ -2,22 +2,22 @@ import {
   DeviceSessionCommandStatus,
   DeviceSessionStatus,
 } from "@prisma/client";
-import { DeviceCommandInfo } from "cosplay-pi-device-hub-backend-protocol";
+import {
+  DeviceCommandInfo,
+  FetchDeviceSessionNextPendingCommandInfoAsync,
+} from "cosplay-pi-device-hub-backend-protocol";
 
-import { $exportHubBackendFunc } from "./$export-hub-backend-func";
+import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
 import { DeviceSessionAccessTokenIsNotValid } from "./device-session-access-token-is-not-valid";
 import { DeviceSessionDoesNotExist } from "./device-session-does-not-exist";
 import { DeviceSessionIsNotConfirmed } from "./device-session-is-not-confirmed";
 import { prismaClient } from "./prisma-client";
 
-$exportHubBackendFunc(
+$exportHubBackendAsyncFunc<FetchDeviceSessionNextPendingCommandInfoAsync>(
   `fetch-device-session-next-pending-command-info`,
   async ({
     deviceSessionId,
     deviceSessionAccessToken,
-  }: {
-    deviceSessionId: string;
-    deviceSessionAccessToken: string;
   }) => {
 
     const deviceSessionDbInfo = await prismaClient.deviceSession.findFirst({

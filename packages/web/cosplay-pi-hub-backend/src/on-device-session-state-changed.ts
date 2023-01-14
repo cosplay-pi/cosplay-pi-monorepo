@@ -1,21 +1,18 @@
 import { DeviceSessionStatus } from "@prisma/client";
+import { OnDeviceSessionStateChangedAsync } from "cosplay-pi-device-hub-backend-protocol";
 
-import { $exportHubBackendFunc } from "./$export-hub-backend-func";
+import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
 import { DeviceSessionAccessTokenIsNotValid } from "./device-session-access-token-is-not-valid";
 import { DeviceSessionDoesNotExist } from "./device-session-does-not-exist";
 import { DeviceSessionIsNotConfirmed } from "./device-session-is-not-confirmed";
 import { prismaClient } from "./prisma-client";
 
-$exportHubBackendFunc(
+$exportHubBackendAsyncFunc<OnDeviceSessionStateChangedAsync>(
   `on-device-session-state-changed`,
   async ({
     deviceSessionId,
     deviceSessionAccessToken,
-    deviceSessionStateAsJson,
-  }: {
-    deviceSessionId: string;
-    deviceSessionAccessToken: string;
-    deviceSessionStateAsJson: string;
+    deviceSessionState,
   }) => {
 
     const deviceSessionLastDbInfo = await prismaClient.deviceSession.findFirst({
@@ -45,14 +42,12 @@ $exportHubBackendFunc(
       throw new DeviceSessionIsNotConfirmed();
     }
 
-    // TODO: Check stateAsJson validity
-
     await prismaClient.deviceSession.update({
       where: {
         id: deviceSessionId,
       },
       data: {
-        stateAsJson: deviceSessionStateAsJson,
+        stateAsJson: JSON.stringify(deviceSessionState),
         lastActivityDateTime: new Date(),
       },
     });

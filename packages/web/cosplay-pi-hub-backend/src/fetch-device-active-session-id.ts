@@ -1,16 +1,15 @@
-import { $exportHubBackendFunc } from "./$export-hub-backend-func";
+import { FetchDeviceActiveSessionIdAsync } from "cosplay-pi-device-hub-backend-protocol";
+
+import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
 import { DeviceDoesNotExist } from "./device-does-not-exist";
 import { fetchUserAuthInfoAsync } from "./fetch-user-auth-info-async";
 import { prismaClient } from "./prisma-client";
 
-$exportHubBackendFunc(
+$exportHubBackendAsyncFunc<FetchDeviceActiveSessionIdAsync>(
   `fetch-device-active-session-id`,
   async ({
     userIdToken,
     deviceId,
-  }: {
-    userIdToken: string;
-    deviceId: string;
   }) => {
 
     const userAuthInfo = await fetchUserAuthInfoAsync({ userIdToken });
