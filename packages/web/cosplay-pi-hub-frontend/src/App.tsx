@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 
 import { HomePageContent } from "./components/home-page-content";
+import { RegisterActiveUserDevicePageContent } from "./components/register-active-user-device-page-content";
 import { RootPage } from "./components/root-page";
 import { SignInPageContent } from "./components/sign-in-page-content";
 import { TestPage } from "./components/test-page";
@@ -28,6 +29,10 @@ export function App() {
         {
           path: `test`,
           element: <TestPage />,
+        },
+        {
+          path: `register-active-user-device`,
+          element: <RegisterActiveUserDevicePageContent />,
         },
       ],
     },
