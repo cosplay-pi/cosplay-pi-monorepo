@@ -10,7 +10,7 @@ import {
   PushDeviceSessionCommandAsync,
   RegisterUserDeviceAsync,
   RejectDeviceSessionAsync,
-} from 'cosplay-pi-device-hub-backend-protocol';
+} from 'cosplay-pi-hub-backend-protocol';
 
 import { $importHubBackendAsyncFunc } from './$import-hub-backend-async-func';
 

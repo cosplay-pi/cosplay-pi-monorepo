@@ -7169,20 +7169,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosplay-pi-device-hub-backend-protocol@workspace:*, cosplay-pi-device-hub-backend-protocol@workspace:packages/cosplay-pi-device-hub-backend-protocol":
-  version: 0.0.0-use.local
-  resolution: "cosplay-pi-device-hub-backend-protocol@workspace:packages/cosplay-pi-device-hub-backend-protocol"
-  languageName: unknown
-  linkType: soft
-
 "cosplay-pi-device-hub-client@workspace:packages/device/cosplay-pi-device-hub-client":
   version: 0.0.0-use.local
   resolution: "cosplay-pi-device-hub-client@workspace:packages/device/cosplay-pi-device-hub-client"
   dependencies:
     "@types/node-fetch": ^2.0.0
     "@types/yargs": ^17.0.0
-    cosplay-pi-device-hub-backend-protocol: "workspace:*"
     cosplay-pi-device-runtime-module-settings-foundation: "workspace:*"
+    cosplay-pi-hub-backend-protocol: "workspace:*"
     node-fetch: ^2.0.0
     tree-kill: ^1.0.0
     yargs: ^17.0.0
@@ -7221,13 +7215,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"cosplay-pi-hub-backend-client@workspace:*, cosplay-pi-hub-backend-client@workspace:packages/cosplay-pi-hub-backend-client":
+  version: 0.0.0-use.local
+  resolution: "cosplay-pi-hub-backend-client@workspace:packages/cosplay-pi-hub-backend-client"
+  dependencies:
+    cosplay-pi-hub-backend-protocol: "workspace:*"
+    cosplay-pi-ts-core: "workspace:*"
+    cross-fetch: ^3.0.0
+  languageName: unknown
+  linkType: soft
+
+"cosplay-pi-hub-backend-protocol@workspace:*, cosplay-pi-hub-backend-protocol@workspace:packages/cosplay-pi-hub-backend-protocol":
+  version: 0.0.0-use.local
+  resolution: "cosplay-pi-hub-backend-protocol@workspace:packages/cosplay-pi-hub-backend-protocol"
+  languageName: unknown
+  linkType: soft
+
 "cosplay-pi-hub-backend@workspace:packages/web/cosplay-pi-hub-backend":
   version: 0.0.0-use.local
   resolution: "cosplay-pi-hub-backend@workspace:packages/web/cosplay-pi-hub-backend"
   dependencies:
     "@prisma/client": ^4.0.0
     "@types/express": ^4.0.0
-    cosplay-pi-device-hub-backend-protocol: "workspace:*"
+    cosplay-pi-hub-backend-protocol: "workspace:*"
     cosplay-pi-ts-core: "workspace:*"
     express: ^4.0.0
     firebase-admin: ^11.0.0
@@ -7249,6 +7259,8 @@ __metadata:
     "@types/node": ^16.0.0
     "@types/react": ^18.0.0
     "@types/react-dom": ^18.0.0
+    cosplay-pi-hub-backend-client: "workspace:*"
+    cosplay-pi-hub-backend-protocol: "workspace:*"
     firebase: ^9.0.0
     framer-motion: ^8.0.0
     react: ^18.0.0
@@ -7266,6 +7278,15 @@ __metadata:
   resolution: "cosplay-pi-ts-core@workspace:packages/cosplay-pi-ts-core"
   languageName: unknown
   linkType: soft
+
+"cross-fetch@npm:^3.0.0":
+  version: 3.1.5
+  resolution: "cross-fetch@npm:3.1.5"
+  dependencies:
+    node-fetch: 2.6.7
+  checksum: f6b8c6ee3ef993ace6277fd789c71b6acf1b504fd5f5c7128df4ef2f125a429e29cd62dc8c127523f04a5f2fa4771ed80e3f3d9695617f441425045f505cf3bb
+  languageName: node
+  linkType: hard
 
 "cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3

@@ -1,5 +1,5 @@
 {
-  "name": "cosplay-pi-device-hub-backend-protocol",
+  "name": "cosplay-pi-hub-backend-protocol",
   "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {

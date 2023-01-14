@@ -5,7 +5,7 @@ import {
   DeviceSessionDoesNotExist,
   DeviceSessionIsAlreadyConfirmed,
   DeviceSessionIsAlreadyRejected,
-} from "cosplay-pi-device-hub-backend-protocol";
+} from "cosplay-pi-hub-backend-protocol";
 
 import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
 import { prismaClient } from "./prisma-client";

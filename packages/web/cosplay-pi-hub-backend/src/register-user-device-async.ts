@@ -4,7 +4,7 @@ import {
   RegisterUserDeviceAsync,
   UserDeviceIsAlreadyRegistered,
   UserDevicePrivateKeyIsNotValid,
-} from 'cosplay-pi-device-hub-backend-protocol';
+} from 'cosplay-pi-hub-backend-protocol';
 import { $declareExp } from 'cosplay-pi-ts-core';
 
 import { $exportHubBackendAsyncFunc } from './$export-hub-backend-async-func';

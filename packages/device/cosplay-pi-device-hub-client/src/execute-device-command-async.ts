@@ -1,7 +1,7 @@
 import {
   DeviceCommandInfo,
   DeviceCommandType,
-} from 'cosplay-pi-device-hub-backend-protocol';
+} from 'cosplay-pi-hub-backend-protocol';
 
 import { installDeviceRuntimeAsync } from './install-device-runtime-async';
 import {

@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-import { DeviceRuntimeConfig } from 'cosplay-pi-device-hub-backend-protocol';
+import { DeviceRuntimeConfig } from 'cosplay-pi-hub-backend-protocol';
 
 import { generateDeviceRuntimePackageInfo } from './generate-device-runtime-package-info';
 import { getDeviceRuntimePackageInfoFilePath } from './get-device-runtime-package-info-file-path';

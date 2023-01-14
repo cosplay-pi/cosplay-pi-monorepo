@@ -3,7 +3,7 @@ import * as crypto from 'crypto';
 import {
   CreateDeviceSessionAsync,
   DeviceDoesNotExist,
-} from 'cosplay-pi-device-hub-backend-protocol';
+} from 'cosplay-pi-hub-backend-protocol';
 
 import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
 import { generateDeviceSessionAccessToken } from './generate-device-session-access-token';

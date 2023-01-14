@@ -1,4 +1,4 @@
-import { DeviceRuntimeConfig } from 'cosplay-pi-device-hub-backend-protocol';
+import { DeviceRuntimeConfig } from 'cosplay-pi-hub-backend-protocol';
 
 import { DeviceConfig } from './device-config';
 import { fetchDeviceConfig } from './fetch-device-config';

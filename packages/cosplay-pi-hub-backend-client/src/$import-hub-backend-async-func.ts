@@ -1,6 +1,6 @@
 import fetch from "cross-fetch";
 
-import { $hubBackendAsyncFuncErrorTypes } from "cosplay-pi-device-hub-backend-protocol";
+import { $hubBackendAsyncFuncErrorTypes } from "cosplay-pi-hub-backend-protocol";
 import { $declareExp } from "cosplay-pi-ts-core";
 
 import { fetchHubBackendClientConfig } from "./hub-backend-client-config";

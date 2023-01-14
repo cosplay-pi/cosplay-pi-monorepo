@@ -1,6 +1,6 @@
 import * as FirebaseAdmin from 'firebase-admin';
 
-import { UserIdTokenIsNotValid } from 'cosplay-pi-device-hub-backend-protocol';
+import { UserIdTokenIsNotValid } from 'cosplay-pi-hub-backend-protocol';
 
 import { UserAuthInfo } from './user-auth-info';
 
