@@ -2,7 +2,7 @@ import {
   DeviceSessionCommandStatus,
   DeviceSessionStatus,
 } from "@prisma/client";
-import { DeviceCommandInfo } from "cosplay-pi-device-hub-client-protocol";
+import { DeviceCommandInfo } from "cosplay-pi-device-hub-backend-protocol";
 
 import { $exportHubBackendFunc } from "./$export-hub-backend-func";
 import { DeviceSessionAccessTokenIsNotValid } from "./device-session-access-token-is-not-valid";

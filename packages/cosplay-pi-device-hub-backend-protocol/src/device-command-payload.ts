@@ -3,12 +3,9 @@ import { DeviceStartRuntimeCommandPayload } from "./device-start-runtime-command
 import { DeviceStopRuntimeCommandPayload } from "./device-stop-runtime-command-payload";
 import { DeviceUpdateRuntimeModuleSettingsCommandPayload } from "./device-update-module-settings-command-payload";
 
-export interface DeviceCommandInfo {
-  id: string;
-  payload: (
-    | DeviceInstallRuntimeCommandPayload
-    | DeviceStartRuntimeCommandPayload
-    | DeviceStopRuntimeCommandPayload
-    | DeviceUpdateRuntimeModuleSettingsCommandPayload
-  );
-};
+export type DeviceCommandPayload = (
+  | DeviceInstallRuntimeCommandPayload
+  | DeviceStartRuntimeCommandPayload
+  | DeviceStopRuntimeCommandPayload
+  | DeviceUpdateRuntimeModuleSettingsCommandPayload
+);

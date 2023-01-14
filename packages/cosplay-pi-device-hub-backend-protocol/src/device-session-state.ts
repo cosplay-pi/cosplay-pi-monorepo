@@ -1,5 +1,5 @@
 import { DeviceRuntimeState } from "./device-runtime-state";
 
-export interface DeviceState {
+export interface DeviceSessionState {
   runtime?: DeviceRuntimeState;
 };

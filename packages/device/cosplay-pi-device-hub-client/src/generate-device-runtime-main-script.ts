@@ -1,4 +1,4 @@
-import { DeviceRuntimeConfig } from "cosplay-pi-device-hub-client-protocol";
+import { DeviceRuntimeConfig } from "cosplay-pi-device-hub-backend-protocol";
 
 export const generateDeviceRuntimeMainScript = ({
   deviceRuntimeConfig,

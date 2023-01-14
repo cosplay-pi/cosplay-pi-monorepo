@@ -7169,9 +7169,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosplay-pi-device-hub-client-protocol@workspace:*, cosplay-pi-device-hub-client-protocol@workspace:packages/cosplay-pi-device-hub-client-protocol":
+"cosplay-pi-device-hub-backend-protocol@workspace:*, cosplay-pi-device-hub-backend-protocol@workspace:packages/cosplay-pi-device-hub-backend-protocol":
   version: 0.0.0-use.local
-  resolution: "cosplay-pi-device-hub-client-protocol@workspace:packages/cosplay-pi-device-hub-client-protocol"
+  resolution: "cosplay-pi-device-hub-backend-protocol@workspace:packages/cosplay-pi-device-hub-backend-protocol"
   languageName: unknown
   linkType: soft
 
@@ -7181,7 +7181,7 @@ __metadata:
   dependencies:
     "@types/node-fetch": ^2.0.0
     "@types/yargs": ^17.0.0
-    cosplay-pi-device-hub-client-protocol: "workspace:*"
+    cosplay-pi-device-hub-backend-protocol: "workspace:*"
     cosplay-pi-device-runtime-module-settings-foundation: "workspace:*"
     node-fetch: ^2.0.0
     tree-kill: ^1.0.0
@@ -7227,7 +7227,7 @@ __metadata:
   dependencies:
     "@prisma/client": ^4.0.0
     "@types/express": ^4.0.0
-    cosplay-pi-device-hub-client-protocol: "workspace:*"
+    cosplay-pi-device-hub-backend-protocol: "workspace:*"
     cosplay-pi-ts-core: "workspace:*"
     express: ^4.0.0
     firebase-admin: ^11.0.0
