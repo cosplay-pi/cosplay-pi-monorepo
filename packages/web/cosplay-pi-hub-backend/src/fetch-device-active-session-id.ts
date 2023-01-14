@@ -1,7 +1,9 @@
-import { FetchDeviceActiveSessionIdAsync } from "cosplay-pi-device-hub-backend-protocol";
+import {
+  DeviceDoesNotExist,
+  FetchDeviceActiveSessionIdAsync,
+} from "cosplay-pi-device-hub-backend-protocol";
 
 import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
-import { DeviceDoesNotExist } from "./device-does-not-exist";
 import { fetchUserAuthInfoAsync } from "./fetch-user-auth-info-async";
 import { prismaClient } from "./prisma-client";
 

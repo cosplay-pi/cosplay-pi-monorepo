@@ -1,9 +1,11 @@
 import * as crypto from 'crypto';
 
-import { CreateDeviceSessionAsync } from 'cosplay-pi-device-hub-backend-protocol';
+import {
+  CreateDeviceSessionAsync,
+  DeviceDoesNotExist,
+} from 'cosplay-pi-device-hub-backend-protocol';
 
 import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
-import { DeviceDoesNotExist } from "./device-does-not-exist";
 import { generateDeviceSessionAccessToken } from './generate-device-session-access-token';
 import { prismaClient } from "./prisma-client";
 

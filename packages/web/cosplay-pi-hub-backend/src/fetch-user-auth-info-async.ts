@@ -1,20 +1,14 @@
 import * as FirebaseAdmin from 'firebase-admin';
 
+import { UserIdTokenIsNotValid } from 'cosplay-pi-device-hub-backend-protocol';
+
 import { UserAuthInfo } from './user-auth-info';
-import { UserIdTokenIsNotValid } from './user-id-token-is-not-valid';
 
 export const fetchUserAuthInfoAsync = async ({
   userIdToken,
 }: {
   userIdToken: string;
 }): Promise<UserAuthInfo> => {
-
-  if (true || false) {
-
-    return {
-      id: `test-user-id`,
-    };
-  }
 
   try {
 
