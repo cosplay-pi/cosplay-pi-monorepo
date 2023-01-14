@@ -1,10 +1,8 @@
-import fetch from 'node-fetch';
-
+import { onDeviceSessionCommandFinishedAsync } from 'cosplay-pi-hub-backend-client';
 import { DeviceCommandInfo } from 'cosplay-pi-hub-backend-protocol';
 
 import { DeviceSessionInfo } from './device-session-info';
 import { executeDeviceCommandAsync } from './execute-device-command-async';
-import { getHubBackendUrl } from './get-hub-backend-url';
 
 export const executeDeviceSessionCommandAsync = async ({
   deviceSessionInfo,
@@ -22,23 +20,10 @@ export const executeDeviceSessionCommandAsync = async ({
 
   } finally {
 
-    const hubBackendUrl = getHubBackendUrl();
-
-    const requestUrl = new URL(hubBackendUrl);
-    requestUrl.pathname = `/on-device-session-command-finished`;
-    requestUrl.searchParams.append(
-      `deviceSessionId`,
-      deviceSessionInfo.id,
-    );
-    requestUrl.searchParams.append(
-      `deviceSessionAccessToken`,
-      deviceSessionInfo.accessToken,
-    );
-    requestUrl.searchParams.append(
-      `deviceSessionCommandId`,
-      deviceSessionCommandInfo.id,
-    );
-
-    await fetch(requestUrl.href);
+    await onDeviceSessionCommandFinishedAsync({
+      deviceSessionId: deviceSessionInfo.id,
+      deviceSessionAccessToken: deviceSessionInfo.accessToken,
+      deviceSessionCommandId: deviceSessionCommandInfo.id,
+    });
   }
 };

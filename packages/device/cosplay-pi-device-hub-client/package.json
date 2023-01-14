@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "cosplay-pi-device-runtime-module-settings-foundation": "workspace:*",
+    "cosplay-pi-hub-backend-client": "workspace:*",
     "cosplay-pi-hub-backend-protocol": "workspace:*",
     "node-fetch": "^2.0.0",
     "tree-kill": "^1.0.0",

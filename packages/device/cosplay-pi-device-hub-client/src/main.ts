@@ -1,9 +1,15 @@
+import {
+  fetchDeviceSessionNextPendingCommandInfoAsync,
+  setHubBackendClientConfig,
+} from 'cosplay-pi-hub-backend-client';
+
 import { createAndVerifyDeviceSessionAsync } from './create-and-verify-device-session-async';
 import { executeDeviceSessionCommandAsync } from './execute-device-session-command-async';
-import { fetchDeviceSessionNextPendingCommandInfoAsync } from './fetch-device-session-next-pending-command-info-async';
 import { waitAsync } from './wait_async';
 
-setInterval(() => {}, 1000);
+setHubBackendClientConfig({
+  hubBackendUrl: `http://localhost:4000`,
+});
 
 (async () => {
 
@@ -21,7 +27,8 @@ setInterval(() => {}, 1000);
 
         const deviceSessionNextPendingCommandInfo =
           await fetchDeviceSessionNextPendingCommandInfoAsync({
-            deviceSessionInfo,
+            deviceSessionId: deviceSessionInfo.id,
+            deviceSessionAccessToken: deviceSessionInfo.accessToken,
           });
 
         if (deviceSessionNextPendingCommandInfo !== undefined) {
