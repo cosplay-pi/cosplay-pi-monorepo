@@ -7,8 +7,14 @@ import * as FirebaseApp from 'firebase/app';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 
+import { setHubBackendClientConfig } from 'cosplay-pi-hub-backend-client';
+
 import { App } from './app';
 import { envVars } from './env-vars';
+
+setHubBackendClientConfig({
+  hubBackendUrl: envVars.hubBackendUrl,
+});
 
 FirebaseApp.initializeApp({
   apiKey: envVars.hubFirebaseApiKey,

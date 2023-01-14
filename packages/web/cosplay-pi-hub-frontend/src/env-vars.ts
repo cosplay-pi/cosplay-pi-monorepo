@@ -1,4 +1,6 @@
 export const envVars = {
+  hubBackendUrl:
+    process.env[`REACT_APP_COSPLAY_PI_HUB_BACKEND_URL`] as string,
   hubFirebaseApiKey:
     process.env[`REACT_APP_COSPLAY_PI_HUB_FIREBASE_API_KEY`] as string,
   hubFirebaseAuthDomain:
