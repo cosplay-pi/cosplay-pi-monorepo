@@ -6,7 +6,7 @@ export const $exportHubBackendAsyncFunc = <$TExecuteHubBackendAsyncFunc extends 
 ) => {
 
   hubBackendExpressApp.post(
-    `/${$hubBackendAsyncFuncId}`,
+    `/api/1/${$hubBackendAsyncFuncId}`,
     async (expressRequest, expressResponse) => {
 
       console.log(expressRequest.url);

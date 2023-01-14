@@ -1,3 +1,4 @@
+export * from './$hub-backend-async-func-error-types';
 export * from './confirm-device-session-async';
 export * from './create-device-session-async';
 export * from './device-command-info';
