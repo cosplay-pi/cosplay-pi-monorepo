@@ -107,9 +107,6 @@
             "items": 1
           }
         ],
-        "semi": [
-          "warn"
-        ],
         "comma-dangle": [
           "warn",
           "always-multiline"
@@ -119,6 +116,10 @@
           2
         ],
         "eol-last": [
+          "warn",
+          "always"
+        ],
+        "@typescript-eslint/semi": [
           "warn",
           "always"
         ],
