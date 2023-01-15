@@ -1,12 +1,13 @@
 {
   "private": true,
-  "name": "root-workspace",
+  "name": "cosplay-pi-monorepo",
   "packageManager": "yarn@3.0.2",
   "engines": {
     "node": ".nvmrc",
     "yarn": "3.0.2"
   },
   "workspaces": [
+    "scripts",
     "packages/*",
     "packages/**/*"
   ],

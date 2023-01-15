@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "name": "cosplay-pi-monorepo-scripts",
+  "scripts": {
+    "gen-cosplay-pi-device-keys": "node gen-cosplay-pi-device-keys.mjs"
+  }
+}
