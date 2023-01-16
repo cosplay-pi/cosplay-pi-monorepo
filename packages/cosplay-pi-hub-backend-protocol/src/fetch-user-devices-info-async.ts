@@ -1,6 +1,8 @@
+import { DeviceInfo } from "./device-info";
+
 export type FetchUserDevicesInfoAsync = ({
 }: {
   userIdToken: string;
 }) => Promise<{
-  [userDeviceId: string]: {};
+  [userDeviceId: string]: DeviceInfo;
 }>;

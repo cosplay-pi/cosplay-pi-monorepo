@@ -93,6 +93,10 @@ export function RegisterActiveUserDevicePageContent() {
               userDeviceId,
             } = await registerUserDeviceAsync({
               userIdToken: activeUserIdToken,
+              userDeviceProfile: {
+                name: `Device`,
+                description: ``,
+              },
               userDevicePrivateKeyKty: activeUserDevicePrivateKeyKty,
               userDevicePrivateKeyN: activeUserDevicePrivateKeyN,
               userDevicePrivateKeyE: activeUserDevicePrivateKeyE,

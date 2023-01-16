@@ -1,6 +1,9 @@
+import { DeviceProfile } from "./device-profile";
+
 export type RegisterUserDeviceAsync = ({
 }: {
   userIdToken: string;
+  userDeviceProfile: DeviceProfile;
   userDevicePrivateKeyKty: string;
   userDevicePrivateKeyN: string;
   userDevicePrivateKeyE: string;

@@ -10,6 +10,8 @@ datasource db {
 model Device {
   id String @id
   userId String
+  name String
+  description String
   privateKeyAsPem String
   activeSessionId String?
   sessions DeviceSession[]

@@ -17,6 +17,7 @@ $exportHubBackendAsyncFunc<RegisterUserDeviceAsync>(
   `register-user-device`,
   async ({
     userIdToken,
+    userDeviceProfile,
     userDevicePrivateKeyKty,
     userDevicePrivateKeyN,
     userDevicePrivateKeyE,
@@ -87,6 +88,8 @@ $exportHubBackendAsyncFunc<RegisterUserDeviceAsync>(
       data: {
         id: userDeviceId,
         userId: userAuthInfo.id,
+        name: userDeviceProfile.name,
+        description: userDeviceProfile.description,
         privateKeyAsPem: userDevicePrivateKeyAsPem,
       },
     });
