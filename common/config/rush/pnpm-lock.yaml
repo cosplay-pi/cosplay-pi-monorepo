@@ -30,7 +30,7 @@ importers:
     devDependencies:
       '@private/package-tools': link:../package-tools
 
-  ../../packages/device/cosplay-pi-device-hub-client:
+  ../../packages/native/cosplay-pi-device-hub-client:
     specifiers:
       '@private/native-package-tools': workspace:*
       '@types/node-fetch': ^2.0.0
@@ -53,13 +53,13 @@ importers:
       '@types/node-fetch': 2.6.2
       '@types/yargs': 17.0.22
 
-  ../../packages/device/cosplay-pi-device-runtime-module-base:
+  ../../packages/native/cosplay-pi-device-runtime-module-base:
     specifiers:
       '@private/native-package-tools': workspace:*
     devDependencies:
       '@private/native-package-tools': link:../native-package-tools
 
-  ../../packages/device/cosplay-pi-device-runtime-module-settings:
+  ../../packages/native/cosplay-pi-device-runtime-module-settings:
     specifiers:
       '@private/native-package-tools': workspace:*
       cosplay-pi-device-runtime-module-base: workspace:*
@@ -70,13 +70,13 @@ importers:
     devDependencies:
       '@private/native-package-tools': link:../native-package-tools
 
-  ../../packages/device/cosplay-pi-device-runtime-module-settings-foundation:
+  ../../packages/native/cosplay-pi-device-runtime-module-settings-foundation:
     specifiers:
       '@private/native-package-tools': workspace:*
     devDependencies:
       '@private/native-package-tools': link:../native-package-tools
 
-  ../../packages/device/cosplay-pi-example-module:
+  ../../packages/native/cosplay-pi-example-module:
     specifiers:
       '@private/native-package-tools': workspace:*
       cosplay-pi-device-runtime-module-base: workspace:*
@@ -87,7 +87,36 @@ importers:
     devDependencies:
       '@private/native-package-tools': link:../native-package-tools
 
-  ../../packages/device/native-package-tools:
+  ../../packages/native/cosplay-pi-hub-backend:
+    specifiers:
+      '@prisma/client': ^4.0.0
+      '@private/native-package-tools': workspace:*
+      '@types/cors': ^2.0.0
+      '@types/express': ^4.0.0
+      cors: ^2.0.0
+      cosplay-pi-hub-backend-protocol: workspace:*
+      cosplay-pi-ts-core: workspace:*
+      dotenv: ^16.0.0
+      express: ^4.0.0
+      firebase-admin: ^11.0.0
+      prisma: ^4.0.0
+      ts-node-dev: ^2.0.0
+    dependencies:
+      '@prisma/client': 4.10.1_prisma@4.10.1
+      cors: 2.8.5
+      cosplay-pi-hub-backend-protocol: link:../../cosplay-pi-hub-backend-protocol
+      cosplay-pi-ts-core: link:../../cosplay-pi-ts-core
+      dotenv: 16.0.3
+      express: 4.18.2
+      firebase-admin: 11.5.0
+    devDependencies:
+      '@private/native-package-tools': link:../native-package-tools
+      '@types/cors': 2.8.13
+      '@types/express': 4.17.17
+      prisma: 4.10.1
+      ts-node-dev: 2.0.0
+
+  ../../packages/native/native-package-tools:
     specifiers:
       '@private/package-tools': workspace:*
       '@types/node': ^16.0.0
@@ -114,35 +143,6 @@ importers:
       eslint-plugin-react: 7.32.2_eslint@8.34.0
       eslint-plugin-typescript-formatter: 0.0.2_7kw3g6rralp5ps6mg3uyzz6azm
       typescript: 4.9.5
-
-  ../../packages/web/cosplay-pi-hub-backend:
-    specifiers:
-      '@prisma/client': ^4.0.0
-      '@private/native-package-tools': workspace:*
-      '@types/cors': ^2.0.0
-      '@types/express': ^4.0.0
-      cors: ^2.0.0
-      cosplay-pi-hub-backend-protocol: workspace:*
-      cosplay-pi-ts-core: workspace:*
-      dotenv: ^16.0.0
-      express: ^4.0.0
-      firebase-admin: ^11.0.0
-      prisma: ^4.0.0
-      ts-node-dev: ^2.0.0
-    dependencies:
-      '@prisma/client': 4.10.1_prisma@4.10.1
-      cors: 2.8.5
-      cosplay-pi-hub-backend-protocol: link:../../cosplay-pi-hub-backend-protocol
-      cosplay-pi-ts-core: link:../../cosplay-pi-ts-core
-      dotenv: 16.0.3
-      express: 4.18.2
-      firebase-admin: 11.5.0
-    devDependencies:
-      '@private/native-package-tools': link:../../device/native-package-tools
-      '@types/cors': 2.8.13
-      '@types/express': 4.17.17
-      prisma: 4.10.1
-      ts-node-dev: 2.0.0
 
   ../../packages/web/cosplay-pi-hub-frontend:
     specifiers:
