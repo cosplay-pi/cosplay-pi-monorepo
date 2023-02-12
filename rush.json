@@ -27,31 +27,31 @@
     },
     {
       "packageName": "@private/native-package-tools",
-      "projectFolder": "packages/device/native-package-tools"
+      "projectFolder": "packages/native/native-package-tools"
     },
     {
       "packageName": "cosplay-pi-device-hub-client",
-      "projectFolder": "packages/device/cosplay-pi-device-hub-client"
+      "projectFolder": "packages/native/cosplay-pi-device-hub-client"
     },
     {
       "packageName": "cosplay-pi-device-runtime-module-base",
-      "projectFolder": "packages/device/cosplay-pi-device-runtime-module-base"
+      "projectFolder": "packages/native/cosplay-pi-device-runtime-module-base"
     },
     {
       "packageName": "cosplay-pi-device-runtime-module-settings",
-      "projectFolder": "packages/device/cosplay-pi-device-runtime-module-settings"
+      "projectFolder": "packages/native/cosplay-pi-device-runtime-module-settings"
     },
     {
       "packageName": "cosplay-pi-device-runtime-module-settings-foundation",
-      "projectFolder": "packages/device/cosplay-pi-device-runtime-module-settings-foundation"
+      "projectFolder": "packages/native/cosplay-pi-device-runtime-module-settings-foundation"
     },
     {
       "packageName": "cosplay-pi-example-module",
-      "projectFolder": "packages/device/cosplay-pi-example-module"
+      "projectFolder": "packages/native/cosplay-pi-example-module"
     },
     {
       "packageName": "cosplay-pi-hub-backend",
-      "projectFolder": "packages/web/cosplay-pi-hub-backend"
+      "projectFolder": "packages/native/cosplay-pi-hub-backend"
     },
     {
       "packageName": "cosplay-pi-hub-frontend",
