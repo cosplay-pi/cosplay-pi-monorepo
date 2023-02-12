@@ -6,6 +6,7 @@ const {
   privateKey,
   publicKey,
 } = crypto.generateKeyPairSync(
+  // @ts-expect-error
   `rsa`,
   {
     modulusLength: 512,

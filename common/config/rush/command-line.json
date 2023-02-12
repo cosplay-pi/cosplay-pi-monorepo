@@ -6,7 +6,7 @@
       "name": "gen-cosplay-pi-device-keys",
       "summary": "gen-cosplay-pi-device-keys",
       "autoinstallerName": "tools",
-      "shellCommand": "node common/autoinstallers/tools/gen-cosplay-pi-device-keys.mjs"
+      "shellCommand": "ts-node common/autoinstallers/tools/gen-cosplay-pi-device-keys.ts"
     }
   ],
   "parameters": []
