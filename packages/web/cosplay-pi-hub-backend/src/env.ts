@@ -1,3 +1,7 @@
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
 export const hubBackendPort = parseInt(
   process.env[`COSPLAY_PI_HUB_BACKEND_PORT`] as string,
 );

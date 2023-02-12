@@ -2,7 +2,7 @@
   "name": "cosplay-pi-device-hub-client",
   "version": "0.0.1",
   "scripts": {
-    "build": "run -T tsc",
+    "build": "tsc",
     "run-dev": "node --inspect=127.0.0.1:9230 dist/main.js --device-config-file-path=../../../obj/cosplay-pi-device-config.json --device-public-key-file-path=../../../obj/cosplay-pi-device-public-key.pem --device-runtime-package-dir-path=../../../obj/cosplay-pi-device-runtime"
   },
   "bin": {
@@ -17,16 +17,8 @@
     "yargs": "^17.0.0"
   },
   "devDependencies": {
+    "@private/native-package-tools": "workspace:*",
     "@types/node-fetch": "^2.0.0",
     "@types/yargs": "^17.0.0"
-  },
-  "nx": {
-    "targets": {
-      "run-dev": {
-        "dependsOn": [
-          "build"
-        ]
-      }
-    }
   }
 }

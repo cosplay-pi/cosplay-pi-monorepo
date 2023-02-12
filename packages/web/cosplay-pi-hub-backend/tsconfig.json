@@ -1,8 +1,10 @@
 {
-  "extends": "../../base.tsconfig.json",
+  "extends": "./node_modules/@private/native-package-tools/base.tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "dist"
+    "outDir": "dist",
+    "declaration": false,
+    "declarationMap": false
   },
   "include": [
     "src/**/*"

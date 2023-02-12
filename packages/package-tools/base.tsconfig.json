@@ -35,12 +35,12 @@
     "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": false,
-    "preserveSymlinks": true,
+    "preserveSymlinks": false,
     "lib": [
       "ES2018"
     ],
     "target": "ES2018",
-    "incremental": true,
+    "incremental": false,
     "skipLibCheck": true
   }
 }

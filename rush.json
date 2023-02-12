@@ -1,0 +1,61 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.92.0",
+  "pnpmVersion": "7.25.1",
+  "nodeSupportedVersionRange": "16.16.0",
+  "projectFolderMinDepth": 1,
+  "projectFolderMaxDepth": 10,
+  "gitPolicy": {
+  },
+  "telemetryEnabled": false,
+  "projects": [
+    {
+      "packageName": "@private/package-tools",
+      "projectFolder": "packages/package-tools"
+    },
+    {
+      "packageName": "cosplay-pi-hub-backend-client",
+      "projectFolder": "packages/cosplay-pi-hub-backend-client"
+    },
+    {
+      "packageName": "cosplay-pi-hub-backend-protocol",
+      "projectFolder": "packages/cosplay-pi-hub-backend-protocol"
+    },
+    {
+      "packageName": "cosplay-pi-ts-core",
+      "projectFolder": "packages/cosplay-pi-ts-core"
+    },
+    {
+      "packageName": "@private/native-package-tools",
+      "projectFolder": "packages/device/native-package-tools"
+    },
+    {
+      "packageName": "cosplay-pi-device-hub-client",
+      "projectFolder": "packages/device/cosplay-pi-device-hub-client"
+    },
+    {
+      "packageName": "cosplay-pi-device-runtime-module-base",
+      "projectFolder": "packages/device/cosplay-pi-device-runtime-module-base"
+    },
+    {
+      "packageName": "cosplay-pi-device-runtime-module-settings",
+      "projectFolder": "packages/device/cosplay-pi-device-runtime-module-settings"
+    },
+    {
+      "packageName": "cosplay-pi-device-runtime-module-settings-foundation",
+      "projectFolder": "packages/device/cosplay-pi-device-runtime-module-settings-foundation"
+    },
+    {
+      "packageName": "cosplay-pi-example-module",
+      "projectFolder": "packages/device/cosplay-pi-example-module"
+    },
+    {
+      "packageName": "cosplay-pi-hub-backend",
+      "projectFolder": "packages/web/cosplay-pi-hub-backend"
+    },
+    {
+      "packageName": "cosplay-pi-hub-frontend",
+      "projectFolder": "packages/web/cosplay-pi-hub-frontend"
+    }
+  ]
+}

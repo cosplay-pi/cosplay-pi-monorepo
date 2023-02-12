@@ -30,7 +30,6 @@ for (const privateKeyPropertyName in privateKey) {
 
 fs.writeFileSync(
   path.resolve(
-    `..`,
     `obj`,
     `cosplay-pi-device-public-key.pem`,
   ),
@@ -40,7 +39,6 @@ fs.writeFileSync(
 
 fs.writeFileSync(
   path.resolve(
-    `..`,
     `obj`,
     `cosplay-pi-device-hub-register-url.txt`,
   ),

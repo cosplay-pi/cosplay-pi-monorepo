@@ -2,12 +2,12 @@
   "name": "cosplay-pi-hub-backend",
   "version": "0.0.1",
   "scripts": {
-    "build": "run -T tsc",
-    "run-dev": "node dist/main.js",
-    "prisma-db-push": "prisma db push",
-    "prisma-studio": "prisma studio"
+    "build": "prisma generate 2>&1",
+    "run-dev": "prisma db push && ts-node-dev --exit-child src/main.ts",
+    "run-prisma-studio": "prisma studio"
   },
   "dependencies": {
+    "dotenv": "^16.0.0",
     "@prisma/client": "^4.0.0",
     "cors": "^2.0.0",
     "cosplay-pi-hub-backend-protocol": "workspace:*",
@@ -16,17 +16,10 @@
     "firebase-admin": "^11.0.0"
   },
   "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "@private/native-package-tools": "workspace:*",
     "@types/cors": "^2.0.0",
     "@types/express": "^4.0.0",
     "prisma": "^4.0.0"
-  },
-  "nx": {
-    "targets": {
-      "run-dev": {
-        "dependsOn": [
-          "build"
-        ]
-      }
-    }
   }
 }
