@@ -1,15 +1,15 @@
-import * as FirebaseAuth from 'firebase/auth';
+import { getFirebaseAuth } from './get-firebase-auth';
 
-export const fetchActiveUserIdTokenAsync = async () => {
+export async function fetchActiveUserIdTokenAsync() {
 
-  const firebaseAuth = FirebaseAuth.getAuth();
+  const firebaseAuth = getFirebaseAuth();
 
-  const firebaseUser = firebaseAuth.currentUser;
+  const firebaseAuthCurrentUser = firebaseAuth.currentUser;
 
-  if (firebaseUser === null) {
+  if (firebaseAuthCurrentUser === null) {
 
     throw Error();
   }
 
-  return await firebaseUser.getIdToken();
+  return await firebaseAuthCurrentUser.getIdToken();
 };

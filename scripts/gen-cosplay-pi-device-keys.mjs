@@ -20,7 +20,7 @@ const {
   },
 );
 
-let cosplayPiDeviceHubRegisterUrl = 'http://localhost:3000/register-active-user-device?';
+let cosplayPiDeviceHubRegisterUrl = 'http://localhost:3000/my-devices/register?';
 
 for (const privateKeyPropertyName in privateKey) {
 

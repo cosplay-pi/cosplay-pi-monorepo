@@ -1,10 +1,10 @@
 import { useSignOut } from "react-firebase-hooks/auth";
 
-import { useFirebaseAuth } from "./use-firebase-auth";
+import { getFirebaseAuth } from "./get-firebase-auth";
 
 export function useSignOutActiveUser() {
 
-  const firebaseAuth = useFirebaseAuth();
+  const firebaseAuth = getFirebaseAuth();
 
   const [signOut] = useSignOut(firebaseAuth);
 

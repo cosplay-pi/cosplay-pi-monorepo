@@ -1,6 +1,6 @@
 import * as FirebaseAuth from 'firebase/auth';
 
-export function useFirebaseAuth() {
+export function getFirebaseAuth() {
 
   return FirebaseAuth.getAuth();
 }

@@ -1,15 +1,49 @@
 import {
-  Center,
+  Button,
+  Card,
   Text,
-} from "@chakra-ui/react";
+} from "@nextui-org/react";
+
+import { Box } from "./box";
 
 export function HomePageContent() {
 
   return (
-    <Center
-      h={`100%`}
+    <Box
+      css={{
+        width: `100%`,
+        display: `flex`,
+        justifyContent: `center`,
+      }}
     >
-      <Text fontSize={`2xl`}>Welcome to Cosplay Pi Hub!</Text>
-    </Center>
+      <Card
+        css={{
+          '@xsMax': {
+            width: `$6xl`,
+          },
+          '@xsMin': {
+            width: `$8xl`,
+          },
+        }}
+      >
+        <Card.Header
+          css={{
+            justifyContent: `center`,
+          }}
+        >
+          <Text>
+            Welcome to <b>Cosplay Pi Hub</b>
+          </Text>
+        </Card.Header>
+        <Card.Body>
+          <Button
+            flat
+            disabled
+          >
+            Get started
+          </Button>
+        </Card.Body>
+      </Card>
+    </Box>
   );
 }

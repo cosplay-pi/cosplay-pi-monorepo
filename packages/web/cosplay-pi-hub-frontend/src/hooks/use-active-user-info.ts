@@ -1,26 +1,27 @@
-import { useAuthState } from "react-firebase-hooks/auth";
-
-import { useFirebaseAuth } from "./use-firebase-auth";
+import { useFirebaseAuthState } from "../contexts/firebase-auth-state-context";
 
 export function useActiveUserInfo() {
 
-  const firebaseAuth = useFirebaseAuth();
+  const { firebaseAuthState } = useFirebaseAuthState();
 
-  const [firebaseUser] = useAuthState(firebaseAuth);
+  if (firebaseAuthState.isInitializing) {
 
-  if (firebaseUser === null || firebaseUser === undefined) {
+    throw new Error();
+  }
+
+  if (firebaseAuthState.currentUser === undefined) {
 
     return {};
   }
 
   const activeUserInfo = {
-    id: firebaseUser.uid,
-    email: firebaseUser.email === null
+    id: firebaseAuthState.currentUser.uid,
+    email: firebaseAuthState.currentUser.email === null
       ? undefined
-      : firebaseUser.email,
-    displayName: firebaseUser.displayName === null
+      : firebaseAuthState.currentUser.email,
+    displayName: firebaseAuthState.currentUser.displayName === null
       ? undefined
-      : firebaseUser.displayName,
+      : firebaseAuthState.currentUser.displayName,
   };
 
   return { activeUserInfo };

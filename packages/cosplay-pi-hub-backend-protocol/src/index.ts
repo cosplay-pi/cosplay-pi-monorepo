@@ -6,6 +6,7 @@ export * from './device-command-type';
 export * from './device-does-not-exist';
 export * from './device-info';
 export * from './device-install-runtime-command-payload';
+export * from './device-profile';
 export * from './device-runtime-config';
 export * from './device-runtime-module-state';
 export * from './device-runtime-state';
