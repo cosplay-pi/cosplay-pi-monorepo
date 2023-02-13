@@ -1,12 +1,12 @@
 import { DeviceRuntimeConfig } from "cosplay-pi-hub-backend-protocol";
 
-export const generateDeviceRuntimePackageInfo = ({
+export const generateDeviceRuntimeInfo = ({
   deviceRuntimeConfig,
 }: {
   deviceRuntimeConfig: DeviceRuntimeConfig,
 }) => {
 
-  const deviceRuntimePackageInfo = {
+  const deviceRuntimeInfo = {
     dependencies: {},
   };
 
@@ -16,12 +16,12 @@ export const generateDeviceRuntimePackageInfo = ({
       deviceRuntimeConfig.modules[deviceRuntimeModuleName];
 
     Object.assign(
-      deviceRuntimePackageInfo.dependencies,
+      deviceRuntimeInfo.dependencies,
       {
         [deviceRuntimeModuleName]: deviceRuntimeModuleConfig.version,
       },
     );
   }
 
-  return deviceRuntimePackageInfo;
+  return deviceRuntimeInfo;
 };

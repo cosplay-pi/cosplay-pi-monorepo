@@ -2,11 +2,11 @@ import { spawn } from "child_process";
 
 import { DeviceRuntimeConfig } from "cosplay-pi-hub-backend-protocol";
 
-import { createDeviceRuntimePackageDir } from "./create-device-runtime-package-dir";
+import { createDeviceRuntimeDir } from "./create-device-runtime-dir";
 import { deviceRuntimeDirPath } from "./env";
 import { updateDeviceRuntimeConfig } from "./update-device-runtime-config";
+import { writeDeviceRuntimeInfoFile } from "./write-device-runtime-info-file";
 import { writeDeviceRuntimeMainScriptFile } from "./write-device-runtime-main-script-file";
-import { writeDeviceRuntimePackageInfoFile } from "./write-device-runtime-package-info-file";
 
 export const installDeviceRuntime = async ({
   deviceRuntimeConfig,
@@ -14,13 +14,13 @@ export const installDeviceRuntime = async ({
   deviceRuntimeConfig: DeviceRuntimeConfig,
 }) => {
 
-  createDeviceRuntimePackageDir();
+  createDeviceRuntimeDir();
 
-  writeDeviceRuntimePackageInfoFile({
+  writeDeviceRuntimeInfoFile({
     deviceRuntimeConfig,
   });
 
-  const yarnInstallDeviceRuntimePackageProcess = spawn(
+  const yarnInstallDeviceRuntimeProcess = spawn(
     `yarn`,
     {
       shell: true,
@@ -31,7 +31,7 @@ export const installDeviceRuntime = async ({
 
   await new Promise<void>((resolvePromise, rejectPromise) => {
 
-    yarnInstallDeviceRuntimePackageProcess.on(`exit`, (code) => {
+    yarnInstallDeviceRuntimeProcess.on(`exit`, (code) => {
 
       if (code === 0) {
 

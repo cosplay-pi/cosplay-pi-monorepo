@@ -2,14 +2,14 @@ import * as path from 'path';
 
 export const getDeviceRuntimeModuleSettingsFilePath = ({
   deviceRuntimeModuleName,
-  deviceRuntimePackageDirPath,
+  deviceRuntimeDirPath,
 }: {
   deviceRuntimeModuleName: string;
-  deviceRuntimePackageDirPath: string;
+  deviceRuntimeDirPath: string;
 }) => {
 
   return path.resolve(
-    deviceRuntimePackageDirPath,
+    deviceRuntimeDirPath,
     `${deviceRuntimeModuleName}-settings.json`,
   );
 };

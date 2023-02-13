@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-import { getDeviceRuntimePackageDirPath } from 'cosplay-pi-device-runtime-module-base';
+import { getDeviceRuntimeDirPath } from 'cosplay-pi-device-runtime-module-base';
 import { getDeviceRuntimeModuleSettingsFilePath } from 'cosplay-pi-device-runtime-module-settings-foundation';
 
 import { DeviceRuntimeModuleSettingsDef } from './device-runtime-module-settings-def';
@@ -11,11 +11,11 @@ export const fetchDeviceRuntimeModuleSettings = <TDeviceRuntimeModuleSettings>({
   deviceRuntimeModuleSettingsDef: DeviceRuntimeModuleSettingsDef<TDeviceRuntimeModuleSettings>,
 }) => {
 
-  const deviceRuntimePackageDirPath = getDeviceRuntimePackageDirPath();
+  const deviceRuntimeDirPath = getDeviceRuntimeDirPath();
 
   const deviceRuntimeModuleSettingsFilePath = getDeviceRuntimeModuleSettingsFilePath({
     deviceRuntimeModuleName: deviceRuntimeModuleSettingsDef.name,
-    deviceRuntimePackageDirPath,
+    deviceRuntimeDirPath,
   });
 
   if (!fs.existsSync(deviceRuntimeModuleSettingsFilePath)) {

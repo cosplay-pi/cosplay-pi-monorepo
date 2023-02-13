@@ -1,1 +1,1 @@
-export * from './get-device-runtime-package-dir-path';
+export * from './get-device-runtime-dir-path';

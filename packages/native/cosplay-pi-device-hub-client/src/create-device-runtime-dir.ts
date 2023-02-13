@@ -2,7 +2,7 @@ import * as fs from "fs";
 
 import { deviceRuntimeDirPath } from "./env";
 
-export const createDeviceRuntimePackageDir = () => {
+export const createDeviceRuntimeDir = () => {
 
   fs.mkdirSync(
     deviceRuntimeDirPath,

@@ -16,7 +16,7 @@ export const updateDeviceRuntimeModuleSettings = async ({
   writeDeviceRuntimeModuleSettingsFile({
     deviceRuntimeModuleSettingsFilePath: getDeviceRuntimeModuleSettingsFilePath({
       deviceRuntimeModuleName,
-      deviceRuntimePackageDirPath: deviceRuntimeDirPath,
+      deviceRuntimeDirPath,
     }),
     deviceRuntimeModuleSettings,
   });

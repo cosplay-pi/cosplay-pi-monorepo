@@ -1,6 +1,6 @@
 import * as path from 'path';
 
-export const getDeviceRuntimePackageDirPath = () => {
+export const getDeviceRuntimeDirPath = () => {
 
   return path.resolve(`./`);
 };
