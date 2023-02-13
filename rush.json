@@ -3,10 +3,9 @@
   "rushVersion": "5.92.0",
   "pnpmVersion": "7.25.1",
   "nodeSupportedVersionRange": "16.16.0",
+  "ensureConsistentVersions": true,
   "projectFolderMinDepth": 1,
   "projectFolderMaxDepth": 10,
-  "gitPolicy": {
-  },
   "telemetryEnabled": false,
   "projects": [
     {

@@ -6,6 +6,7 @@
     "build": "tsc"
   },
   "devDependencies": {
+    "@types/node": "^16.0.0",
     "@private/native-package-tools": "workspace:*"
   }
 }

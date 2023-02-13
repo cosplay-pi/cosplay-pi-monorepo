@@ -4,9 +4,6 @@
   "private": true,
   "dependencies": {
     "@nextui-org/react": "1.0.0-beta.12",
-    "@testing-library/jest-dom": "^5.0.0",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.0.0",
     "@types/jest": "^27.0.0",
     "@types/node": "^16.0.0",
     "@types/react": "^18.0.0",
@@ -44,8 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "installConfig": {
-    "hoistingLimits": "workspaces"
   }
 }

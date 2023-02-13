@@ -3,13 +3,13 @@
   "name": "@private/native-package-tools",
   "version": "1.0.0",
   "bin": {
-    "tsc": "./node_modules/.bin/tsc"
+    "tsc": "./tsc.js",
+    "ts-node-dev": "./ts-node-dev.js"
   },
   "scripts": {
     "build": ""
   },
   "dependencies": {
-    "@types/node": "^16.0.0",
     "@private/package-tools": "workspace:*"
   }
 }
