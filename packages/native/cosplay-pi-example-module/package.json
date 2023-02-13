@@ -1,6 +1,6 @@
 {
   "name": "cosplay-pi-example-module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
@@ -10,7 +10,7 @@
     "cosplay-pi-device-runtime-module-settings": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^16.0.0",
-    "@private/native-package-tools": "workspace:*"
+    "@private/native-package-tools": "workspace:*",
+    "@types/node": "^16.0.0"
   }
 }
