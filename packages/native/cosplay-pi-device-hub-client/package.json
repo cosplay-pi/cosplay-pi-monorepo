@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "scripts": {
     "build": "tsc",
-    "run-dev": "node --inspect=127.0.0.1:9230 dist/main.js --device-config-file-path=../../../obj/cosplay-pi-device-config.json --device-public-key-file-path=../../../obj/cosplay-pi-device-public-key.pem --device-runtime-package-dir-path=../../../obj/cosplay-pi-device-runtime"
+    "run-dev": "ts-node-dev --exit-child --inspect=127.0.0.1:9230 src/main.ts"
   },
   "bin": {
     "run-cosplay-pi-device-hub-client": "dist/main.js"
   },
   "dependencies": {
+    "dotenv": "^16.0.0",
     "cosplay-pi-device-runtime-module-settings-foundation": "workspace:*",
     "cosplay-pi-hub-backend-client": "workspace:*",
     "cosplay-pi-hub-backend-protocol": "workspace:*",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@types/node": "^16.0.0",
     "@private/native-package-tools": "workspace:*",
+    "cosplay-pi-device-dev-simulator": "workspace:*",
     "@types/node-fetch": "^2.0.0",
     "@types/yargs": "^17.0.0"
   }

@@ -5,7 +5,7 @@ import {
   fetchDeviceCachedPublicKey,
   setDeviceCachedPublicKey,
 } from './device-cached-public-key';
-import { getDeviceHubClientArgs } from './get-device-hub-client-args';
+import { devicePublicKeyFilePath } from './env';
 
 export const getDevicePublicKey = () => {
 
@@ -16,10 +16,8 @@ export const getDevicePublicKey = () => {
     return deviceLastCachedPublicKey;
   }
 
-  const deviceHubClientArgs = getDeviceHubClientArgs();
-
   const devicePublicKeyAsPem = fs.readFileSync(
-    deviceHubClientArgs.devicePublicKeyFilePath,
+    devicePublicKeyFilePath,
     `utf-8`,
   );
 

@@ -1,13 +1,11 @@
 import * as path from 'path';
 
-import { getDeviceHubClientArgs } from './get-device-hub-client-args';
+import { deviceRuntimeDirPath } from './env';
 
 export const getDeviceRuntimePackageInfoFilePath = () => {
 
-  const deviceHubClientArgs = getDeviceHubClientArgs();
-
   return path.resolve(
-    deviceHubClientArgs.deviceRuntimePackageDirPath,
+    deviceRuntimeDirPath,
     `package.json`,
   );
 };

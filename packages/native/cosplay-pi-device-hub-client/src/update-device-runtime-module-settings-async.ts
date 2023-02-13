@@ -3,7 +3,7 @@ import {
   writeDeviceRuntimeModuleSettingsFile,
 } from "cosplay-pi-device-runtime-module-settings-foundation";
 
-import { getDeviceHubClientArgs } from "./get-device-hub-client-args";
+import { deviceRuntimeDirPath } from "./env";
 
 export const updateDeviceRuntimeModuleSettingsAsync = async ({
   deviceRuntimeModuleName,
@@ -13,12 +13,10 @@ export const updateDeviceRuntimeModuleSettingsAsync = async ({
   deviceRuntimeModuleSettings: unknown;
 }) => {
 
-  const deviceHubClientArgs = getDeviceHubClientArgs();
-
   writeDeviceRuntimeModuleSettingsFile({
     deviceRuntimeModuleSettingsFilePath: getDeviceRuntimeModuleSettingsFilePath({
       deviceRuntimeModuleName,
-      deviceRuntimePackageDirPath: deviceHubClientArgs.deviceRuntimePackageDirPath,
+      deviceRuntimePackageDirPath: deviceRuntimeDirPath,
     }),
     deviceRuntimeModuleSettings,
   });

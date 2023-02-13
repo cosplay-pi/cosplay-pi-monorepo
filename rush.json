@@ -29,6 +29,10 @@
       "projectFolder": "packages/native/native-package-tools"
     },
     {
+      "packageName": "cosplay-pi-device-dev-simulator",
+      "projectFolder": "packages/native/cosplay-pi-device-dev-simulator"
+    },
+    {
       "packageName": "cosplay-pi-device-hub-client",
       "projectFolder": "packages/native/cosplay-pi-device-hub-client"
     },

@@ -1,15 +1,13 @@
 import * as fs from "fs";
 
-import { getDeviceHubClientArgs } from "./get-device-hub-client-args";
+import { deviceRuntimeDirPath } from "./env";
 
 export const createDeviceRuntimePackageDir = () => {
 
-  const deviceHubClientArgs = getDeviceHubClientArgs();
-
   fs.mkdirSync(
-    deviceHubClientArgs.deviceRuntimePackageDirPath,
+    deviceRuntimeDirPath,
     {
       recursive: true,
-    }
+    },
   );
 };

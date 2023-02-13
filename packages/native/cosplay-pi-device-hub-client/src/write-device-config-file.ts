@@ -1,15 +1,13 @@
 import * as fs from 'fs';
 
 import { DeviceConfig } from './device-config';
-import { getDeviceHubClientArgs } from './get-device-hub-client-args';
+import { deviceConfigFilePath } from './env';
 
 export const writeDeviceConfigFile = ({
   deviceConfig,
 }: {
   deviceConfig: DeviceConfig,
 }) => {
-
-  const deviceHubClientArgs = getDeviceHubClientArgs();
 
   const deviceConfigAsJson = JSON.stringify(
     deviceConfig,
@@ -18,7 +16,7 @@ export const writeDeviceConfigFile = ({
   );
 
   fs.writeFileSync(
-    deviceHubClientArgs.deviceConfigFilePath,
+    deviceConfigFilePath,
     deviceConfigAsJson,
   );
 };

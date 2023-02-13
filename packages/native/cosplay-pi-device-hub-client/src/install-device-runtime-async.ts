@@ -3,7 +3,7 @@ import { spawn } from "child_process";
 import { DeviceRuntimeConfig } from "cosplay-pi-hub-backend-protocol";
 
 import { createDeviceRuntimePackageDir } from "./create-device-runtime-package-dir";
-import { getDeviceHubClientArgs } from "./get-device-hub-client-args";
+import { deviceRuntimeDirPath } from "./env";
 import { updateDeviceRuntimeConfig } from "./update-device-runtime-config";
 import { writeDeviceRuntimeMainScriptFile } from "./write-device-runtime-main-script-file";
 import { writeDeviceRuntimePackageInfoFile } from "./write-device-runtime-package-info-file";
@@ -13,8 +13,6 @@ export const installDeviceRuntimeAsync = async ({
 }: {
   deviceRuntimeConfig: DeviceRuntimeConfig,
 }) => {
-
-  const deviceHubClientArgs = getDeviceHubClientArgs();
 
   createDeviceRuntimePackageDir();
 
@@ -26,7 +24,7 @@ export const installDeviceRuntimeAsync = async ({
     `yarn`,
     {
       shell: true,
-      cwd: deviceHubClientArgs.deviceRuntimePackageDirPath,
+      cwd: deviceRuntimeDirPath,
       stdio: `inherit`,
     },
   );

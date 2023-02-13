@@ -4,12 +4,10 @@ import {
   fetchDeviceRuntimeProcess,
   setDeviceRuntimeProcess,
 } from "./device-runtime-process";
-import { getDeviceHubClientArgs } from "./get-device-hub-client-args";
+import { deviceRuntimeDirPath } from "./env";
 import { getDeviceRuntimeMainScriptFileName } from "./get-device-runtime-main-script-file-name";
 
 export const startDeviceRuntimeAsync = async () => {
-
-  const deviceHubClientArgs = getDeviceHubClientArgs();
 
   if (fetchDeviceRuntimeProcess() !== undefined) {
 
@@ -20,7 +18,7 @@ export const startDeviceRuntimeAsync = async () => {
     `node ${getDeviceRuntimeMainScriptFileName()}`,
     {
       shell: true,
-      cwd: deviceHubClientArgs.deviceRuntimePackageDirPath,
+      cwd: deviceRuntimeDirPath,
       stdio: `pipe`,
     },
   );

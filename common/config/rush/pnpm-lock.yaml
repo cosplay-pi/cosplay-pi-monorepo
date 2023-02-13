@@ -30,15 +30,25 @@ importers:
     devDependencies:
       '@private/package-tools': link:../package-tools
 
+  ../../packages/native/cosplay-pi-device-dev-simulator:
+    specifiers:
+      '@private/native-package-tools': workspace:*
+      '@types/node': ^16.0.0
+    devDependencies:
+      '@private/native-package-tools': link:../native-package-tools
+      '@types/node': 16.18.12
+
   ../../packages/native/cosplay-pi-device-hub-client:
     specifiers:
       '@private/native-package-tools': workspace:*
       '@types/node': ^16.0.0
       '@types/node-fetch': ^2.0.0
       '@types/yargs': ^17.0.0
+      cosplay-pi-device-dev-simulator: workspace:*
       cosplay-pi-device-runtime-module-settings-foundation: workspace:*
       cosplay-pi-hub-backend-client: workspace:*
       cosplay-pi-hub-backend-protocol: workspace:*
+      dotenv: ^16.0.0
       node-fetch: ^2.0.0
       tree-kill: ^1.0.0
       yargs: ^17.0.0
@@ -46,6 +56,7 @@ importers:
       cosplay-pi-device-runtime-module-settings-foundation: link:../cosplay-pi-device-runtime-module-settings-foundation
       cosplay-pi-hub-backend-client: link:../../cosplay-pi-hub-backend-client
       cosplay-pi-hub-backend-protocol: link:../../cosplay-pi-hub-backend-protocol
+      dotenv: 16.0.3
       node-fetch: 2.6.9
       tree-kill: 1.2.2
       yargs: 17.6.2
@@ -54,6 +65,7 @@ importers:
       '@types/node': 16.18.12
       '@types/node-fetch': 2.6.2
       '@types/yargs': 17.0.22
+      cosplay-pi-device-dev-simulator: link:../cosplay-pi-device-dev-simulator
 
   ../../packages/native/cosplay-pi-device-runtime-module-base:
     specifiers:
