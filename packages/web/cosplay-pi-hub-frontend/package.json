@@ -27,8 +27,8 @@
   },
   "scripts": {
     "build": "",
-    "run-dev": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
-    "build-prod": "DISABLE_ESLINT_PLUGIN=true react-scripts build"
+    "run-hub-dev-frontend": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "build-hub-prod-frontend": "DISABLE_ESLINT_PLUGIN=true react-scripts build"
   },
   "browserslist": {
     "production": [

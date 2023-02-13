@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "build": "prisma generate 2>&1",
-    "run-dev": "prisma db push && ts-node-dev --exit-child src/main.ts",
+    "run-hub-dev-backend": "prisma db push && ts-node-dev --exit-child src/main.ts",
     "run-prisma-studio": "prisma studio"
   },
   "dependencies": {
