@@ -1,6 +1,6 @@
 import * as crypto from 'crypto';
 
-import { declareGlobal } from './declare-global';
+import { declareGlobal } from 'cosplay-pi-ts-core';
 
 export const [
   fetchDeviceCachedPublicKey,

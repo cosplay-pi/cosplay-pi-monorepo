@@ -1,6 +1,6 @@
 import { ChildProcess } from "child_process";
 
-import { declareGlobal } from "./declare-global";
+import { declareGlobal } from "cosplay-pi-ts-core";
 
 export const [
   fetchDeviceRuntimeProcess,
