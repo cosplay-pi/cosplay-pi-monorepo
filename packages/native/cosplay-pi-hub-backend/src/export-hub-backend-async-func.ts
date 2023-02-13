@@ -1,25 +1,25 @@
 import { hubBackendExpressApp } from "./hub-backend-express-app";
 
-export const $exportHubBackendAsyncFunc = <$TExecuteHubBackendAsyncFunc extends ($hubBackendFuncExecArgs: any) => Promise<any>>(
-  $hubBackendAsyncFuncId: string,
-  $executeHubBackendAsyncFunc: $TExecuteHubBackendAsyncFunc,
+export const exportHubBackendAsyncFunc = <TExecuteHubBackendAsyncFunc extends (hubBackendFuncExecArgs: any) => Promise<any>>(
+  hubBackendAsyncFuncId: string,
+  executeHubBackendAsyncFunc: TExecuteHubBackendAsyncFunc,
 ) => {
 
   hubBackendExpressApp.post(
-    `/api/1/${$hubBackendAsyncFuncId}`,
+    `/api/1/${hubBackendAsyncFuncId}`,
     async (expressRequest, expressResponse) => {
 
       console.log(expressRequest.url);
 
-      const $hubBackendAsyncFuncExecArgs =
+      const hubBackendAsyncFuncExecArgs =
         expressRequest.body as unknown;
 
       try {
 
-        const $hubBackendAsyncFuncExecResult =
-          await $executeHubBackendAsyncFunc($hubBackendAsyncFuncExecArgs);
+        const hubBackendAsyncFuncExecResult =
+          await executeHubBackendAsyncFunc(hubBackendAsyncFuncExecArgs);
 
-        if ($hubBackendAsyncFuncExecResult === undefined) {
+        if (hubBackendAsyncFuncExecResult === undefined) {
 
           expressResponse.status(204);
           expressResponse.json(null);
@@ -27,7 +27,7 @@ export const $exportHubBackendAsyncFunc = <$TExecuteHubBackendAsyncFunc extends 
         } else {
 
           expressResponse.status(200);
-          expressResponse.json($hubBackendAsyncFuncExecResult);
+          expressResponse.json(hubBackendAsyncFuncExecResult);
         }
 
       } catch (e) {

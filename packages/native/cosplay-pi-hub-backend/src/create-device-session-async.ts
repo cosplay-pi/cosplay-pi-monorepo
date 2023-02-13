@@ -5,11 +5,11 @@ import {
   DeviceDoesNotExist,
 } from 'cosplay-pi-hub-backend-protocol';
 
-import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
+import { exportHubBackendAsyncFunc } from "./export-hub-backend-async-func";
 import { generateDeviceSessionAccessToken } from './generate-device-session-access-token';
 import { prismaClient } from "./prisma-client";
 
-$exportHubBackendAsyncFunc<CreateDeviceSessionAsync>(
+exportHubBackendAsyncFunc<CreateDeviceSessionAsync>(
   `create-device-session`,
   async ({
     deviceId,

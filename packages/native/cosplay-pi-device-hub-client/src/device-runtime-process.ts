@@ -1,10 +1,10 @@
 import { ChildProcess } from "child_process";
 
-import { $declareGlobal } from "./$declare-global";
+import { declareGlobal } from "./declare-global";
 
 export const [
   fetchDeviceRuntimeProcess,
   setDeviceRuntimeProcess,
-] = $declareGlobal<ChildProcess | undefined>(
+] = declareGlobal<ChildProcess | undefined>(
   undefined,
 );

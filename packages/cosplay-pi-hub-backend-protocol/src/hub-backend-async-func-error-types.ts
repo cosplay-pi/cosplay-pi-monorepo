@@ -9,7 +9,7 @@ import { UserDeviceIsAlreadyRegistered } from "./user-device-is-already-register
 import { UserDevicePrivateKeyIsNotValid } from "./user-device-private-key-is-not-valid";
 import { UserIdTokenIsNotValid } from "./user-id-token-is-not-valid";
 
-export const $hubBackendAsyncFuncErrorTypes = {
+export const hubBackendAsyncFuncErrorTypes = {
   DeviceSessionAccessTokenIsNotValid,
   DeviceSessionCommandDoesNotExist,
   DeviceSessionCommandIsAlreadyFinished,

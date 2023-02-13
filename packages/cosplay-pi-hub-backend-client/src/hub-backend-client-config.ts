@@ -1,4 +1,4 @@
-import { $declareGlobal } from "cosplay-pi-ts-core";
+import { declareGlobal } from "cosplay-pi-ts-core";
 
 export interface HubBackendClientConfig {
   hubBackendUrl: string;
@@ -7,4 +7,4 @@ export interface HubBackendClientConfig {
 export const [
   fetchHubBackendClientConfig,
   setHubBackendClientConfig,
-] = $declareGlobal<HubBackendClientConfig | undefined>(undefined);
+] = declareGlobal<HubBackendClientConfig | undefined>(undefined);

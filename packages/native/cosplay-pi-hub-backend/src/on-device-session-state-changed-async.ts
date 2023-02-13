@@ -6,10 +6,10 @@ import {
   OnDeviceSessionStateChangedAsync,
 } from "cosplay-pi-hub-backend-protocol";
 
-import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
+import { exportHubBackendAsyncFunc } from "./export-hub-backend-async-func";
 import { prismaClient } from "./prisma-client";
 
-$exportHubBackendAsyncFunc<OnDeviceSessionStateChangedAsync>(
+exportHubBackendAsyncFunc<OnDeviceSessionStateChangedAsync>(
   `on-device-session-state-changed`,
   async ({
     deviceSessionId,

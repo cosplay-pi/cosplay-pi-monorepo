@@ -11,10 +11,10 @@ import {
   OnDeviceSessionCommandFinishedAsync,
 } from "cosplay-pi-hub-backend-protocol";
 
-import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
+import { exportHubBackendAsyncFunc } from "./export-hub-backend-async-func";
 import { prismaClient } from "./prisma-client";
 
-$exportHubBackendAsyncFunc<OnDeviceSessionCommandFinishedAsync>(
+exportHubBackendAsyncFunc<OnDeviceSessionCommandFinishedAsync>(
   `on-device-session-command-finished`,
   async ({
     deviceSessionId,

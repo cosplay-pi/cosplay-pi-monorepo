@@ -7,10 +7,10 @@ import {
   DeviceSessionIsAlreadyRejected,
 } from "cosplay-pi-hub-backend-protocol";
 
-import { $exportHubBackendAsyncFunc } from "./$export-hub-backend-async-func";
+import { exportHubBackendAsyncFunc } from "./export-hub-backend-async-func";
 import { prismaClient } from "./prisma-client";
 
-$exportHubBackendAsyncFunc<ConfirmDeviceSessionAsync>(
+exportHubBackendAsyncFunc<ConfirmDeviceSessionAsync>(
   `confirm-device-session`,
   async ({
     deviceSessionId,

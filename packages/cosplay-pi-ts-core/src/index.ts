@@ -1,3 +1,3 @@
-export * from './$declare-async-exp';
-export * from './$declare-exp';
-export * from './$declare-global';
+export * from './declare-async-exp';
+export * from './declare-exp';
+export * from './declare-global';
