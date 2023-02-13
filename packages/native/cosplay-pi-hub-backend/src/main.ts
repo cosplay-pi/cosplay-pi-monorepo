@@ -9,17 +9,17 @@ import {
 } from './env';
 import { hubBackendExpressApp } from './hub-backend-express-app';
 
-import './confirm-device-session-async';
-import './create-device-session-async';
-import './fetch-device-active-session-id-async';
-import './fetch-device-session-next-pending-command-info-async';
-import './fetch-device-session-state-async';
-import './fetch-user-devices-info-async';
-import './on-device-session-command-finished-async';
-import './on-device-session-state-changed-async';
-import './push-device-session-command-async';
-import './register-user-device-async';
-import './reject-device-session-async';
+import './confirm-device-session';
+import './create-device-session';
+import './fetch-device-active-session-id';
+import './fetch-device-session-next-pending-command-info';
+import './fetch-device-session-state';
+import './fetch-user-devices-info';
+import './on-device-session-command-finished';
+import './on-device-session-state-changed';
+import './push-device-session-command';
+import './register-user-device';
+import './reject-device-session';
 
 const hubFirebaseServiceAccountCredentials = JSON.parse(
   fs.readFileSync(

@@ -1,16 +1,16 @@
 import { useRequest } from "ahooks";
 
-import { fetchUserDevicesInfoAsync } from "cosplay-pi-hub-backend-client";
+import { fetchUserDevicesInfo } from "cosplay-pi-hub-backend-client";
 
-import { fetchActiveUserIdTokenAsync } from "./fetch-active-user-id-token-async";
+import { fetchActiveUserIdToken } from "./fetch-active-user-id-token";
 
 export function useActiveUserDevicesInfoRequest() {
 
   return useRequest(async () => {
 
-    const activeUserIdToken = await fetchActiveUserIdTokenAsync();
+    const activeUserIdToken = await fetchActiveUserIdToken();
 
-    const activeUserDevicesInfo = await fetchUserDevicesInfoAsync({
+    const activeUserDevicesInfo = await fetchUserDevicesInfo({
       userIdToken: activeUserIdToken,
     });
 

@@ -1,11 +1,11 @@
 import {
-  fetchDeviceSessionNextPendingCommandInfoAsync,
+  fetchDeviceSessionNextPendingCommandInfo,
   setHubBackendClientConfig,
 } from 'cosplay-pi-hub-backend-client';
 
-import { createAndVerifyDeviceSessionAsync } from './create-and-verify-device-session-async';
-import { executeDeviceSessionCommandAsync } from './execute-device-session-command-async';
-import { waitAsync } from './wait_async';
+import { createAndVerifyDeviceSession } from './create-and-verify-device-session';
+import { executeDeviceSessionCommand } from './execute-device-session-command';
+import { wait } from './wait';
 
 setHubBackendClientConfig({
   hubBackendUrl: `http://localhost:4000`,
@@ -19,14 +19,14 @@ setHubBackendClientConfig({
 
       console.log(`Creating new device session...`);
 
-      const { deviceSessionInfo } = await createAndVerifyDeviceSessionAsync();
+      const { deviceSessionInfo } = await createAndVerifyDeviceSession();
 
       console.log(`New device session: ${deviceSessionInfo.id}`);
 
       while (true) {
 
         const deviceSessionNextPendingCommandInfo =
-          await fetchDeviceSessionNextPendingCommandInfoAsync({
+          await fetchDeviceSessionNextPendingCommandInfo({
             deviceSessionId: deviceSessionInfo.id,
             deviceSessionAccessToken: deviceSessionInfo.accessToken,
           });
@@ -35,7 +35,7 @@ setHubBackendClientConfig({
 
           console.log(`Executing next pending device session command (${deviceSessionNextPendingCommandInfo.id})...`);
 
-          await executeDeviceSessionCommandAsync({
+          await executeDeviceSessionCommand({
             deviceSessionInfo,
             deviceSessionCommandInfo: deviceSessionNextPendingCommandInfo,
           });
@@ -44,7 +44,7 @@ setHubBackendClientConfig({
 
         }
 
-        await waitAsync({ milliseconds: 5000 });
+        await wait({ milliseconds: 5000 });
       }
 
     } catch (e) {
@@ -53,7 +53,7 @@ setHubBackendClientConfig({
 
     } finally {
 
-      await waitAsync({ milliseconds: 5000 });
+      await wait({ milliseconds: 5000 });
     }
   }
 

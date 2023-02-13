@@ -1,73 +1,73 @@
 import {
-  ConfirmDeviceSessionAsync,
-  CreateDeviceSessionAsync,
-  FetchDeviceActiveSessionIdAsync,
-  FetchDeviceSessionNextPendingCommandInfoAsync,
-  FetchDeviceSessionStateAsync,
-  FetchUserDevicesInfoAsync,
-  OnDeviceSessionCommandFinishedAsync,
-  OnDeviceSessionStateChangedAsync,
-  PushDeviceSessionCommandAsync,
-  RegisterUserDeviceAsync,
-  RejectDeviceSessionAsync,
+  ConfirmDeviceSession,
+  CreateDeviceSession,
+  FetchDeviceActiveSessionId,
+  FetchDeviceSessionNextPendingCommandInfo,
+  FetchDeviceSessionState,
+  FetchUserDevicesInfo,
+  OnDeviceSessionCommandFinished,
+  OnDeviceSessionStateChanged,
+  PushDeviceSessionCommand,
+  RegisterUserDevice,
+  RejectDeviceSession,
 } from 'cosplay-pi-hub-backend-protocol';
 
-import { importHubBackendAsyncFunc } from './import-hub-backend-async-func';
+import { importHubBackendFunc } from './import-hub-backend-func';
 
 export * from './hub-backend-client-is-not-configured';
 export * from './hub-backend-client-config';
 
-export const confirmDeviceSessionAsync =
-  importHubBackendAsyncFunc<ConfirmDeviceSessionAsync>(
+export const confirmDeviceSession =
+  importHubBackendFunc<ConfirmDeviceSession>(
     `confirm-device-session`,
   );
 
-export const createDeviceSessionAsync =
-  importHubBackendAsyncFunc<CreateDeviceSessionAsync>(
+export const createDeviceSession =
+  importHubBackendFunc<CreateDeviceSession>(
     `create-device-session`,
   );
 
-export const fetchDeviceActiveSessionIdAsync =
-  importHubBackendAsyncFunc<FetchDeviceActiveSessionIdAsync>(
+export const fetchDeviceActiveSessionId =
+  importHubBackendFunc<FetchDeviceActiveSessionId>(
     `fetch-device-active-session-id`,
   );
 
-export const fetchDeviceSessionNextPendingCommandInfoAsync =
-  importHubBackendAsyncFunc<FetchDeviceSessionNextPendingCommandInfoAsync>(
+export const fetchDeviceSessionNextPendingCommandInfo =
+  importHubBackendFunc<FetchDeviceSessionNextPendingCommandInfo>(
     `fetch-device-session-next-pending-command-info`,
   );
 
-export const fetchDeviceSessionStateAsync =
-  importHubBackendAsyncFunc<FetchDeviceSessionStateAsync>(
+export const fetchDeviceSessionState =
+  importHubBackendFunc<FetchDeviceSessionState>(
     `fetch-device-session-state`,
   );
 
-export const fetchUserDevicesInfoAsync =
-  importHubBackendAsyncFunc<FetchUserDevicesInfoAsync>(
+export const fetchUserDevicesInfo =
+  importHubBackendFunc<FetchUserDevicesInfo>(
     `fetch-user-devices-info`,
   );
 
-export const onDeviceSessionCommandFinishedAsync =
-  importHubBackendAsyncFunc<OnDeviceSessionCommandFinishedAsync>(
+export const onDeviceSessionCommandFinished =
+  importHubBackendFunc<OnDeviceSessionCommandFinished>(
     `on-device-session-command-finished`,
   );
 
-export const onDeviceSessionStateChangedAsync =
-  importHubBackendAsyncFunc<OnDeviceSessionStateChangedAsync>(
+export const onDeviceSessionStateChanged =
+  importHubBackendFunc<OnDeviceSessionStateChanged>(
     `on-device-session-state-changed`,
   );
 
-export const pushDeviceSessionCommandAsync =
-  importHubBackendAsyncFunc<PushDeviceSessionCommandAsync>(
+export const pushDeviceSessionCommand =
+  importHubBackendFunc<PushDeviceSessionCommand>(
     `push-device-session-command`,
   );
 
-export const registerUserDeviceAsync =
-  importHubBackendAsyncFunc<RegisterUserDeviceAsync>(
+export const registerUserDevice =
+  importHubBackendFunc<RegisterUserDevice>(
     `register-user-device`,
   );
 
-export const rejectDeviceSessionAsync =
-  importHubBackendAsyncFunc<RejectDeviceSessionAsync>(
+export const rejectDeviceSession =
+  importHubBackendFunc<RejectDeviceSession>(
     `reject-device-session`,
   );

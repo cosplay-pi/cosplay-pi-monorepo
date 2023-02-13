@@ -13,10 +13,10 @@ import {
   useSearchParams,
 } from "react-router-dom";
 
-import { registerUserDeviceAsync } from "cosplay-pi-hub-backend-client";
+import { registerUserDevice } from "cosplay-pi-hub-backend-client";
 import { DeviceProfile } from "cosplay-pi-hub-backend-protocol";
 
-import { fetchActiveUserIdTokenAsync } from "../hooks/fetch-active-user-id-token-async";
+import { fetchActiveUserIdToken } from "../hooks/fetch-active-user-id-token";
 
 import { Box } from "./box";
 
@@ -231,11 +231,11 @@ export function RegisterActiveUserDevicePageContent() {
 
               try {
 
-                const activeUserIdToken = await fetchActiveUserIdTokenAsync();
+                const activeUserIdToken = await fetchActiveUserIdToken();
 
                 const {
                   userDeviceId: activeUserDeviceId,
-                } = await registerUserDeviceAsync({
+                } = await registerUserDevice({
                   userIdToken: activeUserIdToken,
                   userDeviceProfile: activeUserDeviceProfile,
                   userDevicePrivateKeyKty: activeUserDevicePrivateKeyKty,
