@@ -1,6 +1,7 @@
 export * from './confirm-device-session';
 export * from './create-device-session';
 export * from './fetch-device-active-session-id';
+export * from './fetch-device-info';
 export * from './fetch-device-session-next-pending-command-info';
 export * from './fetch-device-session-state';
 export * from './fetch-user-devices-info';
