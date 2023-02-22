@@ -1,10 +1,12 @@
-obj
 dist
 node_modules
 .DS_Store
 .env
 *.log
-/.vscode
+/.vscode/*
+!/.vscode/extensions.json
+!/.vscode/settings.shared.json
+!/.vscode/tasks.shared.json
 /common/deploy
 /common/temp
 /common/autoinstallers/*/.npmrc

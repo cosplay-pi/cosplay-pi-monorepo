@@ -1,0 +1,38 @@
+{
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/.DS_Store": true,
+  },
+  "files.watcherExclude": {
+    "**/node_modules": true,
+    "packages/**/dist": true,
+  },
+  "files.associations": {
+    "rush.json": "jsonc",
+    "common/**/*.json": "jsonc",
+  },
+  "typescript.tsdk": "packages/package-tools/node_modules/typescript/lib",
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.tabSize": 2
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.tabSize": 2
+  },
+  "javascript.preferences.useAliasesForRenames": false,
+  "typescript.preferences.useAliasesForRenames": false,
+  "eslint.nodePath": "packages/package-tools/node_modules",
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.options": {
+    "overrideConfigFile": "eslint.config.mjs"
+  },
+  "eslint.workingDirectories": [
+    {
+      "pattern": "packages/**"
+    }
+  ],
+  "eslint.format.enable": true,
+  "task.autoDetect": "off",
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+}

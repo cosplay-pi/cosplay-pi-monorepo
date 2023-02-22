@@ -1,0 +1,134 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "rush-install",
+      "type": "shell",
+      "command": "rush",
+      "args": [
+        "install"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "rush-update",
+      "type": "shell",
+      "command": "rush",
+      "args": [
+        "update"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "rush-build",
+      "type": "shell",
+      "command": "rush",
+      "args": [
+        "build"
+      ],
+      "problemMatcher": [],
+      "dependsOn": [
+        "rush-install"
+      ]
+    },
+    {
+      "label": "rush-rebuild",
+      "type": "shell",
+      "command": "rush",
+      "args": [
+        "rebuild"
+      ],
+      "problemMatcher": [],
+      "dependsOn": [
+        "rush-install"
+      ]
+    },
+    {
+      "label": "gen-index-ts-file",
+      "type": "shell",
+      "command": "${workspaceFolder}/common/autoinstallers/tools/node_modules/.bin/ts-node",
+      "args": [
+        "${workspaceFolder}/common/autoinstallers/tools/gen-index-ts-file-main.ts"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "run-cosplay-pi-hub-backend-prisma-studio",
+      "type": "shell",
+      "command": "rushx",
+      "args": [
+        "run-prisma-studio"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/packages/native/cosplay-pi-hub-backend"
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "rush-build"
+      ]
+    },
+    {
+      "label": "gen-cosplay-pi-device-dev-simulator-keys",
+      "type": "shell",
+      "command": "rushx",
+      "args": [
+        "gen-keys"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/packages/native/cosplay-pi-device-dev-simulator"
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "rush-build"
+      ]
+    },
+    {
+      "label": "run-cosplay-pi-device-hub-dev-client",
+      "type": "shell",
+      "command": "rushx",
+      "args": [
+        "run-dev"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/packages/native/cosplay-pi-device-hub-client"
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "rush-build"
+      ]
+    },
+    {
+      "label": "run-cosplay-pi-hub-dev-backend",
+      "type": "shell",
+      "command": "rushx",
+      "args": [
+        "run-hub-dev-backend"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/packages/native/cosplay-pi-hub-backend"
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "rush-build"
+      ]
+    },
+    {
+      "label": "run-cosplay-pi-hub-dev-frontend",
+      "type": "shell",
+      "command": "rushx",
+      "args": [
+        "run-hub-dev-frontend"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/packages/web/cosplay-pi-hub-frontend"
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "rush-build"
+      ]
+    }
+  ]
+}
