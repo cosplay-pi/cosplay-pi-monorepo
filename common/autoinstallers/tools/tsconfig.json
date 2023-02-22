@@ -1,0 +1,13 @@
+{
+  "extends": "../../../packages/package-tools/base.tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist",
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
