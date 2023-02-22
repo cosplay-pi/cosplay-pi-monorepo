@@ -28,8 +28,14 @@
     "overrideConfigFile": "eslint.config.mjs"
   },
   "eslint.workingDirectories": [
+    "packages/cosplay-pi-hub-backend-client",
+    "packages/cosplay-pi-hub-backend-protocol",
+    "packages/cosplay-pi-ts-core",
     {
-      "pattern": "packages/**"
+      "pattern": "packages/native/*"
+    },
+    {
+      "pattern": "packages/web/*"
     }
   ],
   "eslint.format.enable": true,
