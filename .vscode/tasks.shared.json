@@ -50,6 +50,9 @@
       "args": [
         "${workspaceFolder}/common/autoinstallers/tools/gen-index-ts-file-main.ts"
       ],
+      "presentation": {
+        "close": true,
+      },
       "options": {
         "cwd": "${fileDirname}"
       },
