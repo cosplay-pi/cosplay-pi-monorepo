@@ -26,6 +26,10 @@
       "args": [
         "build"
       ],
+      "group": {
+        "kind": "build",
+        "isDefault": true,
+      },
       "problemMatcher": [],
       "dependsOn": [
         "rush-install"
