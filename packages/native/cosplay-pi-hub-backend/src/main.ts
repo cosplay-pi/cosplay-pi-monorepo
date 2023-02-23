@@ -12,6 +12,7 @@ import { hubBackendExpressApp } from './hub-backend-express-app';
 import './confirm-device-session';
 import './create-device-session';
 import './fetch-device-active-session-id';
+import './fetch-device-info';
 import './fetch-device-session-next-pending-command-info';
 import './fetch-device-session-state';
 import './fetch-user-devices-info';
