@@ -5,11 +5,15 @@ import {
   Loading,
   Text,
 } from "@nextui-org/react";
+import { useRequest } from "ahooks";
 import { useNavigate } from "react-router-dom";
 
+import { fetchDeviceActiveSessionId } from "cosplay-pi-hub-backend-client";
 import { DeviceInfo } from 'cosplay-pi-hub-backend-protocol';
 
-import { useActiveUserDeviceActiveSessionIdRequest } from "../hooks/use-active-user-device-active-session-id-request";
+import { useActiveUserDefinedContext } from "../contexts/active-user-context";
+
+import { RequestInfo } from "./request-info";
 
 export function ActiveUserDeviceCard({
   activeUserDeviceId,
@@ -21,10 +25,40 @@ export function ActiveUserDeviceCard({
 
   const navigate = useNavigate();
 
-  const activeUserDeviceActiveSessionIdRequest =
-    useActiveUserDeviceActiveSessionIdRequest({
-      activeUserDeviceId: activeUserDeviceId,
-    });
+  const { fetchActiveUserIdToken } = useActiveUserDefinedContext();
+
+  const request = useRequest(
+    async () => {
+
+      const activeUserIdToken = await fetchActiveUserIdToken();
+
+      const activeUserDeviceActiveSessionId = await fetchDeviceActiveSessionId({
+        userIdToken: activeUserIdToken,
+        deviceId: activeUserDeviceId,
+      });
+
+      return { activeUserDeviceActiveSessionId };
+    },
+    {
+      refreshDeps: [
+        fetchActiveUserIdToken,
+        activeUserDeviceId,
+      ],
+    },
+  );
+
+  if (request.data === undefined) {
+
+    return (
+      <RequestInfo
+        request={request}
+      />
+    );
+  }
+
+  const {
+    activeUserDeviceActiveSessionId,
+  } = request.data;
 
   return (
     <Card>
@@ -36,13 +70,13 @@ export function ActiveUserDeviceCard({
         }}
       >
         {
-          activeUserDeviceActiveSessionIdRequest.loading
+          request.loading
             ? (
               <Loading
                 size={`xs`}
               />
             )
-            : activeUserDeviceActiveSessionIdRequest.data?.activeUserDeviceActiveSessionId !== undefined
+            : activeUserDeviceActiveSessionId !== undefined
               ? <Badge variant={`dot`} color={`success`} />
               : undefined
         }
@@ -50,7 +84,7 @@ export function ActiveUserDeviceCard({
           css={{
             marginLeft: `$2`,
           }}
-          onClick={() => navigate(`/`)}
+          onClick={() => navigate(`/my-devices/${activeUserDeviceId}/sessions/${activeUserDeviceActiveSessionId}`)}
         >
           <b>{activeUserDeviceInfo.profile.name}</b>
         </Link>

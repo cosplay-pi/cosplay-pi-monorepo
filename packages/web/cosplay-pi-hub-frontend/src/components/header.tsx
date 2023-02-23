@@ -11,11 +11,11 @@ import {
   useNavigate,
 } from "react-router-dom";
 
+import { useActiveUserDefinedContext } from "../contexts/active-user-context";
 import {
   ThemeType,
   useThemeContext,
 } from "../contexts/theme-context";
-import { useActiveUserInfo } from "../hooks/use-active-user-info";
 
 import { HeaderActiveUserMenu } from "./header-active-user-menu";
 import { HeaderNoActiveUserMenu } from "./header-no-active-user-menu";
@@ -37,9 +37,9 @@ export function Header() {
     useDarkTheme,
   } = useThemeContext();
 
-  const navbarToggleRef = useRef<HTMLButtonElement>(null);
+  const { activeUserInfo } = useActiveUserDefinedContext();
 
-  const { activeUserInfo } = useActiveUserInfo();
+  const navbarToggleRef = useRef<HTMLButtonElement>(null);
 
   const mainMenuItems: Array<HeaderMainMenuItem> = [];
 

@@ -2,8 +2,11 @@ import {
   Button,
   Grid,
 } from "@nextui-org/react";
+import { useRequest } from "ahooks";
 
-import { useActiveUserDevicesInfoRequest } from "../hooks/use-active-user-devices-info-request";
+import { fetchUserDevicesInfo } from "cosplay-pi-hub-backend-client";
+
+import { useActiveUserDefinedContext } from "../contexts/active-user-context";
 
 import { ActiveUserDeviceCard } from "./active-user-device-card";
 import { Box } from "./box";
@@ -11,20 +14,38 @@ import { RequestInfoPageContent } from "./request-info-page-content";
 
 export function ActiveUserDevicesPageContent() {
 
-  const activeUserDevicesInfoRequest = useActiveUserDevicesInfoRequest();
+  const { fetchActiveUserIdToken } = useActiveUserDefinedContext();
 
-  if (activeUserDevicesInfoRequest.data === undefined) {
+  const request = useRequest(
+    async () => {
+
+      const activeUserIdToken = await fetchActiveUserIdToken();
+
+      const activeUserDevicesInfo = await fetchUserDevicesInfo({
+        userIdToken: activeUserIdToken,
+      });
+
+      return { activeUserDevicesInfo };
+    },
+    {
+      refreshDeps: [
+        fetchActiveUserIdToken,
+      ],
+    },
+  );
+
+  if (request.data === undefined) {
 
     return (
       <RequestInfoPageContent
-        request={activeUserDevicesInfoRequest}
+        request={request}
       />
     );
   }
 
   const {
     activeUserDevicesInfo,
-  } = activeUserDevicesInfoRequest.data;
+  } = request.data;
 
   return (
     <Box
@@ -49,7 +70,7 @@ export function ActiveUserDevicesPageContent() {
                   activeUserDeviceInfo={activeUserDeviceInfo}
                 />
               </Grid>
-            )
+            ),
           )
         }
       </Grid.Container>

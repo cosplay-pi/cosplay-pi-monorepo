@@ -16,7 +16,7 @@ import {
 import { registerUserDevice } from "cosplay-pi-hub-backend-client";
 import { DeviceProfile } from "cosplay-pi-hub-backend-protocol";
 
-import { fetchActiveUserIdToken } from "../hooks/fetch-active-user-id-token";
+import { useActiveUserDefinedContext } from "../contexts/active-user-context";
 
 import { Box } from "./box";
 
@@ -25,6 +25,8 @@ export function RegisterActiveUserDevicePageContent() {
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
+
+  const { fetchActiveUserIdToken } = useActiveUserDefinedContext();
 
   const [
     activeUserDeviceName,

@@ -4,13 +4,13 @@ import {
   useNavigate,
 } from "react-router-dom";
 
-import { useActiveUserInfo } from "../hooks/use-active-user-info";
+import { useActiveUserDefinedContext } from "../contexts/active-user-context";
 
 export function RequireNoActiveUserPageProxy() {
 
   const navigate = useNavigate();
 
-  const { activeUserInfo } = useActiveUserInfo();
+  const { activeUserInfo } = useActiveUserDefinedContext();
 
   useEffect(
     () => {

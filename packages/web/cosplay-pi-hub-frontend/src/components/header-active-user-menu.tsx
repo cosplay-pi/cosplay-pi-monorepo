@@ -4,11 +4,11 @@ import {
   Navbar,
 } from "@nextui-org/react";
 
-import { useSignOutActiveUser } from "../hooks/use-sign-out-active-user";
+import { useActiveUserDefinedContext } from "../contexts/active-user-context";
 
 export function HeaderActiveUserMenu() {
 
-  const { signOutActiveUser } = useSignOutActiveUser();
+  const { signOutActiveUser } = useActiveUserDefinedContext();
 
   return (
     <Dropdown

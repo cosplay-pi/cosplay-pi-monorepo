@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 
-import { useActiveUserInfo } from "../hooks/use-active-user-info";
+import { useActiveUserDefinedContext } from "../contexts/active-user-context";
 
 import { SignInPageContent } from "./sign-in-page-content";
 
 export function RequireActiveUserPageProxy() {
 
-  const { activeUserInfo } = useActiveUserInfo();
+  const { activeUserInfo } = useActiveUserDefinedContext();
 
   if (activeUserInfo === undefined) {
 

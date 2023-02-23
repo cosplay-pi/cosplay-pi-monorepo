@@ -13,7 +13,7 @@ import { RequireActiveUserPageProxy } from "./components/require-active-user-pag
 import { RequireNoActiveUserPageProxy } from "./components/require-no-active-user-page-proxy";
 import { RootPage } from "./components/root-page";
 import { SignInPageContent } from "./components/sign-in-page-content";
-import { useFirebaseAuthState } from "./contexts/firebase-auth-state-context";
+import { useActiveUserContext } from "./contexts/active-user-context";
 
 const router = createBrowserRouter([
   {
@@ -57,9 +57,9 @@ const router = createBrowserRouter([
 
 export function App() {
 
-  const { firebaseAuthState } = useFirebaseAuthState();
+  const activeUserContextValue = useActiveUserContext();
 
-  if (firebaseAuthState.isInitializing) {
+  if (activeUserContextValue === undefined) {
 
     return <LoadingPage />;
   }

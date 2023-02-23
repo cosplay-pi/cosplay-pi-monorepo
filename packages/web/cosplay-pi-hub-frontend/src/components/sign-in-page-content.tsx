@@ -5,13 +5,13 @@ import {
 } from "@nextui-org/react";
 import { FcGoogle } from "react-icons/fc";
 
-import { useSignInActiveUserWithGoogle } from "../hooks/use-sign-in-active-user-with-google";
+import { useActiveUserDefinedContext } from "../contexts/active-user-context";
 
 import { Box } from "./box";
 
 export function SignInPageContent() {
 
-  const { signInActiveUserWithGoogle } = useSignInActiveUserWithGoogle();
+  const { signInActiveUserWithGoogle } = useActiveUserDefinedContext();
 
   return (
     <Box

@@ -5,7 +5,7 @@ import * as ReactDOM from 'react-dom/client';
 import { setHubBackendClientConfig } from 'cosplay-pi-hub-backend-client';
 
 import { App } from './app';
-import { FirebaseAuthStateProvider } from './contexts/firebase-auth-state-context';
+import { ActiveUserContextProvider } from './contexts/active-user-context';
 import { ThemeProvider } from './contexts/theme-context';
 import {
   hubBackendUrl,
@@ -31,15 +31,15 @@ FirebaseApp.initializeApp({
 });
 
 const root = ReactDOM.createRoot(
-  document.getElementById(`root`) as HTMLElement
+  document.getElementById(`root`) as HTMLElement,
 );
 
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <FirebaseAuthStateProvider>
+      <ActiveUserContextProvider>
         <App />
-      </FirebaseAuthStateProvider>
+      </ActiveUserContextProvider>
     </ThemeProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
