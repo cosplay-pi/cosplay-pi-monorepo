@@ -27,7 +27,7 @@ export const validateDeviceActiveSessions = async () => {
       new Date(
         deviceActiveSessionDbInfo.lastActivityDateTime.getTime()
         +
-        15 * 60 * 1000,
+        30 * 1000,
       );
 
     if (deviceActiveSessionExpiresAt < new Date()) {

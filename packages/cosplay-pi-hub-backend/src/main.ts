@@ -62,7 +62,7 @@ hubBackendExpressApp.listen(
           console.error(e);
         }
       },
-      60 * 1000,
+      15 * 1000,
     );
   },
 );
