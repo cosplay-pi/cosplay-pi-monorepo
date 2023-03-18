@@ -1,3 +1,4 @@
+import { DeviceDoesNotExist } from "./device-does-not-exist";
 import { DeviceSessionAccessTokenIsNotValid } from "./device-session-access-token-is-not-valid";
 import { DeviceSessionCommandDoesNotExist } from "./device-session-command-does-not-exist";
 import { DeviceSessionCommandIsAlreadyFinished } from "./device-session-command-is-already-finished";
@@ -10,6 +11,7 @@ import { UserDevicePrivateKeyIsNotValid } from "./user-device-private-key-is-not
 import { UserIdTokenIsNotValid } from "./user-id-token-is-not-valid";
 
 export const hubBackendFuncErrorTypes = {
+  DeviceDoesNotExist,
   DeviceSessionAccessTokenIsNotValid,
   DeviceSessionCommandDoesNotExist,
   DeviceSessionCommandIsAlreadyFinished,
