@@ -63,6 +63,21 @@
       "problemMatcher": []
     },
     {
+      "label": "run-cosplay-pi-hub-backend-prisma-db-push",
+      "type": "shell",
+      "command": "rushx",
+      "args": [
+        "run-prisma-db-push"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/packages/native/cosplay-pi-hub-backend"
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "rush-build"
+      ]
+    },
+    {
       "label": "run-cosplay-pi-hub-backend-prisma-studio",
       "type": "shell",
       "command": "rushx",
