@@ -15,7 +15,7 @@
     "rush.json": "jsonc",
     "common/**/*.json": "jsonc",
   },
-  "typescript.tsdk": "packages/package-tools/node_modules/typescript/lib",
+  "typescript.tsdk": "packages/cosplay-pi-package-tools/node_modules/typescript/lib",
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.tabSize": 2
@@ -26,20 +26,14 @@
   },
   "javascript.preferences.useAliasesForRenames": false,
   "typescript.preferences.useAliasesForRenames": false,
-  "eslint.nodePath": "packages/package-tools/node_modules",
+  "eslint.nodePath": "packages/cosplay-pi-package-tools/node_modules",
   "eslint.experimental.useFlatConfig": true,
   "eslint.options": {
     "overrideConfigFile": "eslint.config.mjs"
   },
   "eslint.workingDirectories": [
-    "packages/cosplay-pi-hub-backend-client",
-    "packages/cosplay-pi-hub-backend-protocol",
-    "packages/cosplay-pi-ts-core",
     {
-      "pattern": "packages/native/*"
-    },
-    {
-      "pattern": "packages/web/*"
+      "pattern": "packages/*"
     }
   ],
   "eslint.format.enable": true,
