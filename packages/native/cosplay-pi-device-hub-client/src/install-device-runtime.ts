@@ -1,24 +1,21 @@
 import { spawn } from "child_process";
 
-import { DeviceRuntimeConfig } from "cosplay-pi-hub-backend-protocol";
-
 import { createDeviceRuntimeDir } from "./create-device-runtime-dir";
+import { fetchDeviceRuntimeProcess } from "./device-runtime-process";
 import { deviceRuntimeDirPath } from "./env";
-import { updateDeviceRuntimeConfig } from "./update-device-runtime-config";
-import { writeDeviceRuntimeInfoFile } from "./write-device-runtime-info-file";
-import { writeDeviceRuntimeMainScriptFile } from "./write-device-runtime-main-script-file";
+import { generateDeviceRuntimeInfoFile } from "./generate-device-runtime-info-file";
+import { generateDeviceRuntimeMainScriptFile } from "./generate-device-runtime-main-script-file";
 
-export const installDeviceRuntime = async ({
-  deviceRuntimeConfig,
-}: {
-  deviceRuntimeConfig: DeviceRuntimeConfig,
-}) => {
+export const installDeviceRuntime = async () => {
+
+  if (fetchDeviceRuntimeProcess() !== undefined) {
+
+    throw new Error();
+  }
 
   createDeviceRuntimeDir();
 
-  writeDeviceRuntimeInfoFile({
-    deviceRuntimeConfig,
-  });
+  generateDeviceRuntimeInfoFile();
 
   const yarnInstallDeviceRuntimeProcess = spawn(
     `yarn`,
@@ -44,11 +41,5 @@ export const installDeviceRuntime = async ({
     });
   });
 
-  writeDeviceRuntimeMainScriptFile({
-    deviceRuntimeConfig,
-  });
-
-  updateDeviceRuntimeConfig({
-    deviceRuntimeConfig,
-  });
+  generateDeviceRuntimeMainScriptFile();
 };

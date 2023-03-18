@@ -5,6 +5,7 @@ import {
 } from 'cosplay-pi-hub-backend-client';
 
 import { DeviceSessionInfo } from './device-session-info';
+import { fetchDeviceRuntimeState } from './fetch-device-runtime-state';
 import { generateDeviceSessionNonce } from './generate-device-session-nonce';
 import { getDeviceId } from './get-device-id';
 import { getDeviceSessionEncryptedNonce } from './get-device-session-encrypted-nonce';
@@ -43,9 +44,12 @@ export const createAndVerifyDeviceSession = async (
     throw new Error();
   }
 
+  const deviceRuntimeState = fetchDeviceRuntimeState();
+
   await confirmDeviceSession({
     deviceSessionId,
     deviceSessionAccessToken,
+    deviceRuntimeState,
   });
 
   return {

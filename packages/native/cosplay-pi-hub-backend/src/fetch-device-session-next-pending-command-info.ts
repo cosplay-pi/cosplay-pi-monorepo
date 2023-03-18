@@ -49,7 +49,7 @@ exportHubBackendFunc<FetchDeviceSessionNextPendingCommandInfo>(
 
     const deviceSessionNextPendingCommandDbInfo = await prismaClient.deviceSessionCommand.findFirst({
       where: {
-        deviceSessionId: deviceSessionId,
+        sessionId: deviceSessionId,
         status: DeviceSessionCommandStatus.Pending,
       },
       orderBy: {
@@ -64,7 +64,7 @@ exportHubBackendFunc<FetchDeviceSessionNextPendingCommandInfo>(
 
     return {
       id: deviceSessionNextPendingCommandDbInfo.id,
-      payload: JSON.parse(deviceSessionNextPendingCommandDbInfo.payloadAsJson),
+      payload: deviceSessionNextPendingCommandDbInfo.payload as unknown,
     } as DeviceCommandInfo;
   },
 );

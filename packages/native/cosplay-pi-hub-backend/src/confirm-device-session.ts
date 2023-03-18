@@ -15,6 +15,7 @@ exportHubBackendFunc<ConfirmDeviceSession>(
   async ({
     deviceSessionId,
     deviceSessionAccessToken,
+    deviceRuntimeState,
   }) => {
 
     const deviceSessionLastDbInfo = await prismaClient.deviceSession.findFirst({
@@ -68,6 +69,9 @@ exportHubBackendFunc<ConfirmDeviceSession>(
           id: deviceId,
         },
         data: {
+          // TODO: Verify schema
+          // @ts-expect-error
+          runtimeLastState: deviceRuntimeState,
           activeSessionId: deviceSessionId,
         },
       }),

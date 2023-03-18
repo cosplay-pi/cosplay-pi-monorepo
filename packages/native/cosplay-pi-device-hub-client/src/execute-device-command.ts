@@ -3,14 +3,15 @@ import {
   DeviceCommandType,
 } from 'cosplay-pi-hub-backend-protocol';
 
-import { installDeviceRuntime } from './install-device-runtime';
+import { addDeviceRuntimeModule } from './add-device-runtime-module';
 import {
-  fetchIsExecutingDeviceCommand,
-  setIsExecutingDeviceCommand,
-} from './is-executing-device-command';
+  fetchExecuteDeviceCommandTaskState,
+  setExecuteDeviceCommandTaskState,
+} from './execute-device-command-task-state';
+import { removeDeviceRuntimeModule } from './remove-device-runtime-module';
+import { setDeviceRuntimeModuleOverrideSettings } from './set-device-runtime-module-override-settings';
 import { startDeviceRuntime } from './start-device-runtime';
 import { stopDeviceRuntime } from './stop-device-runtime';
-import { updateDeviceRuntimeModuleSettings } from './update-device-runtime-module-settings';
 import { wait } from './wait';
 
 export const executeDeviceCommand = async ({
@@ -19,19 +20,32 @@ export const executeDeviceCommand = async ({
   deviceCommandInfo: DeviceCommandInfo;
 }) => {
 
-  while (fetchIsExecutingDeviceCommand()) {
+  while (fetchExecuteDeviceCommandTaskState() !== undefined) {
 
     await wait({ milliseconds: 1000 });
   }
 
-  setIsExecutingDeviceCommand(true);
+  setExecuteDeviceCommandTaskState({});
 
   try {
 
-    if (deviceCommandInfo.payload.type === DeviceCommandType.InstallRuntimeCommand) {
+    if (deviceCommandInfo.payload.type === DeviceCommandType.AddRuntimeModuleCommand) {
 
-      await installDeviceRuntime({
-        deviceRuntimeConfig: deviceCommandInfo.payload.deviceRuntimeConfig,
+      await addDeviceRuntimeModule({
+        deviceRuntimeModuleName: deviceCommandInfo.payload.deviceRuntimeModuleName,
+      });
+
+    } else if (deviceCommandInfo.payload.type === DeviceCommandType.RemoveRuntimeModuleCommand) {
+
+      await removeDeviceRuntimeModule({
+        deviceRuntimeModuleName: deviceCommandInfo.payload.deviceRuntimeModuleName,
+      });
+
+    } else if (deviceCommandInfo.payload.type === DeviceCommandType.SetRuntimeModuleOverrideSettings) {
+
+      await setDeviceRuntimeModuleOverrideSettings({
+        deviceRuntimeModuleName: deviceCommandInfo.payload.deviceRuntimeModuleName,
+        deviceRuntimeModuleOverrideSettings: deviceCommandInfo.payload.deviceRuntimeModuleOverrideSettings,
       });
 
     } else if (deviceCommandInfo.payload.type === DeviceCommandType.StartRuntimeCommand) {
@@ -41,17 +55,10 @@ export const executeDeviceCommand = async ({
     } else if (deviceCommandInfo.payload.type === DeviceCommandType.StopRuntimeCommand) {
 
       await stopDeviceRuntime();
-
-    } else if (deviceCommandInfo.payload.type === DeviceCommandType.UpdateRuntimeModuleSettingsCommand) {
-
-      await updateDeviceRuntimeModuleSettings({
-        deviceRuntimeModuleName: deviceCommandInfo.payload.deviceRuntimeModuleName,
-        deviceRuntimeModuleSettings: deviceCommandInfo.payload.deviceRuntimeModuleSettings,
-      });
     }
 
   } finally {
 
-    setIsExecutingDeviceCommand(false);
+    setExecuteDeviceCommandTaskState(undefined);
   }
 };

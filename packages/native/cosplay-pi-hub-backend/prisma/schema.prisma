@@ -10,11 +10,12 @@ datasource db {
 model Device {
   id String @id
   userId String
-  name String
-  description String
   privateKeyAsPem String
   activeSessionId String?
   sessions DeviceSession[]
+  runtimeLastState Json
+  name String
+  description String
 }
 
 enum DeviceSessionStatus {
@@ -28,7 +29,6 @@ model DeviceSession {
   deviceId String
   accessToken String
   status DeviceSessionStatus?
-  stateAsJson String?
   commands DeviceSessionCommand[]
   lastActivityDateTime DateTime @default(now())
 }
@@ -40,9 +40,9 @@ enum DeviceSessionCommandStatus {
 
 model DeviceSessionCommand {
   id String @id @default(uuid())
-  deviceSession DeviceSession @relation(fields: [deviceSessionId], references: [id])
-  deviceSessionId String
+  session DeviceSession @relation(fields: [sessionId], references: [id])
+  sessionId String
   createdDateTime DateTime @default(now())
   status DeviceSessionCommandStatus
-  payloadAsJson String
+  payload Json
 }

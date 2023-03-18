@@ -7,23 +7,23 @@ import {
 
 export const stopDeviceRuntime = async () => {
 
-  const deviceRuntimeLastProcess = fetchDeviceRuntimeProcess();
+  const deviceRuntimeProcess = fetchDeviceRuntimeProcess();
 
-  if (deviceRuntimeLastProcess === undefined) {
+  if (deviceRuntimeProcess === undefined) {
 
     throw new Error();
   }
 
   try {
 
-    if (deviceRuntimeLastProcess.pid !== undefined) {
+    if (deviceRuntimeProcess.pid !== undefined) {
 
-      const deviceRuntimeLastProcessId = deviceRuntimeLastProcess.pid;
+      const deviceRuntimeProcessId = deviceRuntimeProcess.pid;
 
       await new Promise<void>((resolvePromise, rejectPromise) => {
 
         kill(
-          deviceRuntimeLastProcessId,
+          deviceRuntimeProcessId,
           (error) => {
 
             if (error !== null && error !== undefined) {

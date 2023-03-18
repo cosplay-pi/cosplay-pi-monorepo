@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 
 import { AboutPageContent } from "./components/about-page-content";
+import { ActiveUserDeviceActiveSessionPageContent } from "./components/active-user-device-session-page-content";
 import { ActiveUserDevicesPageContent } from "./components/active-user-devices-page-content";
 import { HomePageContent } from "./components/home-page-content";
 import { InvalidPage } from "./components/invalid-page";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
           {
             path: `my-devices/register`,
             element: <RegisterActiveUserDevicePageContent />,
+          },
+          {
+            path: `my-devices/:activeUserDeviceId/sessions/:activeUserDeviceSessionId`,
+            element: <ActiveUserDeviceActiveSessionPageContent />,
           },
         ],
       },

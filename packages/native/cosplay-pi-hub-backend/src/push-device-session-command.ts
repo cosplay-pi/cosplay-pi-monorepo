@@ -49,9 +49,10 @@ exportHubBackendFunc<PushDeviceSessionCommand>(
     await prismaClient.$transaction([
       prismaClient.deviceSessionCommand.create({
         data: {
-          deviceSessionId: deviceSessionId,
+          sessionId: deviceSessionId,
           status: DeviceSessionCommandStatus.Pending,
-          payloadAsJson: JSON.stringify(deviceSessionCommandPayload),
+          // @ts-expect-error
+          payload: deviceSessionCommandPayload,
         },
       }),
       prismaClient.deviceSession.update({

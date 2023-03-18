@@ -1,17 +1,36 @@
 import {
   fetchDeviceSessionNextPendingCommandInfo,
+  onDeviceRuntimeStateChanged,
   setHubBackendClientConfig,
 } from 'cosplay-pi-hub-backend-client';
 
 import { createAndVerifyDeviceSession } from './create-and-verify-device-session';
 import { executeDeviceSessionCommand } from './execute-device-session-command';
+import { fetchDeviceRuntimeState } from './fetch-device-runtime-state';
+import { getDeviceId } from './get-device-id';
+import { startDeviceRuntime } from './start-device-runtime';
 import { wait } from './wait';
+
+const deviceId = getDeviceId();
 
 setHubBackendClientConfig({
   hubBackendUrl: `http://localhost:4000`,
 });
 
 (async () => {
+
+  try {
+
+    console.log(`Starting device runtime...`);
+
+    await startDeviceRuntime();
+
+    console.log(`Device runtime started.`);
+
+  } catch (e) {
+
+    console.log(e);
+  }
 
   while (true) {
 
@@ -42,9 +61,18 @@ setHubBackendClientConfig({
 
           console.log(`Device session command executed.`);
 
-        }
+        } else {
 
-        await wait({ milliseconds: 5000 });
+          const deviceRuntimeState = fetchDeviceRuntimeState();
+
+          await onDeviceRuntimeStateChanged({
+            deviceId,
+            deviceActiveSessionAccessToken: deviceSessionInfo.accessToken,
+            deviceRuntimeState,
+          });
+
+          await wait({ milliseconds: 5000 });
+        }
       }
 
     } catch (e) {

@@ -1,8 +1,8 @@
 import { DeviceRuntimeState } from "./device-runtime-state";
 
-export type ConfirmDeviceSession = ({
+export type OnDeviceRuntimeStateChanged = ({
 }: {
-  deviceSessionId: string;
-  deviceSessionAccessToken: string;
+  deviceId: string;
+  deviceActiveSessionAccessToken: string;
   deviceRuntimeState: DeviceRuntimeState;
 }) => Promise<void>;

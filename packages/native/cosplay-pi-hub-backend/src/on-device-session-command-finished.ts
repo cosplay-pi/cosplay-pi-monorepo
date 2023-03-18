@@ -65,13 +65,23 @@ exportHubBackendFunc<OnDeviceSessionCommandFinished>(
       throw new DeviceSessionCommandIsAlreadyFinished();
     }
 
-    await prismaClient.deviceSessionCommand.update({
-      where: {
-        id: deviceSessionCommandId,
-      },
-      data: {
-        status: DeviceSessionCommandStatus.Finished,
-      },
-    });
+    await prismaClient.$transaction([
+      prismaClient.deviceSessionCommand.update({
+        where: {
+          id: deviceSessionCommandId,
+        },
+        data: {
+          status: DeviceSessionCommandStatus.Finished,
+        },
+      }),
+      prismaClient.deviceSession.update({
+        where: {
+          id: deviceSessionId,
+        },
+        data: {
+          lastActivityDateTime: new Date(),
+        },
+      }),
+    ]);
   },
 );

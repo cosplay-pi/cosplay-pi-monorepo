@@ -1,3 +1,4 @@
 export interface DeviceRuntimeModuleState {
-  settings?: {};
+  defaultSettings: unknown;
+  overrideSettings: unknown;
 };

@@ -1,6 +1,7 @@
 import * as crypto from 'crypto';
 
 import {
+  DeviceRuntimeState,
   RegisterUserDevice,
   UserDeviceIsAlreadyRegistered,
   UserDevicePrivateKeyIsNotValid,
@@ -90,6 +91,10 @@ exportHubBackendFunc<RegisterUserDevice>(
         userId: userAuthInfo.id,
         name: userDeviceProfile.name,
         description: userDeviceProfile.description,
+        // @ts-ignore
+        runtimeLastState: {
+          modules: {},
+        } satisfies DeviceRuntimeState as DeviceRuntimeState,
         privateKeyAsPem: userDevicePrivateKeyAsPem,
       },
     });

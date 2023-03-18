@@ -1,6 +1,7 @@
 export enum DeviceCommandType {
-  InstallRuntimeCommand = `install-runtime-command`,
+  AddRuntimeModuleCommand = `add-runtime-module-command`,
+  RemoveRuntimeModuleCommand = `remove-runtime-module-command`,
+  SetRuntimeModuleOverrideSettings = `set-runtime-module-override-settings`,
   StartRuntimeCommand = `start-runtime-command`,
   StopRuntimeCommand = `stop-runtime-command`,
-  UpdateRuntimeModuleSettingsCommand = `update-runtime-module-settings-command`,
 };

@@ -6,6 +6,7 @@ import {
 } from "./device-runtime-process";
 import { deviceRuntimeDirPath } from "./env";
 import { getDeviceRuntimeMainScriptFileName } from "./get-device-runtime-main-script-file-name";
+import { installDeviceRuntime } from "./install-device-runtime";
 
 export const startDeviceRuntime = async () => {
 
@@ -14,8 +15,10 @@ export const startDeviceRuntime = async () => {
     throw new Error();
   }
 
+  await installDeviceRuntime();
+
   const deviceRuntimeProcess = spawn(
-    `node ${getDeviceRuntimeMainScriptFileName()}`,
+    `node --preserve-symlinks ${getDeviceRuntimeMainScriptFileName()}`,
     {
       shell: true,
       cwd: deviceRuntimeDirPath,

@@ -5,6 +5,7 @@
   "scripts": {
     "build": "prisma generate 2>&1",
     "run-hub-dev-backend": "prisma db push && ts-node-dev --exit-child src/main.ts",
+    "run-prisma-db-push": "prisma db push",
     "run-prisma-studio": "prisma studio"
   },
   "dependencies": {
