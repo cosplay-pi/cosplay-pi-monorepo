@@ -11,6 +11,6 @@
     "cross-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "@private/package-tools": "workspace:*"
+    "cosplay-pi-package-tools": "workspace:*"
   }
 }

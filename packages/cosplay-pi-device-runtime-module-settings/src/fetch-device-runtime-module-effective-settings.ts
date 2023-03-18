@@ -1,8 +1,8 @@
-import { getDeviceRuntimeDirPath } from 'cosplay-pi-device-runtime-module-base';
+import { getDeviceRuntimeDirPath } from 'cosplay-pi-device-runtime-self-client';
 import {
   fetchDeviceRuntimeModuleOverrideSettings,
   getDeviceRuntimeModuleDefaultSettings,
-} from 'cosplay-pi-device-runtime-module-settings-foundation';
+} from 'cosplay-pi-device-runtime-client';
 
 import { DeviceRuntimeModuleSettingsDef } from './device-runtime-module-settings-def';
 

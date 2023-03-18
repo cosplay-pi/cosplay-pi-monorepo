@@ -1,7 +1,7 @@
 {
-  "name": "@private/native-package-tools",
-  "version": "1.0.0",
   "private": true,
+  "name": "cosplay-pi-native-package-tools",
+  "version": "1.0.0",
   "bin": {
     "tsc": "./tsc.js",
     "ts-node-dev": "./ts-node-dev.js"
@@ -10,6 +10,6 @@
     "build": ""
   },
   "dependencies": {
-    "@private/package-tools": "workspace:*"
+    "cosplay-pi-package-tools": "workspace:*"
   }
 }

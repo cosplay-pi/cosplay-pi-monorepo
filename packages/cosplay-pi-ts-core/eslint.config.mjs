@@ -1,1 +1,1 @@
-export { default as default } from '@private/package-tools/base.eslint.config.mjs';
+export { default as default } from 'cosplay-pi-package-tools/base.eslint.config.mjs';

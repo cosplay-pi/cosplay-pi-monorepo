@@ -18,7 +18,7 @@
     "firebase-admin": "^11.0.0"
   },
   "devDependencies": {
-    "@private/native-package-tools": "workspace:*",
+    "cosplay-pi-native-package-tools": "workspace:*",
     "@types/cors": "^2.0.0",
     "@types/express": "^4.0.0",
     "@types/node": "^16.0.0",

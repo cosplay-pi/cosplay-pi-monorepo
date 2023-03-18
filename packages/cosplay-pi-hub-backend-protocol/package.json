@@ -6,6 +6,6 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "@private/package-tools": "workspace:*"
+    "cosplay-pi-package-tools": "workspace:*"
   }
 }

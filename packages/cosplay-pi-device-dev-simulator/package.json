@@ -7,7 +7,7 @@
     "gen-keys": "node ./dist/gen-keys-main.js"
   },
   "devDependencies": {
-    "@private/native-package-tools": "workspace:*",
+    "cosplay-pi-native-package-tools": "workspace:*",
     "@types/node": "^16.0.0"
   }
 }

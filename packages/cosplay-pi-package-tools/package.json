@@ -1,7 +1,7 @@
 {
-  "name": "@private/package-tools",
-  "version": "1.0.0",
   "private": true,
+  "name": "cosplay-pi-package-tools",
+  "version": "1.0.0",
   "bin": {
     "tsc": "./tsc.js",
     "ts-node-dev": "./ts-node-dev.js"

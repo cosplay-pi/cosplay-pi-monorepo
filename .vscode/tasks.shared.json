@@ -70,7 +70,7 @@
         "run-prisma-db-push"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/packages/native/cosplay-pi-hub-backend"
+        "cwd": "${workspaceFolder}/packages/cosplay-pi-hub-backend"
       },
       "problemMatcher": [],
       "dependsOn": [
@@ -85,7 +85,7 @@
         "run-prisma-studio"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/packages/native/cosplay-pi-hub-backend"
+        "cwd": "${workspaceFolder}/packages/cosplay-pi-hub-backend"
       },
       "problemMatcher": [],
       "dependsOn": [
@@ -100,7 +100,7 @@
         "gen-keys"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/packages/native/cosplay-pi-device-dev-simulator"
+        "cwd": "${workspaceFolder}/packages/cosplay-pi-device-dev-simulator"
       },
       "problemMatcher": [],
       "dependsOn": [
@@ -115,7 +115,7 @@
         "run-dev"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/packages/native/cosplay-pi-device-hub-client"
+        "cwd": "${workspaceFolder}/packages/cosplay-pi-device-hub-client"
       },
       "problemMatcher": [],
       "dependsOn": [
@@ -130,7 +130,7 @@
         "run-hub-dev-backend"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/packages/native/cosplay-pi-hub-backend"
+        "cwd": "${workspaceFolder}/packages/cosplay-pi-hub-backend"
       },
       "problemMatcher": [],
       "dependsOn": [
@@ -145,7 +145,7 @@
         "run-hub-dev-frontend"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/packages/web/cosplay-pi-hub-frontend"
+        "cwd": "${workspaceFolder}/packages/cosplay-pi-hub-frontend"
       },
       "problemMatcher": [],
       "dependsOn": [

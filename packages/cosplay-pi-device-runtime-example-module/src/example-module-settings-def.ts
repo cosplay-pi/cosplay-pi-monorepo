@@ -4,7 +4,4 @@ import { ExampleModuleSettings } from './example-module-settings';
 
 export const exampleModuleSettingsDef: DeviceRuntimeModuleSettingsDef<ExampleModuleSettings> = {
   name: `cosplay-pi-example-module`,
-  defaultSettings: {
-    message: `Hello, world!`,
-  },
 };

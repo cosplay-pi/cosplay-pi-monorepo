@@ -2,7 +2,7 @@ import {
   fetchDeviceRuntimeModuleOverrideSettings,
   fetchIsDeviceModuleInstalled,
   getDeviceRuntimeModuleDefaultSettings,
-} from 'cosplay-pi-device-runtime-module-settings-foundation';
+} from 'cosplay-pi-device-runtime-client';
 import { DeviceRuntimeState } from 'cosplay-pi-hub-backend-protocol';
 
 import { fetchDeviceRuntimeInstallTaskState } from './device-runtime-install-task-state';

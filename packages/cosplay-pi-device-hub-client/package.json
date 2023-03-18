@@ -9,7 +9,7 @@
     "run-dev": "ts-node-dev --exit-child --inspect=127.0.0.1:9230 src/main.ts"
   },
   "dependencies": {
-    "cosplay-pi-device-runtime-module-settings-foundation": "workspace:*",
+    "cosplay-pi-device-runtime-client": "workspace:*",
     "cosplay-pi-hub-backend-client": "workspace:*",
     "cosplay-pi-hub-backend-protocol": "workspace:*",
     "cosplay-pi-ts-core": "workspace:*",
@@ -19,7 +19,7 @@
     "yargs": "^17.0.0"
   },
   "devDependencies": {
-    "@private/native-package-tools": "workspace:*",
+    "cosplay-pi-native-package-tools": "workspace:*",
     "@types/node-fetch": "^2.0.0",
     "@types/node": "^16.0.0",
     "@types/yargs": "^17.0.0",

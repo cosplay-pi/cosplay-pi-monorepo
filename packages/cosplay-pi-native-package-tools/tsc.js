@@ -1,1 +1,1 @@
-require('@private/package-tools/tsc.js')
+require('cosplay-pi-package-tools/tsc.js')

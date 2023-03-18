@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-import { getDeviceRuntimeModuleOverrideSettingsFilePath } from 'cosplay-pi-device-runtime-module-settings-foundation';
+import { getDeviceRuntimeModuleOverrideSettingsFilePath } from 'cosplay-pi-device-runtime-client';
 
 import { createDeviceRuntimeDir } from './create-device-runtime-dir';
 import { fetchDeviceRuntimeProcess } from './device-runtime-process';

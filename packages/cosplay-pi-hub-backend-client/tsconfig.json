@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/@private/package-tools/base.tsconfig",
+  "extends": "./node_modules/cosplay-pi-package-tools/base.tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist"

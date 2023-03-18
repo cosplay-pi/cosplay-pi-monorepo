@@ -1,12 +1,12 @@
 {
-  "name": "cosplay-pi-device-runtime-module-base",
+  "name": "cosplay-pi-device-runtime-self-client",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
   },
   "devDependencies": {
-    "@private/native-package-tools": "workspace:*",
+    "cosplay-pi-native-package-tools": "workspace:*",
     "@types/node": "^16.0.0"
   }
 }

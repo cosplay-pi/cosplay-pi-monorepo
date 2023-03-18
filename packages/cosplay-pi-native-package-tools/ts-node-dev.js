@@ -1,1 +1,1 @@
-require('@private/package-tools/ts-node-dev.js')
+require('cosplay-pi-package-tools/ts-node-dev.js')
