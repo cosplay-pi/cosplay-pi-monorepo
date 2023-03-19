@@ -6,7 +6,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "cosplay-pi-device-runtime-self-client": "workspace:*",
+    "cosplay-pi-device-runtime-module": "workspace:*",
     "cosplay-pi-device-runtime-client": "workspace:*"
   },
   "devDependencies": {

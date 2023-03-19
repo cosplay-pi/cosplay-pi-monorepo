@@ -61,8 +61,8 @@
       ]
     },
     {
-      "packageName": "cosplay-pi-device-runtime-self-client",
-      "projectFolder": "packages/cosplay-pi-device-runtime-self-client",
+      "packageName": "cosplay-pi-device-runtime-module",
+      "projectFolder": "packages/cosplay-pi-device-runtime-module",
       "shouldPublish": true,
       "tags": [
         "native"
