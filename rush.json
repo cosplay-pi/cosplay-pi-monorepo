@@ -3,62 +3,120 @@
   "rushVersion": "5.92.0",
   "pnpmVersion": "7.25.1",
   "nodeSupportedVersionRange": "16.16.0",
+  "suppressNodeLtsWarning": false,
   "ensureConsistentVersions": true,
-  "projectFolderMinDepth": 1,
-  "projectFolderMaxDepth": 10,
+  "projectFolderMinDepth": 2,
+  "projectFolderMaxDepth": 2,
+  "allowMostlyStandardPackageNames": false,
+  "gitPolicy": {},
+  "repository": {
+    "url": "https://github.com/cosplay-pi/cosplay-pi-monorepo",
+    "defaultBranch": "main",
+    "defaultRemote": "origin"
+  },
   "telemetryEnabled": false,
+  "hotfixChangeEnabled": true,
+  "allowedProjectTags": [
+    "tools",
+    "native",
+    "web"
+  ],
   "projects": [
     {
       "packageName": "cosplay-pi-device-dev-simulator",
-      "projectFolder": "packages/cosplay-pi-device-dev-simulator"
+      "projectFolder": "packages/cosplay-pi-device-dev-simulator",
+      "tags": [
+        "native"
+      ]
     },
     {
       "packageName": "cosplay-pi-device-hub-client",
-      "projectFolder": "packages/cosplay-pi-device-hub-client"
+      "projectFolder": "packages/cosplay-pi-device-hub-client",
+      "shouldPublish": true,
+      "tags": [
+        "native"
+      ]
     },
     {
       "packageName": "cosplay-pi-device-runtime-client",
-      "projectFolder": "packages/cosplay-pi-device-runtime-client"
+      "projectFolder": "packages/cosplay-pi-device-runtime-client",
+      "shouldPublish": true,
+      "tags": [
+        "native"
+      ]
     },
     {
       "packageName": "cosplay-pi-device-runtime-example-module",
-      "projectFolder": "packages/cosplay-pi-device-runtime-example-module"
+      "projectFolder": "packages/cosplay-pi-device-runtime-example-module",
+      "tags": [
+        "native"
+      ]
     },
     {
       "packageName": "cosplay-pi-device-runtime-module-settings",
-      "projectFolder": "packages/cosplay-pi-device-runtime-module-settings"
+      "projectFolder": "packages/cosplay-pi-device-runtime-module-settings",
+      "shouldPublish": true,
+      "tags": [
+        "native"
+      ]
     },
     {
       "packageName": "cosplay-pi-device-runtime-self-client",
-      "projectFolder": "packages/cosplay-pi-device-runtime-self-client"
+      "projectFolder": "packages/cosplay-pi-device-runtime-self-client",
+      "shouldPublish": true,
+      "tags": [
+        "native"
+      ]
     },
     {
       "packageName": "cosplay-pi-hub-backend",
-      "projectFolder": "packages/cosplay-pi-hub-backend"
+      "projectFolder": "packages/cosplay-pi-hub-backend",
+      "tags": [
+        "native"
+      ]
     },
     {
       "packageName": "cosplay-pi-hub-backend-client",
-      "projectFolder": "packages/cosplay-pi-hub-backend-client"
+      "projectFolder": "packages/cosplay-pi-hub-backend-client",
+      "shouldPublish": true,
+      "tags": [
+        "native"
+      ]
     },
     {
       "packageName": "cosplay-pi-hub-backend-protocol",
-      "projectFolder": "packages/cosplay-pi-hub-backend-protocol"
+      "projectFolder": "packages/cosplay-pi-hub-backend-protocol",
+      "shouldPublish": true,
+      "tags": [
+        "native"
+      ]
     },
     {
       "packageName": "cosplay-pi-hub-frontend",
-      "projectFolder": "packages/cosplay-pi-hub-frontend"
+      "projectFolder": "packages/cosplay-pi-hub-frontend",
+      "tags": [
+        "web"
+      ]
     },
     {
       "packageName": "cosplay-pi-native-package-tools",
-      "projectFolder": "packages/cosplay-pi-native-package-tools"
+      "projectFolder": "packages/cosplay-pi-native-package-tools",
+      "tags": [
+        "tools"
+      ]
     },
     {
       "packageName": "cosplay-pi-package-tools",
-      "projectFolder": "packages/cosplay-pi-package-tools"
+      "projectFolder": "packages/cosplay-pi-package-tools",
+      "tags": [
+        "tools"
+      ]
     },
     {
       "packageName": "cosplay-pi-ts-core",
-      "projectFolder": "packages/cosplay-pi-ts-core"
+      "projectFolder": "packages/cosplay-pi-ts-core",
+      "shouldPublish": true,
+      "tags": []
     }
   ]
 }
