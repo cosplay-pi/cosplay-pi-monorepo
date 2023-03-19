@@ -6,7 +6,9 @@
     "build": "prisma generate 2>&1",
     "run-hub-dev-backend": "prisma db push && ts-node-dev --exit-child src/main.ts",
     "run-prisma-db-push": "prisma db push",
-    "run-prisma-studio": "prisma studio"
+    "run-prisma-studio": "prisma studio",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "dependencies": {
     "@prisma/client": "^4.0.0",

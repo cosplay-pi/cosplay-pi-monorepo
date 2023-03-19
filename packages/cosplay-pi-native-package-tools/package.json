@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "bin": {
     "tsc": "./tsc.js",
-    "ts-node-dev": "./ts-node-dev.js"
+    "ts-node-dev": "./ts-node-dev.js",
+    "eslint": "./eslint.js"
   },
   "scripts": {
     "build": ""

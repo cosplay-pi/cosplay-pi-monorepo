@@ -6,7 +6,9 @@
   },
   "scripts": {
     "build": "tsc",
-    "run-dev": "ts-node-dev --exit-child --inspect=127.0.0.1:9230 src/main.ts"
+    "run-dev": "ts-node-dev --exit-child --inspect=127.0.0.1:9230 src/main.ts",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "dependencies": {
     "cosplay-pi-device-runtime-client": "workspace:*",
