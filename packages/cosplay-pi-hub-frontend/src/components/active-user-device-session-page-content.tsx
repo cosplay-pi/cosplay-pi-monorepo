@@ -140,7 +140,7 @@ export function ActiveUserDeviceActiveSessionPageContent() {
                         deviceSessionId: activeUserDeviceActiveSessionId,
                         deviceSessionCommandPayload: {
                           type: DeviceCommandType.AddRuntimeModuleCommand,
-                          deviceRuntimeModuleName: `cosplay-pi-example-module`,
+                          deviceRuntimeModuleName: `cosplay-pi-device-runtime-example-module`,
                         },
                       });
                     }}
@@ -158,7 +158,7 @@ export function ActiveUserDeviceActiveSessionPageContent() {
                         deviceSessionId: activeUserDeviceActiveSessionId,
                         deviceSessionCommandPayload: {
                           type: DeviceCommandType.RemoveRuntimeModuleCommand,
-                          deviceRuntimeModuleName: `cosplay-pi-example-module`,
+                          deviceRuntimeModuleName: `cosplay-pi-device-runtime-example-module`,
                         },
                       });
                     }}
@@ -193,7 +193,7 @@ export function ActiveUserDeviceActiveSessionPageContent() {
                         deviceSessionId: activeUserDeviceActiveSessionId,
                         deviceSessionCommandPayload: {
                           type: DeviceCommandType.SetRuntimeModuleOverrideSettings,
-                          deviceRuntimeModuleName: `cosplay-pi-example-module`,
+                          deviceRuntimeModuleName: `cosplay-pi-device-runtime-example-module`,
                           deviceRuntimeModuleOverrideSettings: {
                             message: new Date().toISOString(),
                           },
