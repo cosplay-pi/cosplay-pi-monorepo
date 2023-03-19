@@ -8,14 +8,15 @@
   "projectFolderMinDepth": 2,
   "projectFolderMaxDepth": 2,
   "allowMostlyStandardPackageNames": false,
-  "gitPolicy": {},
+  "gitPolicy": {
+    "tagSeparator": "@"
+  },
   "repository": {
     "url": "https://github.com/cosplay-pi/cosplay-pi-monorepo",
     "defaultBranch": "main",
     "defaultRemote": "origin"
   },
   "telemetryEnabled": false,
-  "hotfixChangeEnabled": true,
   "allowedProjectTags": [
     "tools",
     "native",
