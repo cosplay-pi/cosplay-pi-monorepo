@@ -53,14 +53,6 @@
       ]
     },
     {
-      "packageName": "cosplay-pi-device-runtime-module-settings",
-      "projectFolder": "packages/cosplay-pi-device-runtime-module-settings",
-      "shouldPublish": true,
-      "tags": [
-        "native"
-      ]
-    },
-    {
       "packageName": "cosplay-pi-device-runtime-module",
       "projectFolder": "packages/cosplay-pi-device-runtime-module",
       "shouldPublish": true,

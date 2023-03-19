@@ -5,6 +5,9 @@
   "scripts": {
     "build": "tsc"
   },
+  "dependencies": {
+    "cosplay-pi-device-runtime-client": "workspace:*"
+  },
   "devDependencies": {
     "cosplay-pi-native-package-tools": "workspace:*",
     "@types/node": "^16.0.0"

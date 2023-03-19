@@ -55,10 +55,10 @@ importers:
   ../../packages/cosplay-pi-device-runtime-example-module:
     specifiers:
       '@types/node': ^16.0.0
-      cosplay-pi-device-runtime-module-settings: workspace:*
+      cosplay-pi-device-runtime-module: workspace:*
       cosplay-pi-native-package-tools: workspace:*
     dependencies:
-      cosplay-pi-device-runtime-module-settings: link:../cosplay-pi-device-runtime-module-settings
+      cosplay-pi-device-runtime-module: link:../cosplay-pi-device-runtime-module
     devDependencies:
       '@types/node': 16.18.12
       cosplay-pi-native-package-tools: link:../cosplay-pi-native-package-tools
@@ -66,20 +66,10 @@ importers:
   ../../packages/cosplay-pi-device-runtime-module:
     specifiers:
       '@types/node': ^16.0.0
-      cosplay-pi-native-package-tools: workspace:*
-    devDependencies:
-      '@types/node': 16.18.12
-      cosplay-pi-native-package-tools: link:../cosplay-pi-native-package-tools
-
-  ../../packages/cosplay-pi-device-runtime-module-settings:
-    specifiers:
-      '@types/node': ^16.0.0
       cosplay-pi-device-runtime-client: workspace:*
-      cosplay-pi-device-runtime-module: workspace:*
       cosplay-pi-native-package-tools: workspace:*
     dependencies:
       cosplay-pi-device-runtime-client: link:../cosplay-pi-device-runtime-client
-      cosplay-pi-device-runtime-module: link:../cosplay-pi-device-runtime-module
     devDependencies:
       '@types/node': 16.18.12
       cosplay-pi-native-package-tools: link:../cosplay-pi-native-package-tools

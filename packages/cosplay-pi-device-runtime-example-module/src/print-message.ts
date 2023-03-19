@@ -1,4 +1,4 @@
-import { fetchDeviceRuntimeModuleEffectiveSettings } from 'cosplay-pi-device-runtime-module-settings';
+import { fetchDeviceRuntimeModuleEffectiveSettings } from 'cosplay-pi-device-runtime-module';
 
 import { exampleModuleSettingsDef } from './example-module-settings-def';
 

@@ -1,4 +1,4 @@
-import { DeviceRuntimeModuleSettingsDef } from 'cosplay-pi-device-runtime-module-settings';
+import { DeviceRuntimeModuleSettingsDef } from 'cosplay-pi-device-runtime-module';
 
 import { ExampleModuleSettings } from './example-module-settings';
 
