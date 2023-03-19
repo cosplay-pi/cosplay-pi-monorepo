@@ -8,7 +8,7 @@
       "comments": {
         "patch": [
           {
-            "comment": "Update device-hub-client .env.template"
+            "comment": "Delete unused fields from .env.template"
           }
         ]
       }

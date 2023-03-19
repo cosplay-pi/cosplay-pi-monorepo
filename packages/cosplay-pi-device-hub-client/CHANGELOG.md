@@ -7,5 +7,5 @@ Sun, 19 Mar 2023 11:26:38 GMT
 
 ### Patches
 
-- Update device-hub-client .env.template
+- Delete unused fields from .env.template
 
