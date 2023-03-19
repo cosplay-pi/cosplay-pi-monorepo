@@ -2,6 +2,9 @@
   "name": "cosplay-pi-device-runtime-client",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "eslint src",

@@ -1,6 +1,10 @@
 {
   "name": "cosplay-pi-device-hub-client",
   "version": "1.0.0",
+  "files": [
+    "dist",
+    ".env.template"
+  ],
   "bin": {
     "run-cosplay-pi-device-hub-client": "dist/main.js"
   },

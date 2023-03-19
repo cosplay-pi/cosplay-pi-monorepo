@@ -2,6 +2,9 @@
   "name": "cosplay-pi-hub-backend-protocol",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "eslint src",

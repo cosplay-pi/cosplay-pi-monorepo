@@ -3,6 +3,10 @@
   "name": "cosplay-pi-device-runtime-example-module",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "files": [
+    "dist",
+    "default-settings.json"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "eslint src",
