@@ -57,6 +57,10 @@ export const executeDeviceCommand = async ({
       await stopDeviceRuntime();
     }
 
+  } catch (e) {
+
+    console.error(e);
+
   } finally {
 
     setExecuteDeviceCommandTaskState(undefined);
