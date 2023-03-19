@@ -1,0 +1,17 @@
+{
+  "name": "cosplay-pi-device-hub-client",
+  "entries": [
+    {
+      "version": "1.0.1",
+      "tag": "cosplay-pi-device-hub-client@v1.0.1",
+      "date": "Sun, 19 Mar 2023 11:26:38 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update device-hub-client .env.template"
+          }
+        ]
+      }
+    }
+  ]
+}
