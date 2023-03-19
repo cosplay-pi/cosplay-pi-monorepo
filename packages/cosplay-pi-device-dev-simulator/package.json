@@ -1,7 +1,7 @@
 {
+  "private": true,
   "name": "cosplay-pi-device-dev-simulator",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "build": "tsc",
     "gen-keys": "node ./dist/gen-keys-main.js",
