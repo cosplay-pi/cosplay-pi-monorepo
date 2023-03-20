@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "cosplay-pi-hub-backend-protocol",
+      "comment": "Change type of settings fields to object in DeviceRuntimeModuleState",
+      "type": "patch"
+    }
+  ],
+  "packageName": "cosplay-pi-hub-backend-protocol"
+}
