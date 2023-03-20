@@ -23,6 +23,10 @@ export const executeDeviceSessionCommand = async ({
       deviceCommandInfo: deviceSessionCommandInfo,
     });
 
+  } catch (e) {
+
+    console.log(e);
+
   } finally {
 
     await onDeviceSessionCommandFinished({
