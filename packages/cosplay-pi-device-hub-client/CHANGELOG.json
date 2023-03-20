@@ -2,6 +2,18 @@
   "name": "cosplay-pi-device-hub-client",
   "entries": [
     {
+      "version": "1.2.1",
+      "tag": "cosplay-pi-device-hub-client@v1.2.1",
+      "date": "Mon, 20 Mar 2023 03:59:26 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Protect session from being aborted after command crash"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.2.0",
       "tag": "cosplay-pi-device-hub-client@v1.2.0",
       "date": "Mon, 20 Mar 2023 03:23:50 GMT",

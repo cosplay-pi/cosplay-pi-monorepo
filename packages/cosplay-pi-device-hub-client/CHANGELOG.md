@@ -1,6 +1,13 @@
 # Change Log - cosplay-pi-device-hub-client
 
-This log was last generated on Mon, 20 Mar 2023 03:23:50 GMT and should not be manually modified.
+This log was last generated on Mon, 20 Mar 2023 03:59:26 GMT and should not be manually modified.
+
+## 1.2.1
+Mon, 20 Mar 2023 03:59:26 GMT
+
+### Patches
+
+- Protect session from being aborted after command crash
 
 ## 1.2.0
 Mon, 20 Mar 2023 03:23:50 GMT
