@@ -44,6 +44,7 @@ export function ActiveUserDeviceCard({
         fetchActiveUserIdToken,
         activeUserDeviceId,
       ],
+      pollingInterval: 5000,
     },
   );
 
@@ -84,7 +85,7 @@ export function ActiveUserDeviceCard({
           css={{
             marginLeft: `$2`,
           }}
-          onClick={() => navigate(`/my-devices/${activeUserDeviceId}/sessions/${activeUserDeviceActiveSessionId}`)}
+          onClick={() => navigate(`/my-devices/${activeUserDeviceId}`)}
         >
           <b>{activeUserDeviceInfo.profile.name}</b>
         </Link>
