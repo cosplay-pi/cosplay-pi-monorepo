@@ -1,0 +1,11 @@
+{
+  "bufferSize": 1024,
+  "compand1EffectArgs": "0.05,0.1 -60,-inf,-40,-20 -6",
+  "bassEffectArgs": "-20",
+  "trebleEffectArgs": "+5",
+  "overdriveEffectArgs": "40 10",
+  "gainEffectArgs": "-20",
+  "highpassEffectArgs": "300",
+  "lowpassEffectArgs": "2400",
+  "compand2EffectArgs": "0.05,0.1 -60,-inf,-40,-20 -6"
+}
