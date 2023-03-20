@@ -93,14 +93,14 @@
       ]
     },
     {
-      "label": "gen-cosplay-pi-device-dev-simulator-keys",
+      "label": "generate-cosplay-pi-device-keys",
       "type": "shell",
       "command": "rushx",
       "args": [
-        "gen-keys"
+        "generate-device-keys"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/packages/cosplay-pi-device-dev-simulator"
+        "cwd": "${workspaceFolder}/packages/cosplay-pi-device-hub-client"
       },
       "problemMatcher": [],
       "dependsOn": [

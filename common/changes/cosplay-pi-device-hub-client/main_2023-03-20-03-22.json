@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "cosplay-pi-device-hub-client",
+      "comment": "Add generate-cosplay-pi-device-keys",
+      "type": "minor"
+    }
+  ],
+  "packageName": "cosplay-pi-device-hub-client"
+}

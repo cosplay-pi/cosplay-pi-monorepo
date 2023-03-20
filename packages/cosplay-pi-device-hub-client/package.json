@@ -6,9 +6,11 @@
     ".env.template"
   ],
   "bin": {
+    "generate-cosplay-pi-device-keys": "dist/generate-device-keys-main.js",
     "run-cosplay-pi-device-hub-client": "dist/main.js"
   },
   "scripts": {
+    "generate-device-keys": "node ./dist/generate-device-keys-main.js",
     "build": "tsc",
     "run-dev": "ts-node-dev --exit-child --inspect=127.0.0.1:9230 src/main.ts",
     "lint": "eslint src",
