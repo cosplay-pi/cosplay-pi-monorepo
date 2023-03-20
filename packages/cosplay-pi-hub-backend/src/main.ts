@@ -22,6 +22,7 @@ import './on-device-runtime-state-changed';
 import './push-device-session-command';
 import './register-user-device';
 import './reject-device-session';
+import './set-user-device-profile';
 
 const hubFirebaseServiceAccountCredentials = JSON.parse(
   fs.readFileSync(

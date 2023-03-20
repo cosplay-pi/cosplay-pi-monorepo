@@ -13,3 +13,4 @@ export * from './on-device-session-command-finished';
 export * from './push-device-session-command';
 export * from './register-user-device';
 export * from './reject-device-session';
+export * from './set-user-device-profile';

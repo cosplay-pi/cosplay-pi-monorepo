@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "cosplay-pi-hub-backend-protocol",
+      "comment": "Add setUserDeviceProfile",
+      "type": "minor"
+    }
+  ],
+  "packageName": "cosplay-pi-hub-backend-protocol"
+}

@@ -31,6 +31,7 @@ export * from './on-device-session-command-finished';
 export * from './push-device-session-command';
 export * from './register-user-device';
 export * from './reject-device-session';
+export * from './set-user-device-profile';
 export * from './user-device-is-already-registered';
 export * from './user-device-private-key-is-not-valid';
 export * from './user-id-token-is-not-valid';
