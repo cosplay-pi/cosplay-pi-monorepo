@@ -2,6 +2,26 @@
   "name": "cosplay-pi-device-hub-client",
   "entries": [
     {
+      "version": "1.0.2",
+      "tag": "cosplay-pi-device-hub-client@v1.0.2",
+      "date": "Mon, 20 Mar 2023 01:28:53 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Improve error logging"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"cosplay-pi-hub-backend-client\" to `1.1.0`"
+          },
+          {
+            "comment": "Updating dependency \"cosplay-pi-hub-backend-protocol\" to `1.1.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.0.1",
       "tag": "cosplay-pi-device-hub-client@v1.0.1",
       "date": "Sun, 19 Mar 2023 11:26:38 GMT",

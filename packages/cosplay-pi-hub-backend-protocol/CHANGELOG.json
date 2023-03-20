@@ -1,0 +1,22 @@
+{
+  "name": "cosplay-pi-hub-backend-protocol",
+  "entries": [
+    {
+      "version": "1.1.0",
+      "tag": "cosplay-pi-hub-backend-protocol@v1.1.0",
+      "date": "Mon, 20 Mar 2023 01:28:53 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add setUserDeviceProfile"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Change type of settings fields to object in DeviceRuntimeModuleState"
+          }
+        ]
+      }
+    }
+  ]
+}
