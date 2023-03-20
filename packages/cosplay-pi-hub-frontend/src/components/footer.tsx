@@ -44,7 +44,7 @@ export function Footer() {
           <Text
             small
           >
-            Made with for awesome cosplay open-source community!
+            Made with ❤️ for awesome cosplay open-source community!
           </Text>
         </Card.Body>
       </Card>
