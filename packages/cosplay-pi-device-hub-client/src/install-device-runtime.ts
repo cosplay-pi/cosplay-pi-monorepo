@@ -22,13 +22,13 @@ export const installDeviceRuntime = async () => {
   fs.writeFileSync(
     path.resolve(
       deviceRuntimeDirPath,
-      `yarn.lock`,
+      `package-lock.json`,
     ),
     ``,
   );
 
-  const yarnInstallDeviceRuntimeProcess = spawn(
-    `yarn set version berry && yarn`,
+  const npmInstallDeviceRuntimeProcess = spawn(
+    `npm install`,
     {
       shell: true,
       cwd: deviceRuntimeDirPath,
@@ -38,7 +38,7 @@ export const installDeviceRuntime = async () => {
 
   await new Promise<void>((resolvePromise, rejectPromise) => {
 
-    yarnInstallDeviceRuntimeProcess.on(`exit`, (code) => {
+    npmInstallDeviceRuntimeProcess.on(`exit`, (code) => {
 
       if (code === 0) {
 

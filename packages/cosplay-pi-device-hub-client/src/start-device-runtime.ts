@@ -22,15 +22,7 @@ export const startDeviceRuntime = async () => {
     {
       shell: true,
       cwd: deviceRuntimeDirPath,
-      stdio: `pipe`,
-    },
-  );
-
-  deviceRuntimeProcess.stdout.on(
-    `data`,
-    (data) => {
-
-      console.log(String(data));
+      stdio: `inherit`,
     },
   );
 

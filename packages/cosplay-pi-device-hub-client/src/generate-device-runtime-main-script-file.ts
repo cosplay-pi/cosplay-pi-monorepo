@@ -15,7 +15,7 @@ export const generateDeviceRuntimeMainScriptFile = () => {
 
   const deviceRuntimeMainScriptFilePath = getDeviceRuntimeMainScriptFilePath();
 
-  let deviceRuntimeMainScript = `setInterval(() => console.log('Hi'), 1000);\n`;
+  let deviceRuntimeMainScript = ``;
 
   for (const deviceRuntimeModuleName in deviceRuntimeConfig.modules) {
 

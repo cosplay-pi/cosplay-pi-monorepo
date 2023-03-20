@@ -2,6 +2,24 @@
   "name": "cosplay-pi-device-hub-client",
   "entries": [
     {
+      "version": "1.1.0",
+      "tag": "cosplay-pi-device-hub-client@v1.1.0",
+      "date": "Mon, 20 Mar 2023 02:45:31 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Remove debug log"
+          },
+          {
+            "comment": "Switch runtime package manager to npm"
+          },
+          {
+            "comment": "Forward runtime process stdio"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.0.2",
       "tag": "cosplay-pi-device-hub-client@v1.0.2",
       "date": "Mon, 20 Mar 2023 01:28:53 GMT",
