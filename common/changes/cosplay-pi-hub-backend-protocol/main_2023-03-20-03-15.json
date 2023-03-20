@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "cosplay-pi-hub-backend-protocol",
+      "comment": "Allow to specify version range in DeviceAddRuntimeModuleCommandPayload",
+      "type": "minor"
+    }
+  ],
+  "packageName": "cosplay-pi-hub-backend-protocol"
+}

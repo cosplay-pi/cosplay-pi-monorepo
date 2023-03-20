@@ -33,6 +33,7 @@ export const executeDeviceCommand = async ({
 
       await addDeviceRuntimeModule({
         deviceRuntimeModuleName: deviceCommandInfo.payload.deviceRuntimeModuleName,
+        deviceRuntimeModuleVersionRange: deviceCommandInfo.payload.deviceRuntimeModuleVersionRange,
       });
 
     } else if (deviceCommandInfo.payload.type === DeviceCommandType.RemoveRuntimeModuleCommand) {

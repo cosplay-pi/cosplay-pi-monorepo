@@ -1,6 +1,7 @@
 import {
   Button,
   Card,
+  Checkbox,
   Input,
   Modal,
   Text,
@@ -45,13 +46,25 @@ export function AddActiveUserDeviceRuntimeNewModuleCard({
     setIsActiveUserDeviceRuntimeNewModuleAdded,
   ] = useState<boolean>(false);
 
+  const [
+    activeUserDeviceRuntimeNewModuleVersionRange,
+    setActiveUserDeviceRuntimeNewModuleVersionRange,
+  ] = useState<string>(`*`);
+
+  const [
+    areAdvacnedOptionsVisible,
+    setAreAdvancedOptionsVisible,
+  ] = useState<boolean>(false);
+
   const addActiveUserDeviiceRuntimeNewModuleModalState = useModal();
 
   useEffect(
     () => {
 
-      setActiveUserDeviceRuntimeNewModuleName(``);
       setIsActiveUserDeviceRuntimeNewModuleAdded(false);
+      setActiveUserDeviceRuntimeNewModuleName(``);
+      setActiveUserDeviceRuntimeNewModuleVersionRange(`*`);
+      setAreAdvancedOptionsVisible(false);
     },
     [
       JSON.stringify(activeUserDeviceRuntimeLastState),
@@ -96,6 +109,38 @@ export function AddActiveUserDeviceRuntimeNewModuleCard({
           value={activeUserDeviceRuntimeNewModuleName}
           onChange={(e) => setActiveUserDeviceRuntimeNewModuleName(e.target.value)}
         />
+        <Checkbox
+          size={`xs`}
+          isSelected={areAdvacnedOptionsVisible}
+          onChange={(isSelected) => {
+
+            setAreAdvancedOptionsVisible(isSelected);
+          }}
+        >
+          Show advanced options
+        </Checkbox>
+        {
+          !areAdvacnedOptionsVisible
+            ? undefined
+            : (
+              <>
+                <Input
+                  bordered
+                  css={{
+                    width: `100%`,
+                  }}
+                  disabled={
+                    doesActiveUserDeviceRuntimeProcessExist
+                    ||
+                    isActiveUserDeviceRuntimeNewModuleAdded
+                  }
+                  label={`Version range`}
+                  value={activeUserDeviceRuntimeNewModuleVersionRange}
+                  onChange={(e) => setActiveUserDeviceRuntimeNewModuleVersionRange(e.target.value)}
+                />
+              </>
+            )
+        }
       </Card.Body>
       <Card.Footer
         css={{
@@ -152,6 +197,7 @@ export function AddActiveUserDeviceRuntimeNewModuleCard({
                     deviceSessionCommandPayload: {
                       type: DeviceCommandType.AddRuntimeModuleCommand,
                       deviceRuntimeModuleName: activeUserDeviceRuntimeNewModuleName,
+                      deviceRuntimeModuleVersionRange: activeUserDeviceRuntimeNewModuleVersionRange,
                     },
                   });
 

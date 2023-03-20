@@ -5,8 +5,10 @@ import { setDeviceRuntimeConfig } from "./set-device-runtime-config";
 
 export const addDeviceRuntimeModule = async ({
   deviceRuntimeModuleName,
+  deviceRuntimeModuleVersionRange,
 }: {
   deviceRuntimeModuleName: string;
+  deviceRuntimeModuleVersionRange: string;
 }) => {
 
   if (fetchDeviceRuntimeProcess() !== undefined) {
@@ -17,7 +19,7 @@ export const addDeviceRuntimeModule = async ({
   const deviceRuntimeConfig = fetchDeviceRuntimeConfig();
 
   deviceRuntimeConfig.modules[deviceRuntimeModuleName] = {
-    version: `link:../../../${deviceRuntimeModuleName}`,
+    versionRange: deviceRuntimeModuleVersionRange,
   };
 
   setDeviceRuntimeConfig({

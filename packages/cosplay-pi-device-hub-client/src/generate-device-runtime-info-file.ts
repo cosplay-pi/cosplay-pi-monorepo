@@ -27,7 +27,7 @@ export const generateDeviceRuntimeInfoFile = () => {
     Object.assign(
       deviceRuntimeInfo.dependencies,
       {
-        [deviceRuntimeModuleName]: deviceRuntimeModuleConfig.version,
+        [deviceRuntimeModuleName]: deviceRuntimeModuleConfig.versionRange,
       },
     );
   }
