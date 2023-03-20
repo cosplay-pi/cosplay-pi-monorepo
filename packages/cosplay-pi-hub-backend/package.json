@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "cosplay-pi-hub-backend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "build": "prisma generate 2>&1",
     "run-hub-dev-backend": "prisma db push && ts-node-dev --exit-child src/main.ts",
