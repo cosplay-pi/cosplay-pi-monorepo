@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "cosplay-pi-hub-frontend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "build": "",
     "run-hub-dev-frontend": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
