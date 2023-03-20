@@ -5,6 +5,7 @@ import {
 } from 'cosplay-pi-hub-backend-client';
 
 import { createAndVerifyDeviceSession } from './create-and-verify-device-session';
+import { hubBackendUrl } from './env';
 import { executeDeviceSessionCommand } from './execute-device-session-command';
 import { fetchDeviceRuntimeState } from './fetch-device-runtime-state';
 import { getDeviceId } from './get-device-id';
@@ -14,7 +15,7 @@ import { wait } from './wait';
 const deviceId = getDeviceId();
 
 setHubBackendClientConfig({
-  hubBackendUrl: `http://localhost:4000`,
+  hubBackendUrl,
 });
 
 (async () => {

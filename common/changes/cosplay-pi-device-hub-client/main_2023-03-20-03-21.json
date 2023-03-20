@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "cosplay-pi-device-hub-client",
+      "comment": "Add support for COSPLAY_PI_HUB_BACKEND_URL and COSPLAY_PI_HUB_FRONTEND_URL environment variables",
+      "type": "minor"
+    }
+  ],
+  "packageName": "cosplay-pi-device-hub-client"
+}
