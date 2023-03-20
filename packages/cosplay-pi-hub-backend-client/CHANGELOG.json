@@ -2,6 +2,18 @@
   "name": "cosplay-pi-hub-backend-client",
   "entries": [
     {
+      "version": "1.1.1",
+      "tag": "cosplay-pi-hub-backend-client@v1.1.1",
+      "date": "Mon, 20 Mar 2023 03:23:50 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"cosplay-pi-hub-backend-protocol\" to `1.2.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.1.0",
       "tag": "cosplay-pi-hub-backend-client@v1.1.0",
       "date": "Mon, 20 Mar 2023 01:28:53 GMT",

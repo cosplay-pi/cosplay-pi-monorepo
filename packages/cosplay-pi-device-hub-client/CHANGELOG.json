@@ -2,6 +2,32 @@
   "name": "cosplay-pi-device-hub-client",
   "entries": [
     {
+      "version": "1.2.0",
+      "tag": "cosplay-pi-device-hub-client@v1.2.0",
+      "date": "Mon, 20 Mar 2023 03:23:50 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Support specyfing version range in DeviceAddRuntimeModuleCommandPayload"
+          },
+          {
+            "comment": "Add support for COSPLAY_PI_HUB_BACKEND_URL and COSPLAY_PI_HUB_FRONTEND_URL environment variables"
+          },
+          {
+            "comment": "Add generate-cosplay-pi-device-keys"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"cosplay-pi-hub-backend-client\" to `1.1.1`"
+          },
+          {
+            "comment": "Updating dependency \"cosplay-pi-hub-backend-protocol\" to `1.2.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.1.0",
       "tag": "cosplay-pi-device-hub-client@v1.1.0",
       "date": "Mon, 20 Mar 2023 02:45:31 GMT",

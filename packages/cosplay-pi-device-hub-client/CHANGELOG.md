@@ -1,6 +1,15 @@
 # Change Log - cosplay-pi-device-hub-client
 
-This log was last generated on Mon, 20 Mar 2023 02:45:31 GMT and should not be manually modified.
+This log was last generated on Mon, 20 Mar 2023 03:23:50 GMT and should not be manually modified.
+
+## 1.2.0
+Mon, 20 Mar 2023 03:23:50 GMT
+
+### Minor changes
+
+- Support specyfing version range in DeviceAddRuntimeModuleCommandPayload
+- Add support for COSPLAY_PI_HUB_BACKEND_URL and COSPLAY_PI_HUB_FRONTEND_URL environment variables
+- Add generate-cosplay-pi-device-keys
 
 ## 1.1.0
 Mon, 20 Mar 2023 02:45:31 GMT
