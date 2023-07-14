@@ -11,9 +11,6 @@ const init = async () => {
   console.log(`- "radio click 7.wav" by ERH ( https://freesound.org/people/ERH/sounds/30331/ ) licensed under CCBY 4.0`);
 
   const recArgs = [
-    `--buffer`,
-    tkVoiceModulatorEffectiveSettings.bufferSize,
-    `-d`,
     `compand`,
     tkVoiceModulatorEffectiveSettings.compand1EffectArgs,
     `bass`,
@@ -35,7 +32,7 @@ const init = async () => {
   const startSox = () => {
 
     let soxInputProcess: ChildProcessWithoutNullStreams | undefined = spawn(
-      `nice -n 8 sox -d -t wav - ${recArgs.join(` `)}`,
+      `nice -n 8 sox -d -t wav --buffer ${tkVoiceModulatorEffectiveSettings.bufferSize} - ${recArgs.join(` `)}`,
       {
         shell: true,
       },

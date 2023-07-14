@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "cosplay-pi-tk-voice-modulator",
+      "comment": "Fix recording",
+      "type": "patch"
+    }
+  ],
+  "packageName": "cosplay-pi-tk-voice-modulator"
+}
