@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "cosplay-pi-tk-voice-modulator",
+      "comment": "Bundle click.wav",
+      "type": "minor"
+    }
+  ],
+  "packageName": "cosplay-pi-tk-voice-modulator"
+}
