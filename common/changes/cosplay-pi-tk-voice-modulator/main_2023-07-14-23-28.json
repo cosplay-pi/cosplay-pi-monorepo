@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "cosplay-pi-tk-voice-modulator",
+      "comment": "Refactor",
+      "type": "minor"
+    }
+  ],
+  "packageName": "cosplay-pi-tk-voice-modulator"
+}
