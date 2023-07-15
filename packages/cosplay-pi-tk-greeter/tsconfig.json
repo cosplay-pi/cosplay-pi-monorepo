@@ -1,0 +1,10 @@
+{
+  "extends": "./node_modules/cosplay-pi-native-package-tools/base.tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

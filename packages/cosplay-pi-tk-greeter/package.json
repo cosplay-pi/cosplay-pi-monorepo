@@ -1,0 +1,22 @@
+{
+  "name": "cosplay-pi-tk-greeter",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "res",
+    "default-settings.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
+  },
+  "dependencies": {
+    "cosplay-pi-device-runtime-module": "workspace:*"
+  },
+  "devDependencies": {
+    "cosplay-pi-native-package-tools": "workspace:*",
+    "@types/node": "^16.0.0"
+  }
+}
