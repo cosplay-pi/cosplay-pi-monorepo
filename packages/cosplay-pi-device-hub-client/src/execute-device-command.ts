@@ -8,6 +8,7 @@ import {
   fetchExecuteDeviceCommandTaskState,
   setExecuteDeviceCommandTaskState,
 } from './execute-device-command-task-state';
+import { registerWifiConnection } from './register-wifi-connection';
 import { removeDeviceRuntimeModule } from './remove-device-runtime-module';
 import { setDeviceRuntimeModuleOverrideSettings } from './set-device-runtime-module-override-settings';
 import { startDeviceRuntime } from './start-device-runtime';
@@ -34,6 +35,12 @@ export const executeDeviceCommand = async ({
       await addDeviceRuntimeModule({
         deviceRuntimeModuleName: deviceCommandInfo.payload.deviceRuntimeModuleName,
         deviceRuntimeModuleVersionRange: deviceCommandInfo.payload.deviceRuntimeModuleVersionRange,
+      });
+
+    } else if (deviceCommandInfo.payload.type === DeviceCommandType.RegisterWifiConnectionCommand) {
+
+      await registerWifiConnection({
+        wifiConnectionConfig: deviceCommandInfo.payload.wifiConnectionConfig,
       });
 
     } else if (deviceCommandInfo.payload.type === DeviceCommandType.RemoveRuntimeModuleCommand) {

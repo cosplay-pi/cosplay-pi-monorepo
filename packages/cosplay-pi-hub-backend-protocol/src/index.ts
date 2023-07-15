@@ -7,6 +7,7 @@ export * from './device-command-type';
 export * from './device-does-not-exist';
 export * from './device-info';
 export * from './device-profile';
+export * from './device-register-wifi-connection-command-payload';
 export * from './device-remove-runtime-module-command-payload';
 export * from './device-runtime-module-state';
 export * from './device-runtime-state';
