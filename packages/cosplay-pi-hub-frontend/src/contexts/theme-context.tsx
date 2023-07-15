@@ -44,10 +44,9 @@ const darkTheme = createTheme({
 export function ThemeProvider(
   {
     children,
-  }:
-    {
-      children: ReactNode;
-    }
+  }: {
+    children: ReactNode;
+  },
 ) {
 
   const [
