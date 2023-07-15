@@ -4,8 +4,8 @@
   "version": "1.2.0",
   "scripts": {
     "build": "",
-    "run-hub-dev-frontend": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
-    "build-hub-prod-frontend": "DISABLE_ESLINT_PLUGIN=true react-scripts build"
+    "dev-run-hub-frontend": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "build-hub-frontend": "DISABLE_ESLINT_PLUGIN=true react-scripts build"
   },
   "dependencies": {
     "@nextui-org/react": "1.0.0-beta.12",

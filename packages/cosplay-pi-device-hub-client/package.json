@@ -12,7 +12,7 @@
   "scripts": {
     "generate-device-keys": "node ./dist/generate-device-keys-main.js",
     "build": "tsc",
-    "run-dev": "ts-node-dev --exit-child --inspect=127.0.0.1:9230 src/main.ts",
+    "dev-run-device-hub-client": "ts-node-dev --exit-child --inspect=127.0.0.1:9230 src/main.ts",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },

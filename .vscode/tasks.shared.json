@@ -28,7 +28,7 @@
       ],
       "group": {
         "kind": "build",
-        "isDefault": true,
+        "isDefault": true
       },
       "problemMatcher": [],
       "dependsOn": [
@@ -55,7 +55,7 @@
         "${workspaceFolder}/common/autoinstallers/tools/gen-index-ts-file-main.ts"
       ],
       "presentation": {
-        "close": true,
+        "close": true
       },
       "options": {
         "cwd": "${fileDirname}"
@@ -63,11 +63,11 @@
       "problemMatcher": []
     },
     {
-      "label": "run-cosplay-pi-hub-backend-prisma-db-push",
+      "label": "run-cosplay-pi-hub-dev-backend-prisma-db-push",
       "type": "shell",
       "command": "rushx",
       "args": [
-        "run-prisma-db-push"
+        "run-hub-backend-prisma-db-push"
       ],
       "options": {
         "cwd": "${workspaceFolder}/packages/cosplay-pi-hub-backend"
@@ -78,11 +78,11 @@
       ]
     },
     {
-      "label": "run-cosplay-pi-hub-backend-prisma-studio",
+      "label": "run-cosplay-pi-hub-dev-backend-prisma-studio",
       "type": "shell",
       "command": "rushx",
       "args": [
-        "run-prisma-studio"
+        "run-hub-backend-prisma-studio"
       ],
       "options": {
         "cwd": "${workspaceFolder}/packages/cosplay-pi-hub-backend"
@@ -108,11 +108,11 @@
       ]
     },
     {
-      "label": "run-cosplay-pi-device-hub-dev-client",
+      "label": "dev-run-cosplay-pi-device-hub-dev-client",
       "type": "shell",
       "command": "rushx",
       "args": [
-        "run-dev"
+        "dev-run-device-hub-client"
       ],
       "options": {
         "cwd": "${workspaceFolder}/packages/cosplay-pi-device-hub-client"
@@ -123,11 +123,11 @@
       ]
     },
     {
-      "label": "run-cosplay-pi-hub-dev-backend",
+      "label": "dev-run-cosplay-pi-hub-dev-backend",
       "type": "shell",
       "command": "rushx",
       "args": [
-        "run-hub-dev-backend"
+        "dev-run-hub-backend"
       ],
       "options": {
         "cwd": "${workspaceFolder}/packages/cosplay-pi-hub-backend"
@@ -138,11 +138,11 @@
       ]
     },
     {
-      "label": "run-cosplay-pi-hub-dev-frontend",
+      "label": "dev-run-cosplay-pi-hub-dev-frontend",
       "type": "shell",
       "command": "rushx",
       "args": [
-        "run-hub-dev-frontend"
+        "dev-run-hub-frontend"
       ],
       "options": {
         "cwd": "${workspaceFolder}/packages/cosplay-pi-hub-frontend"
