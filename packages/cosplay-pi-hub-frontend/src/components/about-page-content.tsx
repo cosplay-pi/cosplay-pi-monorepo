@@ -30,7 +30,7 @@ export function AboutPageContent() {
               title={`How can I acquire a Cosplay Pi Device?`}
             >
               <Text>
-                You can build it by yourself! Our current recommendation is to use Raspberry Pi Zero 2W (please note that their availability is limited as of now). The guide on how to install necessary software is still in progress.
+                You can build it by yourself! Our current recommendation is to use Raspberry Pi Zero 2W (please note that their availability is limited as of now) / Orange Pi Zero2. The guide on how to install necessary software is still in progress.
               </Text>
             </Collapse>
             <Collapse
