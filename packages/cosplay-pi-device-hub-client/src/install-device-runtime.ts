@@ -5,8 +5,10 @@ import * as path from "path";
 import { createDeviceRuntimeDir } from "./create-device-runtime-dir";
 import { fetchDeviceRuntimeProcess } from "./device-runtime-process";
 import { deviceRuntimeDirPath } from "./env";
+import { fetchDeviceRuntimeConfig } from "./fetch-device-runtime-config";
 import { generateDeviceRuntimeInfoFile } from "./generate-device-runtime-info-file";
 import { generateDeviceRuntimeMainScriptFile } from "./generate-device-runtime-main-script-file";
+import { setDeviceRuntimeLastConfig } from "./set-device-runtime-last-config";
 
 export const installDeviceRuntime = async () => {
 
@@ -14,6 +16,8 @@ export const installDeviceRuntime = async () => {
 
     throw new Error();
   }
+
+  const deviceRuntimeConfig = fetchDeviceRuntimeConfig();
 
   createDeviceRuntimeDir();
 
@@ -49,6 +53,10 @@ export const installDeviceRuntime = async () => {
         rejectPromise(new Error());
       }
     });
+  });
+
+  setDeviceRuntimeLastConfig({
+    deviceRuntimeLastConfig: deviceRuntimeConfig,
   });
 
   generateDeviceRuntimeMainScriptFile();
